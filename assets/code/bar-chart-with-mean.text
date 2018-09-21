@@ -1,0 +1,67 @@
+import * as React from 'react'
+import {
+  Axis,
+  Chart,
+  Rect,
+  LinearScale,
+  BandScale,
+  Rule,
+} from '@chart-parts/react'
+import { mean } from 'd3-array'
+
+import { Renderer } from '@chart-parts/react-svg-renderer'
+const renderer = new Renderer()
+
+const dataset = require('./data.json)
+
+const BarChart = ({ children }) => (
+  <Chart width={400} height={200} renderer={renderer} data={dataset}>
+    <Scales />
+    <Axes />
+    <Rect
+      table="data"
+      x={({ d, x }) => x(d.category)}
+      y={({ d, y }) => y(d.amount)}
+      width={({ band }) => band()}
+      y2={({ y }) => y(0)}
+      fill="steelblue"
+    />
+    {children}
+  </Chart>
+)
+
+const MeanLine = () => (
+    <Rule
+        singleton
+        x={0}
+        x2={({ view }) => view.width}
+        y={({ y, data }) => y(mean(data, (d: any) => d.amount))}
+        stroke="firebrick"
+    />
+)
+
+const Scales = () => (
+  <>
+    <LinearScale
+      name="y"
+      domain="data.amount"
+      range={Dimension.Height}
+      nice
+      zero
+    />
+    <BandScale
+      name="x"
+      bandWidth="band"
+      domain="data.category"
+      padding={0.05}
+      range={Dimension.Width}
+    />
+  </>
+)
+
+const Axes = () => (
+  <>
+    <Axis orient="bottom" scale="x" />
+    <Axis orient="left" scale="y" />
+  </>
+)

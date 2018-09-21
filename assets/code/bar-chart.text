@@ -1,0 +1,47 @@
+import * as React from 'react'
+import {
+  Axis,
+  Chart,
+  Rect,
+  LinearScale,
+  BandScale,
+} from '@chart-parts/react'
+
+import { Renderer } from '@chart-parts/react-svg-renderer'
+const renderer = new Renderer()
+
+const dataset = require('./data.json)
+
+export default () => (
+  <Chart width={400} height={200} renderer={renderer} data={dataset}>
+    <LinearScale
+      name="y"
+      domain="data.amount"
+      range="height"
+      nice
+      zero
+    />
+    <BandScale
+      name="x"
+      bandWidth="band"
+      domain="data.category"
+      padding={0.05}
+      range="width"
+    />
+
+    <Axis orient="bottom" scale="x" />
+    <Axis orient="left" scale="y" />
+
+    <Rect
+      table="data"
+      x={({ d, x }) => x(d.category)}
+      y={({ d, y }) => y(d.amount)}
+      width={({ band }) => band()}
+      y2={({ y }) => y(0)}
+      fill='steelblue'
+      onClick={({event, id}) => {
+        console.log(`clicked item ${id}`)
+      }}
+    />
+  </Chart>
+)
