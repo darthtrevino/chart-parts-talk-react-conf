@@ -1,5 +1,6 @@
 // Import React
 import React from "react";
+import "prismjs/themes/prism-okaidia.css";
 
 // Import Spectacle Core tags
 import {
@@ -18,6 +19,7 @@ import {
   Fill,
   Fit
 } from "spectacle";
+import CodeSlide from "spectacle-code-slide";
 
 // Import theme
 import createTheme from "spectacle/lib/themes/default";
@@ -45,6 +47,7 @@ const images = {
   logo: require("../assets/formidable-logo.svg"),
   markdown: require("../assets/markdown.png"),
   barchart: require("../assets/bar_chart.png"),
+  barchart2: require("../assets/bar_chart2.png"),
   linechart: require("../assets/line_chart.png"),
   radial_chart: require("../assets/radial_chart.png"),
   streamgraph: require("../assets/streamgraph.png"),
@@ -55,7 +58,12 @@ const images = {
   narcissism: require("../assets/narcissism.jpg"),
   dcu: require("../assets/dcu.jpg"),
   network: require("../assets/network.png"),
-  healthcare: require("../assets/healthcare.png")
+  ourteam: require("../assets/our-team.png"),
+  ourteam2: require("../assets/our-team-2.png"),
+  visualSurvey: require("../assets/visual-survey.png"),
+  winchester: require("../assets/winchester.gif"),
+  npmsearch: require("../assets/npm_search.png"),
+  lumbergh: require("../assets/lumbergh.gif")
 };
 
 const notes = {
@@ -69,6 +77,7 @@ const notes = {
   These are the common steps we always run into when using a new charting library
   `
 };
+
 export default class Presentation extends React.Component {
   render() {
     return (
@@ -111,7 +120,6 @@ export default class Presentation extends React.Component {
             </Heading>
           </Layout>
         </Slide>
-
         {/* Discuss our Location, who we are */}
         <Slide transition={["fade"]}>
           <Image fill src={images.mapBase.replace("/", "")} />
@@ -125,15 +133,18 @@ export default class Presentation extends React.Component {
 
         {/* Discuss details of our work */}
         <Slide>
+          <Heading size={1} fill textColor="secondary">
+            Our Work
+          </Heading>
+        </Slide>
+        <Slide>
           <Layout>
             <Fill>
-              <Appear>
-                <Image
-                  fill
-                  src={images.narcissism.replace("/", "")}
-                  height={325}
-                />
-              </Appear>
+              <Image
+                fill
+                src={images.narcissism.replace("/", "")}
+                height={325}
+              />
               <Appear>
                 <Image
                   fill
@@ -156,35 +167,61 @@ export default class Presentation extends React.Component {
             </Fill>
           </Layout>
         </Slide>
-
-        <Slide transition={["zoom"]} bgColor="primary" notes={notes.slide1}>
-          <Heading size={1} fill caps lineHeight={1} textColor="secondary" />
+        <Slide transition={["fade"]}>
+          <Image fill src={images.ourteam.replace("/", "")} />
         </Slide>
-
+        <Slide transition={["fade"]}>
+          <Image fill src={images.ourteam2.replace("/", "")} />
+        </Slide>
         <Slide
           transition={["fade"]}
-          bgColor="primary"
-          textColor="tertiary"
-          notes={notes.usingANewChartingLibrary}
+          bgImage={images.visualSurvey.replace("/", "")}
+        />
+        <Slide
+          transition={["fade"]}
+          bgImage={images.visualSurvey.replace("/", "")}
+          bgDarken={0.8}
         >
-          <Heading size={6} textColor="secondary" caps>
+          <Heading fill textColor="secondary">
+            Visualization is how we communicate complex data
+          </Heading>
+        </Slide>
+
+        {/* Using a new charting library */}
+        <Slide>
+          <Heading size={2} textColor="highlight">
             Using a new charting library
           </Heading>
-          <List>
-            <Appear>
-              <ListItem>`yarn install`</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>Item 2</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>Item 3</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>Item 4</ListItem>
-            </Appear>
-          </List>
         </Slide>
+        <Slide transition={["fade"]}>
+          <Image src={images.npmsearch.replace("/", "")} />
+        </Slide>
+        <Slide transition={["fade"]}>
+          <Heading size={4} textColor="secondary">
+            > yarn install fancy-charts
+          </Heading>
+        </Slide>
+        <CodeSlide
+          transition={["fade"]}
+          lang="js"
+          code={require("raw-loader!../assets/code/newlib.text")}
+          ranges={[
+            { loc: [1, 2], note: "Import fancy-charts, w00t!!" },
+            { loc: [4, 5], note: "Use the library 🙌" }
+          ]}
+        />
+        <Slide transition={["fade"]}>
+          <Image src={images.barchart2.replace("/", "")} />
+        </Slide>
+        <Slide
+          transition={["fade"]}
+          bgImage={images.winchester.replace("/", "")}
+        />
+        <Slide
+          transition={["fade"]}
+          bgImage={images.lumbergh.replace("/", "")}
+        />
+
         <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
           <BlockQuote>
             <Quote>Example Quote</Quote>

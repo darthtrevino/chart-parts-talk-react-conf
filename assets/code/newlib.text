@@ -1,0 +1,5 @@
+import React from "react";
+import { BarChart } from "fancy-charts";
+import data from "./data.json";
+
+export default () => <BarChart data={data} />;
