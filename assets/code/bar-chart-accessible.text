@@ -13,7 +13,13 @@ const renderer = new Renderer()
 const dataset = require('./data.json)
 
 export default () => (
-  <Chart width={400} height={200} renderer={renderer} data={dataset}>
+  <Chart 
+    width={400} 
+    height={200} 
+    renderer={renderer} 
+    data={dataset}
+    ariaTitle="My Fancy Bar Chart"
+  >
     <Scales />
     <Axes />
     

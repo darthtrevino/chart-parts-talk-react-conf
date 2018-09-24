@@ -4,6 +4,7 @@ import 'prismjs/themes/prism-okaidia.css'
 
 // Import Spectacle Core tags
 import {
+	Anim,
 	BlockQuote,
 	Cite,
 	Deck,
@@ -33,6 +34,7 @@ const theme = createTheme(
 	{
 		primary: '#403F4C',
 		secondary: '#BA3B50',
+		pcontrast: '#DDDDEE',
 		dark: '#222222',
 		light: '#DAD2D8',
 		highlight: '#0F8B8D',
@@ -40,7 +42,7 @@ const theme = createTheme(
 	},
 	{
 		primary: 'Montserrat',
-		secondary: 'Helvetica',
+		pcontrast: 'Helvetica',
 	},
 )
 
@@ -79,6 +81,8 @@ const images = {
 	barchartwithmean: require('../assets/bar_chart_with_mean.png'),
 	chartPartsPage: require('../assets/chart-parts-page.png'),
 	architecture: require('../assets/architecture_pipeline.png'),
+	chriswhite: require('../assets/chris_white.jpg'),
+	barchartapi: require('../assets/barchart_api.png'),
 }
 
 const code = {
@@ -93,13 +97,118 @@ const code = {
 
 const notes = {
 	slide1: `
-    Good morning! My name is Chris Trevino, and I'm an engineer in Microsoft Research. 
-    
-    To set up some context, I'd like to tell you a bit about my team's work.
-  
+    Good morning! My name is Chris Trevino, and I'm an engineer in Microsoft Research.<br/><br/>
+    To set this talk up with some context, I'd like to tell you a bit about my team's work.  
   `,
+	mapMs: `
+    I'm a software engineer at microsoft research. However, my team is not based out of the main corporate hub here...
+  `,
+	mapSilverdale: `
+    We are over here in Silverdale.<br/><br/>
+    We are kind of a newer team whose emphasis is on applying data analytics and machine learning to large sets of textual data, and trying to convey insights from that<br/><br/>
+  
+    `,
+
 	usingANewChartingLibrary: `
   These are the common steps we always run into when using a new charting library
+  `,
+
+	bossman: `
+  My boss is Chris White, who's our team's principal researcher.<br/><br/>
+  He's a much better public speaker than I am, so if I screw this up, send your complaints to him.
+  `,
+
+	ourwork: `We work on a grab-bag of data problems.<br/><br/>
+  Our job usually involves getting a large set of data and brainstorming on ways to make it useful or interesting.<br/><br/>
+  
+  This can take the form of solving brand management problems, helping individuals or brands to understand where conversations are occuring that involve them...<br/><br/>
+  Or understanding how information flows through news networks, where ideas come from and how they propagate...<br/><br/>
+  Or fighting tech scams and human trafficking...<br/><br/>
+  Or trying to find ways to apply data to healthcare cost problems, which is a topic we're actively working on...
+  `,
+
+	ourteam: `
+  Our team is broken up into a few parts, and we have a handful of very smart humans working on the Data and ML part of our problems.
+  `,
+
+	ourteam2: `
+  I work on our user interfaces though, and we're giant react fanpeople. 
+  `,
+
+	uiwork: `
+  Our team builds a lot of data visualizations to try and communicate a lot of different kinds of data. We're not 
+  necessarily experts in dataviz, there are other teams at Microsoft that very much are, but we try to apply it on a daily basis<br/><br/>
+  A lot of times, our work is as simple as wiring up a PowerBI workbook that tells a story with data, and allows users to explore the data using that modality. For a lot of users, that works very well.<br/><br/>
+  Sometimes we make custom PowerBI visuals that help us tell those stories, we have several of our visualizations on the PowerBI visual marketplace.<br/><br/>
+  Sometimes we get to do one off experiments, to see what mixes of technologies work well, and how well they scale with input data<br/><br/>
+  And sometimes we get to make applications - in the web and on mobile - that deliver a custom experience and tell a very specific story.<br/><br/>
+  `,
+
+	uiemphasis: `
+  Now this is all just to emphasize that for us, data visualization is absolutely essential to what we do. It's ofter our first method for understanding nuance in data that's hard to 
+  discern in its raw form.<br/><br/>
+  A lot of times when we work with teams, they're seeing their data visualized for the first time and it can be illuminating for them. <br/><br/>
+  I would wager that data visualization is important for you too. Maybe not all of the time, and maybe it's not super complex, but we're all UI developers, and it's a problem space we all run into<br/><br/>
+  Usually, this takes the form of charting...<br/><br/>
+  `,
+
+	charting: `
+  Charting and dataviz are basically synonymous, but when we use charts in our applications, we're usually talking about including one of a few very common types of visualizations.<br/><br/>
+  These are your basic bar charts, line chart, pie charts (as gross as they are), and area charts.<br/><br/>
+  If you're getting fancy, maybe you'll want a radar chart, or a box plot, or violin plot<br/><br/> 
+  There are a lot more, but you'll find the basics in pretty much any charting library you download.
+  `,
+
+	stepsForUsingNewLibrary: `
+  Let's take a moment to talk about what our experience is mostly like with Charting libraries.<br/><br/>
+  This section is a little unfair, so bear with me, but I hope it paints a picture of a specific type of problem that people have<br/><br/>
+  `,
+
+	npmsearch: `
+  So we're making an application, and we want to include a chart. It's nothing fancy, just a bar-chart.<br/><br/>
+  So we head to NPM and search for something simple that matches our use case. <br/><br/>
+  And we find fancy charts (w00t!), which appears to be super popular, has lots of downloads and stars, and has a clean up-front API<br/><br/>
+  `,
+	yarninstall: `
+  So we install our new charting library, and we're stoked!!<br/><br/>
+  Nothing's going wrong today, we can feel it.
+  `,
+	useFancyCharts: `
+  We import the Bar Chart component into our application, easy peasy.<br/><br/>
+  And then we wire it up in our render function, binding it to whatever data we have.<br/><br/>
+  This is great, couldn't be easier.<br/><br/>
+  `,
+	fancybarchartrendered: `
+  And so we have our bar chart, and it's absolutely perfect in every way, and soooo...
+  `,
+	winchester: `We got a task done today, so it's time to head to the pub and celebrate....<br/><br/>
+  However...<br/><br/>
+  `,
+	lumbergh: `
+  Your boss has discussed new requirements with your customer, and your new, fancy, chart needs some work...<br/><br/>
+  `,
+	smallchange: `because it's no big deal`,
+	weekend: `And you shouldn't worry about it.<br/><br/>
+  Your friends are definitely not at the pub waiting for you already</br>
+  `,
+	barchartwithmean: `
+  According to the new requirements, all we need to do is add a mean-line to our bar chart.<br/><br/>
+  For some reason, it's super important for the analysts, and it's a key metric for them.
+  `,
+
+	barchartapi: `
+  So we take a look at the API docs. Is there a way of adding a new mark on the chart? Can we add any child components?<br/><br/>
+  No, no we can not.
+  `,
+
+	rage: `
+  And now we're angry: 
+  <br/>- maybe at our manager 
+  <br/>- or the customer, 
+  <br/>- maybe at the pub for having terrible parking after 6, 
+  <br/>- but mostly, we're angry at ourselves.<br/><br/>
+  We selected our charting library because it's components had an easy abstraction at the top-level, 
+  but we don't havy any recourse for when we need something subtle or custom in that framework.
   `,
 }
 
@@ -133,7 +242,7 @@ export default class Presentation extends React.Component {
 					>
 						Abstraction
 					</Heading>
-					<Heading caps fit size={3} textColor="secondary" lineHeight={1}>
+					<Heading caps fit size={3} textColor="pcontrast" lineHeight={1}>
 						of Charting
 					</Heading>
 					<Layout fit>
@@ -147,22 +256,18 @@ export default class Presentation extends React.Component {
 				</Slide>
 
 				{/* Discuss our Location, who we are */}
-				<Slide transition={['fade']}>
-					<Image fill src={images.mapBase} />
-				</Slide>
-				<Slide transition={['fade']}>
+				<Slide transition={['fade']} notes={notes.mapMs}>
 					<Image fill src={images.mapMs} />
 				</Slide>
-				<Slide transition={['fade']}>
+				<Slide transition={['fade']} notes={notes.mapSilverdale}>
 					<Image fill src={images.mapMsSilverdale} />
 				</Slide>
-				{/* Discuss details of our work */}
-				<Slide>
-					<Heading size={1} fill textColor="secondary">
-						Our Work
-					</Heading>
+				<Slide notes={notes.bossman}>
+					<Image fill src={images.chriswhite} />
 				</Slide>
-				<Slide>
+
+				{/* Discuss details of our work */}
+				<Slide notes={notes.ourwork}>
 					<Layout>
 						<Fill>
 							<Image fill src={images.narcissism} height={325} />
@@ -180,38 +285,114 @@ export default class Presentation extends React.Component {
 						</Fill>
 					</Layout>
 				</Slide>
-				<Slide transition={['fade']}>
+				<Slide transition={['fade']} notes={notes.ourteam}>
 					<Image fill src={images.ourteam} />
 				</Slide>
-				<Slide transition={['fade']}>
+				<Slide transition={['fade']} notes={notes.ourteam2}>
 					<Image fill src={images.ourteam2} />
 				</Slide>
-				<Slide transition={['fade']} bgImage={images.visualSurvey} />
 				<Slide
+					transition={['fade']}
+					bgImage={images.visualSurvey}
+					notes={notes.uiwork}
+				/>
+				<Slide
+					notes={notes.uiemphasis}
 					transition={['fade']}
 					bgImage={images.visualSurvey}
 					bgDarken={0.8}
 				>
-					<Heading fill textColor="secondary">
+					<Heading fill textColor="pcontrast">
 						Visualization is how we communicate complex data
 					</Heading>
 				</Slide>
 
-				{/* Using a new charting library */}
-				<Slide>
-					<Heading size={2} textColor="highlight">
-						Using a new charting library
+				<Slide notes={notes.charting}>
+					TODO: Include common chart types, slide through them
+				</Slide>
+
+				{/*
+          <Slide transition={['slide']}>
+					<Anim
+						onAnim={(forwards, animIndex) => {
+							console.log('forwards ', forwards)
+							console.log('animIndex ', animIndex)
+						}}
+						fromStyle={{
+							opacity: 0,
+							transform: 'translate3d(0px, -100px, 0px)  scale(1) rotate(0deg)',
+						}}
+						toStyle={[
+							{
+								opacity: 1,
+								transform: 'translate3d(0px, 0px, 0px)  scale(1) rotate(0deg)',
+							},
+							{
+								opacity: 1,
+								transform:
+									'translate3d(0px, 0px, 0px) scale(1.6) rotate(-15deg)',
+							},
+							{
+								opacity: 1,
+								transform:
+									'translate3d(0px, 0px, 0px)  scale(0.8) rotate(0deg)',
+							},
+							{
+								opacity: 1,
+								transform:
+									'translate3d(0px, -200px, 0px)  scale(0.8) rotate(0deg)',
+							},
+							{
+								opacity: 1,
+								transform:
+									'translate3d(200px, 0px, 0px)  scale(0.8) rotate(0deg)',
+							},
+							{
+								opacity: 1,
+								transform:
+									'translate3d(0px, 200px, 0px)  scale(0.8) rotate(0deg)',
+							},
+							{
+								opacity: 1,
+								transform:
+									'translate3d(-200px, 0px, 0px)  scale(0.8) rotate(0deg)',
+							},
+						]}
+						easing={'bounceOut'}
+						transitionDuration={500}
+					>
+						<div>
+							<Heading size={6} caps fit textColor="secondary">
+								Flexible
+								<br />
+								animations
+							</Heading>
+						</div>
+					</Anim>
+          </Slide>*/}
+
+				{/* Describe the problem of the missing abstraction */}
+				<Slide notes={notes.stepsForUsingNewLibrary}>
+					<Heading heading caps size={1} textColor="secondary">
+						Steps for
+					</Heading>
+					<Heading caps size={2} textColor="highlight">
+						Using a new
+					</Heading>
+					<Heading caps textColor="secondary">
+						Charting Library
 					</Heading>
 				</Slide>
-				<Slide transition={['spin']}>
+				<Slide transition={['spin']} notes={notes.npmsearch}>
 					<Image src={images.npmsearch} />
 				</Slide>
-				<Slide transition={['spin']}>
-					<Heading size={4} textColor="secondary">
+				<Slide transition={['spin']} notes={notes.yarninstall}>
+					<Heading size={4} textColor="pcontrast">
 						> yarn install fancy-charts
 					</Heading>
 				</Slide>
 				<CodeSlide
+					notes={notes.useFancyCharts}
 					transition={['fade']}
 					lang="js"
 					code={code.fancyBarChart}
@@ -220,28 +401,60 @@ export default class Presentation extends React.Component {
 						{ loc: [4, 5], note: 'Use the library 🙌' },
 					]}
 				/>
-				<Slide transition={['fade']}>
+				<Slide transition={['fade']} notes={notes.fancybarchartrendered}>
 					<Image src={images.barchart2} />
 				</Slide>
-				<Slide transition={['fade']} bgImage={images.winchester} />
-				<Slide transition={['fade']} bgImage={images.lumbergh} />
-				<Slide transition={['fade']} bgColor="secondary" textColor="primary">
+				<Slide
+					transition={['fade']}
+					bgImage={images.winchester}
+					notes={notes.winchester}
+				/>
+				<Slide
+					transition={['fade']}
+					bgImage={images.lumbergh}
+					notes={notes.lumbergh}
+				/>
+				<Slide
+					transition={['spin']}
+					bgColor="secondary"
+					textColor="primary"
+					notes={notes.smallchange}
+				>
 					<BlockQuote>
-						<Quote>We need to make a small change</Quote>
+						<Quote>We need to make a small change. No big deal.</Quote>
 						<Cite>Your Manager</Cite>
 					</BlockQuote>
 				</Slide>
-				<Slide>
+				<Slide
+					transition={['spin']}
+					bgColor="primary"
+					textColor="secondary"
+					notes={notes.weekend}
+				>
+					<BlockQuote textColor="secondary">
+						<Quote textColor="secondary">
+							You can wrap it up before the weekend right?
+						</Quote>
+						<Cite>Your Manager</Cite>
+					</BlockQuote>
+				</Slide>
+				<Slide notes={notes.barchartwithmean}>
 					<Image src={images.barchartwithmean} />
 				</Slide>
-				<Slide transition={['fade']} bgImage={images.rage} />
+				<Slide transition={['fade']} notes={notes.barchartapi}>
+					<Image src={images.barchartapi} />
+				</Slide>
+				<Slide transition={['fade']} bgImage={images.rage} notes={notes.rage} />
+
 				<Slide>
-					<Heading size={1} caps fit textColor="secondary">
+					<Heading size={1} caps fit textColor="pcontrast">
 						The Missing Abstraction
 					</Heading>
 					<Image src={images.missingAbstraction} />
 				</Slide>
-				<Slide>
+
+				{/* Describe the Grammar of Graphics */}
+				<Slide transition={['fade']}>
 					<Heading size={4} caps textColor="highlight">
 						The Grammar of Graphics
 					</Heading>
@@ -254,7 +467,7 @@ export default class Presentation extends React.Component {
 						</Fill>
 					</Layout>
 				</Slide>
-				<Slide>
+				<Slide transition={['fade']}>
 					<Heading size={4} caps textColor="highlight">
 						The Grammar of Graphics
 					</Heading>
@@ -288,7 +501,7 @@ export default class Presentation extends React.Component {
 				</Slide>
 				{/* Discuss various implementations */}
 				<Slide transition={['fade']}>
-					<Heading size={5} textColor="secondary" fit>
+					<Heading size={5} textColor="pcontrast" fit>
 						What implementations exist?
 					</Heading>
 					<Appear>
@@ -296,13 +509,13 @@ export default class Presentation extends React.Component {
 					</Appear>
 				</Slide>
 				<Slide transition={['fade']}>
-					<Heading size={5} textColor="secondary" fit>
+					<Heading size={5} textColor="pcontrast" fit>
 						What implementations exist?
 					</Heading>
 					<Image src={images.rechartspage} />
 				</Slide>
 				<Slide transition={['fade']}>
-					<Heading size={5} textColor="secondary" fit>
+					<Heading size={5} textColor="pcontrast" fit>
 						What implementations exist?
 					</Heading>
 					<Image src={images.vegapage} />
@@ -334,43 +547,23 @@ export default class Presentation extends React.Component {
 				</Slide>
 
 				<Slide>
-					<Layout>
-						<Fill>
-							<Heading size={5} textColor="highlight">
-								Vega 👍
-							</Heading>
-							<List>
-								<Appear>
-									<ListItem>Rich and mature API</ListItem>
-								</Appear>
-								<Appear>
-									<ListItem>Large ecosystem and community</ListItem>
-								</Appear>
-								<Appear>
-									<ListItem>Made by really smart humans</ListItem>
-								</Appear>
-							</List>
-						</Fill>
-						<Fill>
-							<Heading size={5} textColor="highlight">
-								Vega 😕
-							</Heading>
-							<List>
-								<Appear>
-									<ListItem>JSON API has no seams</ListItem>
-								</Appear>
-								<Appear>
-									<ListItem>Depends on DOM</ListItem>
-								</Appear>
-								<Appear>
-									<ListItem>No way to manage complexity</ListItem>
-								</Appear>
-								<Appear>
-									<ListItem>Chart sizes are not precise</ListItem>
-								</Appear>
-							</List>
-						</Fill>
-					</Layout>
+					<List>
+						<Appear>
+							<ListItem>Rich and mature API</ListItem>
+						</Appear>
+						<Appear>
+							<ListItem>Large ecosystem and community</ListItem>
+						</Appear>
+						<Appear>
+							<ListItem>Made by really smart humans</ListItem>
+						</Appear>
+						<Appear>
+							<ListItem>No seams, difficult to debug</ListItem>
+						</Appear>
+						<Appear>
+							<ListItem>No great way to manage complexity</ListItem>
+						</Appear>
+					</List>
 				</Slide>
 
 				<Slide>
@@ -398,20 +591,20 @@ export default class Presentation extends React.Component {
 							title: 'Define scales',
 						},
 						{
-							loc: [24, 25],
+							loc: [17, 18],
 							title: 'Define scales',
 							note: 'Each scale has a name for lookup',
-						},
-						{
-							loc: [19, 20],
-							title: 'Define scales',
-							note: 'we can bind the output range to a view dimension',
 						},
 						{
 							loc: [18, 19],
 							title: 'Define scales',
 							note:
-								'scales can be bound to a data table and field using a lodash-get expression',
+								'scale domains can be bound to data fields using expressions',
+						},
+						{
+							loc: [19, 20],
+							title: 'Define scales',
+							note: 'we can bind the output range to a view dimension',
 						},
 						{
 							loc: [31, 33],
@@ -466,9 +659,17 @@ export default class Presentation extends React.Component {
 				</Slide>
 
 				<Slide>
-					<Heading size={2} textColor="secondary">
+					<Heading size={2} textColor="pcontrast">
 						Managing Complexity
 					</Heading>
+					<Layout>
+						<Appear>
+							<Text textColor="highlight">Renderless Components</Text>
+						</Appear>
+					</Layout>
+				</Slide>
+				<Slide>
+					<Image src={images.architecture} />
 				</Slide>
 
 				<CodeSlide
@@ -487,18 +688,7 @@ export default class Presentation extends React.Component {
 					]}
 				/>
 
-				<Slide>
-					<Heading size={2}>Renderless Components</Heading>
-				</Slide>
-				<Slide>
-					<Image src={images.architecture} />
-				</Slide>
-
-				<Slide>
-					<Heading size={2} textColor="secondary">
-						Composeability
-					</Heading>
-				</Slide>
+				<HeadingSlide text="Composability" />
 
 				<CodeSlide
 					transition={['fade']}
@@ -534,30 +724,45 @@ export default class Presentation extends React.Component {
 
 				<Slide>TODO: INSERT LIVE BARCHART WITH MEANLINE</Slide>
 
-				<Slide>
-					<Heading size={2} textColor="secondary">
-						Accessibility
-					</Heading>
-				</Slide>
-
+				<HeadingSlide text="Accessibility" />
 				<CodeSlide
 					transition={['fade']}
 					lang="js"
 					code={code.barChartAccessible}
 					ranges={[
 						{
-							loc: [21, 22],
+							loc: [20, 21],
+							title: 'a11y',
+							note: 'add a top-level chart description',
+						},
+						{
+							loc: [27, 28],
 							title: 'a11y',
 							note: 'define a tab-index for keyboard-navigability',
 						},
 						{
-							loc: [22, 25],
+							loc: [28, 30],
 							title: 'a11y',
 							note: 'include an aria decription for the element',
 						},
 					]}
 				/>
+				<HeadingSlide text="Mobile" />
 			</Deck>
 		)
 	}
 }
+
+const HeadingSlide = ({
+	text,
+	children,
+	size = 2,
+	textColor = 'pcontrast',
+}) => (
+	<Slide>
+		<Heading size={size} textColor={textColor}>
+			{text}
+		</Heading>
+		{children}
+	</Slide>
+)
