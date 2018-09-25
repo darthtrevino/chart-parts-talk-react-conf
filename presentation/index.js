@@ -83,6 +83,8 @@ const images = {
 	architecture: require('../assets/architecture_pipeline.png'),
 	chriswhite: require('../assets/chris_white.jpg'),
 	barchartapi: require('../assets/barchart_api.png'),
+	hans: require('../assets/hans.gif'),
+	d3: require('../assets/d3.png'),
 }
 
 const code = {
@@ -197,18 +199,88 @@ const notes = {
   `,
 
 	barchartapi: `
-  So we take a look at the API docs. Is there a way of adding a new mark on the chart? Can we add any child components?<br/><br/>
+  So we take a look at the API docs. Is there a way of adding a new mark on the chart? 
+  Can we add any child components?<br/><br/>
   No, no we can not.
   `,
-
-	rage: `
+	hans: `
+  We have fallen off of the abstraction cliff<br/><br/>
+  The abstraction we're using is brittle. 
+  It's not expressive enough to adapt to subtle changes in our requirements<br/><br/>
+  At this point, you may be so jaded with the fancy-charts library that you eject it, 
+  and the next step may be to rewrite the chart with custom code.<br/><br/>
+  `,
+	rage: `   
   And now we're angry: 
   <br/>- maybe at our manager 
   <br/>- or the customer, 
   <br/>- maybe at the pub for having terrible parking after 6, 
   <br/>- but mostly, we're angry at ourselves.<br/><br/>
   We selected our charting library because it's components had an easy abstraction at the top-level, 
-  but we don't havy any recourse for when we need something subtle or custom in that framework.
+  but we don't havy any recourse for when we need something subtle or custom in that framework.<br/><br/>
+  Obviously, this is a contrived example, but we've all been in situations where the expressiveness afforded to us 
+  by the abstraction level of a library we've selected doesn't match that of our problem.
+  `,
+
+	backtobasics: `
+  At this point, we're going down the road of writing our own data visualization.<br/><br/>
+  We're either going to get into the blood and guts of scaling and drawing, or we're 
+  going to look for a reliable, general purpose tool for authoring data visualization.<br/><br/>
+  And if you're using Javascript, that means using d3...<br/><br/>
+  d3 is basically the foundation of all data visualization in Javascript, so we're going to 
+  break off some rust and use d3 in our application.<br/><br/>
+  `,
+
+	react_and_d3: `  
+  Because we're using React, now we have an interesting decision to make. 
+  How do we integrate d3 with React? This is a problem that has been approached 
+  from a few different ways. The basic approaches are <br/><br/>
+
+  1 - We can let d3 manage its own rendering, and set up a container bridge between
+  d3-land and react-land.<br/><br/>  
+  
+  This has the advantage that you can re-use a lot of existing d3 code, and work your 
+  way up from a published examples.<br/><br/>
+
+  But we basically have two systems rendering out data to the dom, which is a little weird, 
+  events are going to be different that what you get in React, which may or may not matter, 
+  but it affects consistency. It also solidly binds us into using the DOM, so this isn't 
+  going to be portable when we start trying to implement this same chart in react-native.
+
+  2 - we can use the non-dom capabilities of d3 to give us a utility-bag of scaling, drawing, and 
+  data manipulation utilities  
+
+  d3 is essentially a collection of small libraries that perform different jobs, such as scaling, 
+  drawing shape paths, etc.. We can use these to help us author SVG using React<br/><br/>
+  This makes rendering and eventing more consistent<br/><br/>
+  However, we miss out on some d3 niceties such as drawing axes, legends, scrubbing, etc..
+  `,
+
+	missingAbstraction: `
+  This path we've taken has led us to the zone of the missing abstraction.<br/><br/>
+  We want to author data visualizations in higher-level terms, 
+  but we run into brittle abstractions that force us into diving down into low-level
+  rendering.<br/><br/>
+  The "missing abstraction" is being able to develop visualizations using a mid-level abstraction. Something
+  that's more verbose than a chart-tag, but fits nicely in a component ecosystem and 
+  is pleasant to author with and read.<br/><br/>
+  Maybe 90% of the time, we use chart-tags, and once in a while, when we need something custom,
+  we can "eject" out the basic chart components so that we can author something custom within them.
+  `,
+
+	// TODO: Break into multiple slides?
+	gog: `
+  One idea that we've heard about, being adjacent to well-read visualization 
+  researchers is the "Grammar of Graphics".<br/><br/>
+  This idea originated in 1999 with the publication of "The Grammar of Graphics" by Leland Wilkinson<br/><br/>
+  It has been implemented in an R package called ggplot2, and Prof. Wilkinson has gone on to help found Tableau
+  software.<br/><br/>
+  The grammar of graphics is named so, because it envisions a system of elements that 
+  operate together to form a cohesive chart. These elements are analogous to words used in 
+  language to convey meaning. <br/><br/>
+  Now this is basically how components work, we paramaterize elements that encapsulate behavior of some kind. 
+  They may or may not interact with each other to coordinate their functional behavior. And we compose them
+  in our applications to express something that solves a problem for us.
   `,
 }
 
@@ -311,66 +383,6 @@ export default class Presentation extends React.Component {
 					TODO: Include common chart types, slide through them
 				</Slide>
 
-				{/*
-          <Slide transition={['slide']}>
-					<Anim
-						onAnim={(forwards, animIndex) => {
-							console.log('forwards ', forwards)
-							console.log('animIndex ', animIndex)
-						}}
-						fromStyle={{
-							opacity: 0,
-							transform: 'translate3d(0px, -100px, 0px)  scale(1) rotate(0deg)',
-						}}
-						toStyle={[
-							{
-								opacity: 1,
-								transform: 'translate3d(0px, 0px, 0px)  scale(1) rotate(0deg)',
-							},
-							{
-								opacity: 1,
-								transform:
-									'translate3d(0px, 0px, 0px) scale(1.6) rotate(-15deg)',
-							},
-							{
-								opacity: 1,
-								transform:
-									'translate3d(0px, 0px, 0px)  scale(0.8) rotate(0deg)',
-							},
-							{
-								opacity: 1,
-								transform:
-									'translate3d(0px, -200px, 0px)  scale(0.8) rotate(0deg)',
-							},
-							{
-								opacity: 1,
-								transform:
-									'translate3d(200px, 0px, 0px)  scale(0.8) rotate(0deg)',
-							},
-							{
-								opacity: 1,
-								transform:
-									'translate3d(0px, 200px, 0px)  scale(0.8) rotate(0deg)',
-							},
-							{
-								opacity: 1,
-								transform:
-									'translate3d(-200px, 0px, 0px)  scale(0.8) rotate(0deg)',
-							},
-						]}
-						easing={'bounceOut'}
-						transitionDuration={500}
-					>
-						<div>
-							<Heading size={6} caps fit textColor="secondary">
-								Flexible
-								<br />
-								animations
-							</Heading>
-						</div>
-					</Anim>
-          </Slide>*/}
-
 				{/* Describe the problem of the missing abstraction */}
 				<Slide notes={notes.stepsForUsingNewLibrary}>
 					<Heading heading caps size={1} textColor="secondary">
@@ -444,17 +456,65 @@ export default class Presentation extends React.Component {
 				<Slide transition={['fade']} notes={notes.barchartapi}>
 					<Image src={images.barchartapi} />
 				</Slide>
+				<Slide notes={notes.hans}>
+					<Layout>
+						<Fill>
+							<Image fill src={images.hans} />
+						</Fill>
+						<Fill>
+							<Text textColor="secondary">
+								High-Level Charting Abstractions
+							</Text>
+							<Heading size={1} fill style={{ padding: 5 }}>
+								👇
+							</Heading>
+							<Text textColor="highlight">Low-Level 2D Libraries</Text>
+						</Fill>
+					</Layout>
+				</Slide>
 				<Slide transition={['fade']} bgImage={images.rage} notes={notes.rage} />
 
-				<Slide>
+				<Slide notes={notes.backtobasics}>
+					<Heading size={3} textColor="yello">
+						Back to Basics
+					</Heading>
+					<Appear>
+						<Image src={images.d3} />
+					</Appear>
+				</Slide>
+
+				{/* TODO: Design this next slider better */}
+				<Slide notes={notes.react_and_d3}>
+					<Heading fit size={3} textColor="secondary">
+						Using d3 and React
+					</Heading>
+					<Layout>
+						<Fill>
+							<Appear>
+								<Text textColor="yello">Use React to wrap d3</Text>
+							</Appear>
+						</Fill>
+						<Fill>
+							<Appear>
+								<Text textColor="highlight">
+									Use d3 utils to author React dom
+								</Text>
+							</Appear>
+						</Fill>
+					</Layout>
+				</Slide>
+
+				<Slide notes={notes.missingAbstraction}>
 					<Heading size={1} caps fit textColor="pcontrast">
 						The Missing Abstraction
 					</Heading>
-					<Image src={images.missingAbstraction} />
+					<Appear>
+						<Image src={images.missingAbstraction} />
+					</Appear>
 				</Slide>
 
 				{/* Describe the Grammar of Graphics */}
-				<Slide transition={['fade']}>
+				<Slide transition={['fade']} notes={notes.gog}>
 					<Heading size={4} caps textColor="highlight">
 						The Grammar of Graphics
 					</Heading>
@@ -467,6 +527,7 @@ export default class Presentation extends React.Component {
 						</Fill>
 					</Layout>
 				</Slide>
+
 				<Slide transition={['fade']}>
 					<Heading size={4} caps textColor="highlight">
 						The Grammar of Graphics
