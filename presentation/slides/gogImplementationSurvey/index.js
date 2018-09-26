@@ -10,31 +10,18 @@ import {
 } from 'spectacle'
 import CodeSlide from 'spectacle-code-slide'
 
-import code from '../code'
-import images from '../images'
-import notes from '../notes'
+import code from '../../code'
+import images from '../../images'
+import notes from '../../notes'
+
+import front from './front'
+import theoryGrounded from './theoryGrounded'
+import composableCharts from './composableCharts'
 
 export default [
-	<Slide transition={['fade']} key="survey_whatimpls">
-		<Heading size={5} textColor="pcontrast" fit>
-			What implementations exist?
-		</Heading>
-		<Appear>
-			<Image src={images.altairpage} />
-		</Appear>
-	</Slide>,
-	<Slide transition={['fade']} key="survey_whatimpls">
-		<Heading size={5} textColor="pcontrast" fit>
-			What implementations exist?
-		</Heading>
-		<Image src={images.rechartspage} />
-	</Slide>,
-	<Slide transition={['fade']}>
-		<Heading size={5} textColor="pcontrast" fit>
-			What implementations exist?
-		</Heading>
-		<Image src={images.vegapage} />
-	</Slide>,
+	front,
+	theoryGrounded,
+	...composableCharts,
 	<CodeSlide
 		fill
 		transition={['fade']}
@@ -49,6 +36,7 @@ export default [
 			{ loc: [55, 72], note: 'define the mark shapes' },
 		]}
 	/>,
+
 	<Slide>
 		{/*TODO: add live bar chart*/}
 		<Image src={images.barchart2} />

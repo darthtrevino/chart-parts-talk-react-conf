@@ -173,8 +173,8 @@ export default {
   One idea that we've heard about, being adjacent to well-read visualization 
   researchers is that of the "Grammar of Graphics".<br/><br/>
   This idea originated in 1999 with the publication a book titled "The Grammar of Graphics" by Leland Wilkinson, who's a well-know visualization researcher<br/><br/>
-  It has been implemented in python and R packages: ggplot and ggplot2<br/><br/>
-  Prof. Wilkinson has gone on to help found Tableausoftware.<br/><br/>
+  These ideas have a handful of implementations, in various programming ecosystems<br/><br/>
+  Prof. Wilkinson has gone on to help found Tableau software.<br/><br/>
 
   PUSH<br/<br/>
   The grammar of graphics is named so, because it envisions an object-oriented system of charting elements that 
@@ -198,5 +198,96 @@ export default {
   Now this is basically how components work, we parameterize elements that encapsulate behavior of some kind. 
   They may or may not interact with each other to coordinate their functional behavior. And we compose them
   in our applications to express something that solves a problem for us.
+  `,
+
+	gogPhases: `
+  In Wilkinson's book, the main phases of the building a chart using the Grammar of Graphics are described as:<br/><br/>
+  * first, specify a scene using chart-element components. 
+    This specification contains a lot of moving parts, and not all of them are visual. <br/>
+    &nbsp;&nbsp;- This includes data inputs,<br/>
+    &nbsp;&nbsp;- data transformations and statistical aggregations, <br/>
+    &nbsp;&nbsp;- scale definitions, <br/>
+    &nbsp;&nbsp;- coordinate systems such as cartesian or polar, <br/>
+    &nbsp;&nbsp;- rendered shapes or elements,<br/>
+    &nbsp;&nbsp;- and defining any guides such as axes and legends.<br/><br/>
+
+  * second, we need to assemble a scenegraph. This means taking our data sources, flowing them through our specification and emitting a resultant scene that 
+  expresses an instance of a chart. Ideally, this should be platform agnostic. While you may want to have responsive variants of a chart, how chart elements map to 
+  pixels shouldn't matter yet.<br/><br/>
+
+  * And finally, render it out into whatever output our system supports. 
+  `,
+
+	gogImpls: `
+  So this is a cool idea, it maps nicely to other frameworks and ideas we use. Let's talk about what implementations exist for this idea.
+  `,
+
+	gogGrounded: `
+  First, let's talk about implementations that are grounded in the theory of the grammar of graphics. 
+  These all explicitly reference the text and attempt to implement the ideas fully.<br/><br/>
+
+  PUSH<br/><br/>
+  The first implementation I'm aware of is ggplot2 for R, and it's super popular there. 
+  It was made in 2005 by a statistician named Hadley Wickham.<br/><br/>
+
+  PUSH<br/><br/>
+  There's an implementation in Python called ggplot, and it's based on ggplot2<br/><br/>
+
+  PUSH<br/><br/>
+  In Javascript, there's Vega which is made by Jeff Heer at the UW IDL.
+
+  PUSH<br/><br/>
+  There's Vega-Lite, which is a terser, on-rails abstraction on top of Vega. 
+  This is also made by the university of washington IDL. This was the first version of the Grammar of Graphics
+  that my team learned about from a talk by Dominik Moretz at UW. We all fell in love with the concept after that.
+
+  PUSH<br/><br/>
+  Going back to python, there's Altair, which is a port of Vega-Lite.
+
+  PUSH<br/><br/>
+  Alibaba has an implementation called g2, which powers their BizCharts components.<br/><br/>
+
+  PUSH<br/><br/>
+  And there's Plotly, which is an open source product that the Plotly company offers products designed around.<br/>
+  They have some great online tooling for designing charts and editing charts designed by their community members.<br/><br/>
+  `,
+
+	composableVictory: `
+  Now there are other charting libraries that might not technically implement all the ideas in the "grammar of graphics", are
+  flexible and composable by virtue of being component-based.<br/><br/>
+  The React development community has made some very compelling charting libraries that get us into that sweet spot of 
+  being able to customize charts without making them from scratch.<br/><br/>
+
+  PUSH
+  One great option is victory-charts by Formidable. These are absolutely gorgeous. 
+  `,
+
+	composableVictoryPage: `
+  Victory supports a wide variety of chart types - the all look great and they're all stylable and customizable. <br/><br/>
+  I'm a big fan, and I especially love that they support charting on mobile as well.
+  `,
+
+	victoryTaxonomical: `
+  Their API for charting elements is kind of taxonomical in nature. Meaning that each victory component is basically a sub-chart.  
+  This is a notable distinction between charting libraries. Some libraries, even the theory-grounded ones, support a broad catalogue that 
+  contains most of the charting types that you'll ever be interested in instead of low-level primitives. They then provide rich 
+  interaction capabilites or customizability
+  `,
+
+	victoryCustomizable: `
+  One really nice thing about Victory is that they've thought about how users would develop custom components. 
+  A lot of the "grammar of graphics" implementations are envisioned as closed systems that contain all the visual 
+  elements you'll ever want.
+  `,
+
+	composableVictory: `
+  And even though it's taxonomical in nature, you can compose these taxonomical charts to really cool effect. 
+  Here they have a pie chart expressing a breakdown of given points on an area chart.
+  `,
+
+	victoryCircle: `
+  If you want to add one-off elements, like our mean line from the example, the mechanism for doing that is thunking down to SVG. <br/><br/>
+  In this example from their documentation, they're composing a chart with a drawn circle using an SVG circle element.<br/><br/>
+  This is still usable, but the abstraction leaks a little bit, and it means that you have to use their sister library Victory-Native for drawing native chart. It also means you're tightly coupled to SVG
   `,
 }

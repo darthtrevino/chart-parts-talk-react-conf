@@ -9,6 +9,7 @@ import {
 	Image,
 	Layout,
 	Fill,
+	Text,
 } from 'spectacle'
 
 import images from '../images'
@@ -51,6 +52,27 @@ export default (animIndex, setAnimIndex) => [
 				{getGogSlideContent(animIndex)}
 			</div>
 		</Anim>
+	</Slide>,
+	<Slide notes={notes.gogPhases}>
+		<Heading size={6} caps textColor="secondary">
+			Phases of the Grammar of Graphics
+		</Heading>
+		<List>
+			<Appear>
+				<ListItem textColor="highlight">
+					Specification
+					<Text textColor="yello" textSize={25} style={{ marginLeft: 60 }}>
+						Data, Trans, Scale, Coord, Element, Guide
+					</Text>
+				</ListItem>
+			</Appear>
+			<Appear>
+				<ListItem textColor="highlight">Scenegraph Generation</ListItem>
+			</Appear>
+			<Appear>
+				<ListItem textColor="highlight">Rendering</ListItem>
+			</Appear>
+		</List>
 	</Slide>,
 ]
 

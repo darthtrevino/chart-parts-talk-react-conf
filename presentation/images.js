@@ -37,4 +37,9 @@ export default {
 	barchartapi: require('../assets/barchart_api.png'),
 	hans: require('../assets/hans.gif'),
 	d3: require('../assets/d3.png'),
+	victory: require('../assets/victory.png'),
+	victoryApi: require('../assets/victory-api.png'),
+	victoryCustom: require('../assets/victory-custom.png'),
+	victoryComposable: require('../assets/victory-composable.png'),
+	victoryCircle: require('../assets/victory-circle.png'),
 }
