@@ -290,4 +290,88 @@ export default {
   In this example from their documentation, they're composing a chart with a drawn circle using an SVG circle element.<br/><br/>
   This is still usable, but the abstraction leaks a little bit, and it means that you have to use their sister library Victory-Native for drawing native chart. It also means you're tightly coupled to SVG
   `,
+
+	reactVis: `
+  Another great option is React-Vis by Uber. We've used this in some of our React applications, and it's been fantastic.
+  `,
+
+	reactVisApi: `
+  The components of the react-vis API are named really well. The component types are expressed as series of mark types being drawn instead of chart types.<br/><br/>
+  This is basically just a difference in naming, but conceptually it gets us closer to the ideas in the grammar of graphics.
+  `,
+
+	reactVisCanvasApi: `
+  Switching rendering in react-vis is done by implementing a canvas-based component. <br/><br/>
+  This is better than nothing in terms of switching rendering engines, but we can start to see 
+  not having a scenegraph metaphor in these libraries makes alternate rendering engines difficult.`,
+
+	rechartsPage: `
+  The last one we're going to look at is a library called Recharts.<br/><br/>
+  This is a library that we didn't really learn about until I was getting this talk ready, and it gave me just a touch
+  of existential despair. But it has some fantastic qualities that make it fit well into the ideas of the "grammar of graphics".
+  `,
+
+	rechartsDatabind: `
+  The mechanism for getting data into Recharts componts is a little different than react-vis or victory<br/><br/>
+  You set data at the top-level chart component, and then the elements databind to attributes of the dataset.<br/><br/>
+  This may seem a little wonky at first, but it's how other libraries such as Vega work, and there's good reason for them to do it that way,
+  which we'll get to shortly.
+  `,
+
+	rechartsCustomizability: `
+  Recharts' customizability is pretty great. It exposes render-prop extension points where you can customize all kinds of aspects about the chart, 
+  from how marks render, to how axis ticks or tooltips render.
+  `,
+
+	rechartsTooltips: `
+  And it has great tooltip support. The tooltip component displays the data point you're hovering over, but you can use your own components to put whatever
+  you want here.
+  `,
+
+	rechartsTaxonomical: `
+  One kind of weird thing about recharts, and you may have noticed it, is that its API uses taxonomical chart container components.<br/><br/>
+  You wrap your chart in a component describing what kind of chart it is (e.g. bar or area), and that determines what kinds of children are allowed.<br/><br/>
+  There is a ComposedChart container that allows you to mix bar, area, and line pieces, but the nature of the top-level API is artificially of constraining.<br/><br/>
+  A more grammar-of-graphics-ish alternative would be to define a chart wrapper, a coordinate space, then allow any element.
+  `,
+
+	commonThemes: `
+  Now that we've looked at a few composable libraries, and have thought about them from the viewpoint of the grammar of graphics, 
+  there are some common themes and ideas we've picked up.
+  `,
+
+	taxonomyVsElements: `
+  The first one is the language of abstraction we use when defining our composable components: 
+  are we expressing a fixed range of possible taxonomies, or lego pieces that can be assembled arbitrarily?<br/><br/>
+
+  A lot of great charting libraries use taxonomical components, and they can pull off quite a bit, but they can result in abstraction leaks
+  when we need to add one-off subtle elements<br/><br/>
+
+  There's no reason these can't co-exist together. In our applications we probably want to use really terse taxonomical tags that are composed of custom pieces, 
+  and we want to be able to eject out into the raw pieces, or add new children if we need to customize our chart<br/><br/>
+  `,
+	directVsScenegraph: `
+  Another concept to consider is how flexible our rendering system is - are we rendering directly to a view technology or are we emitting an intermediate scenegraph?<br/><br/>
+  Scenegraph-based charting libraries, by their nature, are going to be easier to apply to different rendering technologies.<br/><br/>
+  This probably has some implications for what extensibility means in our applications - how would a custom element wind up in a scenegraph object?
+  `,
+	directVsScenegraphAst: `
+  I think it's useful to think of a scenegraph as having the same role in charting as abstract-syntax-trees have in programming languages.<br/><br/>
+  In compilers, the front-end is turning whatever language you're writing into a generic tree of instructions, and the back-end is turning that into bits for your CPU<br/><br/>
+  This allows compiler authors to switch languages or target environments fairly easily without writing a system from scratch.<br/><br/>
+  `,
+	dataInjectionVsDataBinding: `
+  One thing we haven't dug into much is how we deal with data in our applications. We've talked about different ways of injecting data into our chart components,
+  but we haven't really discussed what that means.<br/><br/>
+  In all of the libraries we've seen so far, the onus for data aggregation, faceting, statistical computing, etc.. is put on the developer. It's up to you to do 
+  that performantly and inject it into the right places in your application. <br/><br/>
+  In the "grammar of graphics", the data computation is a part of the pipeline of creating a visual.
+  There are some interesting ideas on how to do this effectively, but in component-land, as far as I can tell it's kind of an open problem. 
+  `,
+	dataflowProblem: `
+  Vega has the interesting concept of a dataflow graph. You define a reactive graph of data tables, and signals occur at various points in the graph to mutate processing parameters
+  or to pump in new data. <br/><br/>
+  It's unfortunately kind of hard to use outside of Vega, although they did publish a library called the "dataflow-api" that wraps up some basic functionality.<br/><br/>
+  It would be nice if we could express this at the component level, or even in Javascript with a friendly API that's maybe based on Observables, and have that wire into our charts.<br/><br/> 
+  `,
 }

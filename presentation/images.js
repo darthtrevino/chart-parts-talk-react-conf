@@ -28,7 +28,6 @@ export default {
 	markencoding: require('../assets/mark_encoding.png'),
 	reactlogo: require('../assets/react-logo.png'),
 	vegapage: require('../assets/vega-page.png'),
-	rechartspage: require('../assets/recharts-page.png'),
 	altairpage: require('../assets/altair-page.png'),
 	barchartwithmean: require('../assets/bar_chart_with_mean.png'),
 	chartPartsPage: require('../assets/chart-parts-page.png'),
@@ -37,9 +36,23 @@ export default {
 	barchartapi: require('../assets/barchart_api.png'),
 	hans: require('../assets/hans.gif'),
 	d3: require('../assets/d3.png'),
+
+	// Victory
 	victory: require('../assets/victory.png'),
 	victoryApi: require('../assets/victory-api.png'),
 	victoryCustom: require('../assets/victory-custom.png'),
 	victoryComposable: require('../assets/victory-composable.png'),
 	victoryCircle: require('../assets/victory-circle.png'),
+
+	// React-Vis
+	reactVisPage: require('../assets/reactvis-page.png'),
+	reactVisApi: require('../assets/reactvis-apiseries.png'),
+	reactVisCanvas: require('../assets/reactvis-canvas.png'),
+
+	// Recharts
+	rechartsPage: require('../assets/recharts-page.png'),
+	rechartsCustom: require('../assets/recharts-customizable.png'),
+	rechartsDatabind: require('../assets/recharts-databind.png'),
+	rechartsCustomChart: require('../assets/recharts-customchart.png'),
+	rechartsTaxonomical: require('../assets/recharts-taxonomical.png'),
 }
