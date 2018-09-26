@@ -16,12 +16,65 @@ import notes from '../notes'
 import HeadingSlide from '../components/HeadingSlide'
 
 export default [
-	<Slide>
-		<Heading size={1} textColor="highlight">
-			What if we had Vega's abstraction in React?
-		</Heading>
+	<Slide
+		bgImage={images.vegapage}
+		key="showcase_vega"
+		notes={notes.showcaseVegaPage}
+	/>,
+	<CodeSlide
+		key="showcase_vegabarchart"
+		transition={['fade']}
+		lang="js"
+		code={code.vegaBarChart}
+		notes={notes.vegaBarChart}
+		ranges={[
+			{ loc: [2, 5], note: 'set chart size' },
+			{ loc: [6, 21], note: 'define data source' },
+			{ loc: [22, 32], note: 'wire up some event channels' },
+			{ loc: [33, 50], note: 'define scales' },
+			{ loc: [50, 55], note: 'add some axes' },
+			{ loc: [55, 72], note: 'define the mark shapes' },
+			{ loc: [64, 65], note: 'bind attributes to data fields' },
+			{ loc: [67, 68], note: 'or set statically' },
+		]}
+	/>,
+	<Slide key="showcase_vegabarchartlive" notes={notes.vegaBarChartLive}>
+		{/*TODO: add live bar chart*/}
+		<Image src={images.barchart2} />
 	</Slide>,
-	<Slide bgImage={images.chartPartsPage} />,
+	<Slide key="showcase_whatif" notes={notes.whatif}>
+		<Heading size={5} textColor="secondary">
+			What if had
+		</Heading>
+		<Heading size={5} textColor="secondary">
+			Vega's abstraction
+		</Heading>
+		<Appear>
+			<Heading size={4} textColor="yello">
+				...but with components?
+			</Heading>
+		</Appear>
+	</Slide>,
+	// TODO: DOPE ANIMATION IN
+	<Slide
+		bgImage={images.chartPartsPage}
+		key="showcase_chartparts_front"
+		notes={notes.chartPartsPage}
+	/>,
+	<Slide
+		key="showcase_architecture_be"
+		notes={notes.chartPartsArchitectureBackend}
+	>
+		<Text>Architecture Overview BE</Text>
+		{/* TODO: image */}
+	</Slide>,
+	<Slide
+		key="showcase_architecture_fe"
+		notes={notes.chartPartsArchitectureFrontend}
+	>
+		<Text>Architecture Overview FE</Text>
+		{/* TODO: image */}
+	</Slide>,
 	<CodeSlide
 		transition={['fade']}
 		lang="js"

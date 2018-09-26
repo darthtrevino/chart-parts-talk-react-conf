@@ -374,4 +374,87 @@ export default {
   It's unfortunately kind of hard to use outside of Vega, although they did publish a library called the "dataflow-api" that wraps up some basic functionality.<br/><br/>
   It would be nice if we could express this at the component level, or even in Javascript with a friendly API that's maybe based on Observables, and have that wire into our charts.<br/><br/> 
   `,
+	showcaseVegaPage: `
+  Now, going back to the theory-grounded implementations - being Javascript people, the implementation we've worked the most with is Vega<br/><br/>
+  We first learned about these ideas from a talk that Dominik Moretz and Ham Wongsuphasawat from the UW IDL gave about Vega-Lite.<br/><br/>
+  These tools are part of the same ecosystem, but they have slightly different philosophies.<br/><br/> 
+  
+  Vega-Lite is a high-level abstraction that gives you some on-rails niceties for free, and Vega is a more low-levelelement-based grammar-of-graphics engine.<br/><br/>
+
+  In both of these libraries though, you author your visuals using static JSON, and the whole thing is a closed-off, seamless unit.<br/><br/>
+  
+  Let's look at how you'd write some charts in Vega.
+  `,
+
+	vegaBarChart: `
+  Vega in practice is like a super structured d3. So there's a little bit of plumbing that goes along with it.<br/><br/>
+
+  To start, we need to set our chart options, here's where we'd select what renderer to use - svg or canvas, and what the dimensions will be.<br/><br/>
+  Axes will kind of stretch that size out, so be careful of that.<br/><br/>
+
+  Next, we wire in our data tables. Each table has a name, and either a static definition like we have here or a source URL. <br/>
+  You can also define data transformation steps that will perform aggregation or layout transform on the input data. This is the start of the 
+  vega-dataflow pipeline.<br/><br/>
+
+  Next we'll define some event handling. This sets up an internal "signaling system" where vega knows that a variable updated and will respond accordingly.<br/><br/>
+  There's an API on the chart object that will let you subscribe to these in your app.<br/><br/>
+
+  Next you define your scales. These map your data to view dimensions.<br/><br/>
+
+  Then we'll define our axis components, oriented to the edges of our view-space<br/><br/>
+
+  Finally, we'll define our visual components. These will be bound to data<br/><br/> 
+  Or to static values <br/><br/>  
+  `,
+
+	vegaBarChartLive: `
+  And now we have a bar-chart in Vega.
+  `,
+
+	whatif: `
+  So, a declarative JSON-based API like that is kind of a pain to work with. What we really want is something like the composable 
+  API's we've looked at before.<br/><br/>
+
+  But Vega has some fantastic thought put into it, in terms of how you structure and express charts, how you manage dataflow, etc..<br/><br/>
+
+  So our question, since first learning about Vega, has been - what if were were to have access to Vega's abstraction level,<br/><br/>
+
+  But you expressed it with a component-based API instead?<br/><br/>
+
+  And we're incredibly naieve and full of hubris, so we made our own library...
+  `,
+
+	chartPartsPage: `
+  We're calling it chart-part, and it's our love-letter to Vega.<br/><br/>
+  We had a better name, but legal said "no".<br/><br/>
+  So I'll start off with some caveats - this is only used and developed by my team at the moment, and it's in very nascent stages<br/><br/>
+  Don't expect vscode level support<br/><br/>
+  `,
+
+	chartPartsArchitectureBackend: `
+  We started out by using vega's scenegraph.<br/><br/>
+  Their specification is built out into a scenegraph json object that's then drawn out using your selected renderer.<br/><br/>
+
+  We started with these objects and built a transform pipeline out into React. This piece of the library was came up really quickly, 
+  we made a few transforming funcitons that turn this scenegraph into a pseodo-svg model, and then that model into React-Dom SVG.<br/><br/>
+
+  By leaning on React's reconciliation algorithm, we've been able to avoid dealing with DOM updates.<br/><br/>
+
+  This will probably change in the future, especially as we start taking a hard look at how to resolve some performance issues, 
+  but it was encouraging to see that part happen quickly<br/><br/>
+
+  This technique also allows us to wire in react event handlers in our chart components' eventing, which gives them kind of a nice, at-home feel.
+  `,
+
+	chartPartsArchitectureFrontend: `
+  The specification of charts is done via our component layer. We use renderless components, which do not emit any actual DOM, but instead interact with 
+  APIs as they mount. We learned of this technique from a talk Ken Wheeler gave at react-europe, I think, and it's worked out really well, and has
+  had a couple of ramifications.<br/><br/>
+  
+  First, although our library is kind of designed around our use case of using react, it's not tightly coupled to it. 
+  We made a scene-specification API that our Renderless layer is interacting with. So if React ever goes the way of Angular 1, we don't necessarily lose everything</br></br>
+
+  And second, because there's no tacit structure between renderless components, you can combine them any way you want and insert fragments and functional components anywhere in your 
+  chart structure. This means that you have a way to kind of document the structural complexity in interacting with whatever API you're dealing with<br/><br/>
+  `,
 }
