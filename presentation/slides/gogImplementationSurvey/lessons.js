@@ -1,14 +1,5 @@
 import React from 'react'
-import {
-	Heading,
-	ListItem,
-	List,
-	Slide,
-	Appear,
-	Layout,
-	Fill,
-	Image,
-} from 'spectacle'
+import { Heading, Slide, Image } from 'spectacle'
 
 import notes from '../../notes'
 import images from '../../images'
@@ -26,7 +17,6 @@ export default [
 	</Slide>,
 	<Slide key="lessons-direct-vs-scenegraph" notes={notes.directVsScenegraph}>
 		<Heading size={2} caps>
-			{/* How does this affect extensibility, rendering tech? */}
 			Direct Rendering vs Scenegraph
 		</Heading>
 	</Slide>,
@@ -34,17 +24,14 @@ export default [
 		key="lessons-direct-vs-scenegraph-ast"
 		notes={notes.directVsScenegraphAst}
 	>
-		{/* TODO: AST IMAGE */}
-		TODO: AST IMAGE
+		<Image src={images.ast} />
 	</Slide>,
 	<Slide key="lessons-data-injection" notes={notes.dataInjectionVsDataBinding}>
 		<Heading size={2} caps>
 			Data Injection vs Data Binding
 		</Heading>
 	</Slide>,
-
 	<Slide key="lessons-dataflow" notes={notes.dataflowProblem}>
-		{/* TODO: AST IMAGE */}
-		TODO: VegaDataflow
+		<Image src={images.dataflow} />
 	</Slide>,
 ]

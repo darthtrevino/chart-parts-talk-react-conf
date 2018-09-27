@@ -65,4 +65,7 @@ export default {
 	// ChartParts
 	backendArchitecture: require('../assets/lib-backend.png'),
 	frontendArchitecture: require('../assets/lib-frontend.png'),
+
+	ast: require('../assets/ast.png'),
+	dataflow: require('../assets/dataflow.png'),
 }
