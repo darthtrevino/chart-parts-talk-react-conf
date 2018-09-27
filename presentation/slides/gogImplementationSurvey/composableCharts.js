@@ -1,23 +1,8 @@
 import React from 'react'
-import {
-	Heading,
-	ListItem,
-	List,
-	Slide,
-	Appear,
-	Layout,
-	Fill,
-	Image,
-} from 'spectacle'
-
+import { ListItem, List, Slide, Appear, Layout, Fill, Image } from 'spectacle'
+import CommonHeader from './CommonHeader'
 import notes from '../../notes'
 import images from '../../images'
-
-const CommonHeader = () => (
-	<Heading size={6} caps textColor="highlight" fill>
-		Component-Based Libraries
-	</Heading>
-)
 
 export default [
 	<Slide

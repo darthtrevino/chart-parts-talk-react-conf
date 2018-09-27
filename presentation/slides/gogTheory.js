@@ -53,7 +53,7 @@ export default (animIndex, setAnimIndex) => [
 			</div>
 		</Anim>
 	</Slide>,
-	<Slide notes={notes.gogPhases}>
+	<Slide notes={notes.gogPhases} key="phases_of_gog">
 		<Heading size={6} caps textColor="secondary">
 			Phases of the Grammar of Graphics
 		</Heading>

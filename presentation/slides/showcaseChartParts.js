@@ -60,22 +60,24 @@ export default [
 		bgImage={images.chartPartsPage}
 		key="showcase_chartparts_front"
 		notes={notes.chartPartsPage}
+		transition={['fade']}
 	/>,
 	<Slide
 		key="showcase_architecture_be"
 		notes={notes.chartPartsArchitectureBackend}
+		transition={['fade']}
 	>
-		<Text>Architecture Overview BE</Text>
-		{/* TODO: image */}
+		<Image src={images.backendArchitecture} />
 	</Slide>,
 	<Slide
 		key="showcase_architecture_fe"
 		notes={notes.chartPartsArchitectureFrontend}
+		transition={['fade']}
 	>
-		<Text>Architecture Overview FE</Text>
-		{/* TODO: image */}
+		<Image src={images.frontendArchitecture} />
 	</Slide>,
 	<CodeSlide
+		key="showcase_barchart_example"
 		transition={['fade']}
 		lang="js"
 		code={code.barChart}
@@ -131,8 +133,8 @@ export default [
 			},
 		]}
 	/>,
-	<Slide>TODO: SHOW LIVE CHART</Slide>,
-	<Slide>
+	<Slide key="showcase_live_chart">TODO: SHOW LIVE CHART</Slide>,
+	<Slide key="showcase_mark_encoding_context">
 		<Heading size={5} textColor="highlight">
 			Mark Encoding Context
 		</Heading>
@@ -151,7 +153,7 @@ export default [
 			<ListItem textColor="yello">...scales - The named data scales</ListItem>
 		</List>
 	</Slide>,
-	<Slide>
+	<Slide key="showcase_manage_complexity">
 		<Heading size={2} textColor="pcontrast">
 			Managing Complexity
 		</Heading>
@@ -161,10 +163,8 @@ export default [
 			</Appear>
 		</Layout>
 	</Slide>,
-	<Slide>
-		<Image src={images.architecture} />
-	</Slide>,
 	<CodeSlide
+		key="showcase_sfc"
 		transition={['fade']}
 		lang="js"
 		code={code.barChartSFC}
@@ -179,8 +179,9 @@ export default [
 			},
 		]}
 	/>,
-	<HeadingSlide text="Composability" />,
+	<HeadingSlide text="Composability" key="showcase_composability" />,
 	<CodeSlide
+		key="showcase_composeability_code"
 		transition={['fade']}
 		lang="js"
 		code={code.barChartWithMean}
@@ -211,9 +212,12 @@ export default [
 			},
 		]}
 	/>,
-	<Slide>TODO: INSERT LIVE BARCHART WITH MEANLINE</Slide>,
-	<HeadingSlide text="Accessibility" />,
+	<Slide key="showcase_live_barchart">
+		TODO: INSERT LIVE BARCHART WITH MEANLINE
+	</Slide>,
+	<HeadingSlide text="Accessibility" key="showcase_accessibility" />,
 	<CodeSlide
+		key="showcase_accessible_code"
 		transition={['fade']}
 		lang="js"
 		code={code.barChartAccessible}
@@ -235,5 +239,5 @@ export default [
 			},
 		]}
 	/>,
-	<HeadingSlide text="Mobile" />,
+	<HeadingSlide text="Mobile" key="showcase_mobile_header" />,
 ]

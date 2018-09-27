@@ -13,6 +13,7 @@ import reactAndD3 from './slides/reactAndD3'
 import gogImplementationSurvey from './slides/gogImplementationSurvey'
 import showcaseChartParts from './slides/showcaseChartParts'
 import gogTheory from './slides/gogTheory'
+import chartTypeCarousel from './slides/chartTypeCarousel'
 
 export default class Presentation extends React.Component {
 	state = { animIndex: 0 }
@@ -28,6 +29,9 @@ export default class Presentation extends React.Component {
 				{whoWeAre}
 				{aboutOurWork}
 				{chartsAreImportant}
+				{chartTypeCarousel(this.state.animIndex, animIndex =>
+					this.setState({ animIndex }),
+				)}
 				{contrivedProblem}
 				{reactAndD3}
 				{gogTheory(this.state.animIndex, animIndex =>

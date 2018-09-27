@@ -412,8 +412,13 @@ export default {
   `,
 
 	whatif: `
-  So, a declarative JSON-based API like that is kind of a pain to work with. What we really want is something like the composable 
-  API's we've looked at before.<br/><br/>
+  There's some component-based thinking going on within Vega. It provides individual components such as scales, axes, marks and legends that 
+  are configured either statically or in a data-bound way.<br/><br/>
+
+  But a declarative JSON-based API like that is kind of a pain to work with. You don't have great debugging seams, and it can be difficult to reason about the
+  structure of a chart. This is only exacerbated as the complexity of a chart grows.<br/><br/>
+  
+  What we really want is something that like the composable API's we've looked at before.<br/><br/>
 
   But Vega has some fantastic thought put into it, in terms of how you structure and express charts, how you manage dataflow, etc..<br/><br/>
 

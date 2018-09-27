@@ -3,7 +3,6 @@ export default {
 	kat: require('../assets/kat.png'),
 	logo: require('../assets/formidable-logo.svg'),
 	markdown: require('../assets/markdown.png'),
-	barchart: require('../assets/bar_chart.png'),
 	barchart2: require('../assets/bar_chart2.png'),
 	linechart: require('../assets/line_chart.png'),
 	radial_chart: require('../assets/radial_chart.png'),
@@ -31,11 +30,18 @@ export default {
 	altairpage: require('../assets/altair-page.png'),
 	barchartwithmean: require('../assets/bar_chart_with_mean.png'),
 	chartPartsPage: require('../assets/chart-parts-page.png'),
-	architecture: require('../assets/architecture_pipeline.png'),
 	chriswhite: require('../assets/chris_white.jpg'),
 	barchartapi: require('../assets/barchart_api.png'),
 	hans: require('../assets/hans.gif'),
 	d3: require('../assets/d3.png'),
+
+	// Common Charts
+	barChart: require('../assets/bar_chart.png'),
+	pieChart: require('../assets/pie_chart.png'),
+	areaChart: require('../assets/area_chart.png'),
+	radarChart: require('../assets/radar_chart.png'),
+	violinChart: require('../assets/violin_chart.png'),
+	boxPlots: require('../assets/box_plots.png'),
 
 	// Victory
 	victory: require('../assets/victory.png'),
@@ -55,4 +61,8 @@ export default {
 	rechartsDatabind: require('../assets/recharts-databind.png'),
 	rechartsCustomChart: require('../assets/recharts-customchart.png'),
 	rechartsTaxonomical: require('../assets/recharts-taxonomical.png'),
+
+	// ChartParts
+	backendArchitecture: require('../assets/lib-backend.png'),
+	frontendArchitecture: require('../assets/lib-frontend.png'),
 }
