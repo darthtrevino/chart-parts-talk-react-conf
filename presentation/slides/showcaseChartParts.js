@@ -14,6 +14,7 @@ import images from '../images'
 import code from '../code'
 import notes from '../notes'
 import HeadingSlide from '../components/HeadingSlide'
+import BarChartLive from '../components/BarChart'
 
 export default [
 	<Slide
@@ -145,7 +146,9 @@ export default [
 			},
 		]}
 	/>,
-	<Slide key="showcase_live_chart">TODO: SHOW LIVE CHART</Slide>,
+	<Slide key="showcase_live_chart">
+		<BarChartLive />
+	</Slide>,
 	<Slide key="showcase_manage_complexity" notes={notes.managingComplexity}>
 		<Heading size={2} textColor="pcontrast">
 			Managing Complexity
