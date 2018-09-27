@@ -68,4 +68,5 @@ export default {
 
 	ast: require('../assets/ast.png'),
 	dataflow: require('../assets/dataflow.png'),
+	dropout: require('../assets/dropout.png'),
 }

@@ -462,4 +462,52 @@ export default {
   And second, because there's no tacit structure between renderless components, you can combine them any way you want and insert fragments and functional components anywhere in your 
   chart structure. This means that you have a way to kind of document the structural complexity in interacting with whatever API you're dealing with<br/><br/>
   `,
+
+	chartPartsArchitectureDropout: `
+  One interesting thing about this technique is that if you look at the flow of when things are in "react-land" vs when they are in vanilla Javascript land, 
+  we're only in React-land at the very beginning and end of chart construction.<br/><br/>
+
+  Everything between those points is data binding into a scenegraph and the scenegraph being transformed into virtual-dom.
+  `,
+
+	chartPartsBarChart: `
+  Let's take a look at what our API looks like.<br/><br/>
+  
+  So first, we're going to import our charting components. In this case we need a top-level chart, axes, a rectangle and some scales.<br/><br/>
+  
+  Next we'll pick a renderer. Right now we have an React SVG and a React-Native-SVG renderer, but we're considering adding one for PIXI as well.<br/><br/>
+
+  Next we set up a top-level chart. Here's where we'll set top-level values such as the width, height, padding, the renderer, and data tables for the chart<br/><br/>
+
+  And next we'll define some scales. Scales in chart-parts are independent components that can be referenced by other components<br/><br/>
+
+  Each scale has a name, which we'll use to reference from the drawn components.<br/><br/>
+
+  And we can bind it to a domain of the source data. Any lodash expression will work<br/><br/>
+  
+  We can also bind it to a view dimension. As we build complex charts, these view dimensions could be a subsection of the top-level chart, 
+  and so this will allow us to map to those dimensions. As we add axes, this will exclude that space as well<br/><br/>
+
+  Next we'll add Axis components, anchored to an edge of the viewspace and bound to a scale. These can also be customized with tick label formatting, tick counts, etc..<br/><br/>
+  
+  And finally, we'll define our drawn element.<br/><br/>
+
+  We can bind to a data table in our dataset. For each row in that data table we'll emit a rectangle into our scenegraph<br/><br/>
+
+  Here's how we encode attributes of the drawn elements. We define an encoding function for each attribute of the element we want to customise. 
+  This encoding function is a context object containing the current view size, the named scales and data tables, the datum being rendered, and the index it appears at.<br/><br/>
+
+  We can also encode them as static values. If we're not bound to a table, this only renders a single instance, and the context would contain whatever datum the parent was bound to.<br/><br/>
+
+  And finally, we can add event handlers for any event on the rendered view elements. We wanted to be able to integrate these charts into apps we were building, so we wanted to 
+  be able to opt-out of the built-in signal system and handle our own events and state.<br/><br/>
+  `,
+
+	managingComplexity: `
+  I've mentioned that Renderless Components have given us a way to manage complexity in our chart. The reason for that is that there is no tacit parent/child relationship betewen our elements.<br/><br/>
+
+  In some charting libraries, you'll see that there's some boilerplate work done to ensure that only valid child components are used, and that kind of precludes the ability to insert your own abstraction.<br/><br/>
+
+  Since renderless components orchestrate api interactions under the hood, and the nodes in our specification graph all have the same kinds of elements, we can organize these using Function Components pretty easily<br/><br/>
+  `,
 }

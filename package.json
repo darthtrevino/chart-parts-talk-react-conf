@@ -37,6 +37,11 @@
 		]
 	},
 	"devDependencies": {
+		"@chart-parts/orchestrator": "^0.0.16",
+		"@chart-parts/react": "^0.0.16",
+		"@chart-parts/react-svg-renderer": "^0.0.16",
+		"@chart-parts/scales": "^0.0.16",
+		"@chart-parts/transform": "^0.0.16",
 		"babel-cli": "^6.26.0",
 		"babel-core": "^6.26.0",
 		"babel-eslint": "^8.0.1",

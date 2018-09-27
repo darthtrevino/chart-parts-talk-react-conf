@@ -55,7 +55,6 @@ export default [
 			</Heading>
 		</Appear>
 	</Slide>,
-	// TODO: DOPE ANIMATION IN
 	<Slide
 		bgImage={images.chartPartsPage}
 		key="showcase_chartparts_front"
@@ -76,11 +75,19 @@ export default [
 	>
 		<Image src={images.frontendArchitecture} />
 	</Slide>,
+	<Slide
+		key="showcase_architecture_dropout"
+		notes={notes.chartPartsArchitectureDropout}
+		transition={['fade']}
+	>
+		<Image src={images.dropout} />
+	</Slide>,
 	<CodeSlide
 		key="showcase_barchart_example"
 		transition={['fade']}
 		lang="js"
 		code={code.barChart}
+		notes={notes.chartPartsBarChart}
 		ranges={[
 			{ loc: [1, 8], title: 'Import chart elements' },
 			{
@@ -117,6 +124,11 @@ export default [
 				title: 'Define Marks',
 			},
 			{
+				loc: [35, 36],
+				title: 'Define Marks',
+				note: 'Bind to Data',
+			},
+			{
 				loc: [36, 37],
 				title: 'Define Marks',
 				note: 'attributes can be defined with an encoding function',
@@ -134,26 +146,7 @@ export default [
 		]}
 	/>,
 	<Slide key="showcase_live_chart">TODO: SHOW LIVE CHART</Slide>,
-	<Slide key="showcase_mark_encoding_context">
-		<Heading size={5} textColor="highlight">
-			Mark Encoding Context
-		</Heading>
-		<List>
-			<ListItem textColor="yello">d - The bound data item</ListItem>
-			<ListItem textColor="yello">
-				index - The index of the data item in the table
-			</ListItem>
-			<ListItem textColor="yello">
-				view - The current width/height of the operating view
-			</ListItem>
-			<ListItem textColor="yello">
-				id - The generated id of the bound item
-			</ListItem>
-			<ListItem textColor="yello">...data - The named data tables</ListItem>
-			<ListItem textColor="yello">...scales - The named data scales</ListItem>
-		</List>
-	</Slide>,
-	<Slide key="showcase_manage_complexity">
+	<Slide key="showcase_manage_complexity" notes={notes.managingComplexity}>
 		<Heading size={2} textColor="pcontrast">
 			Managing Complexity
 		</Heading>
