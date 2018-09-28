@@ -10,7 +10,7 @@ export default [
 	<Slide transition={['fade']} notes={notes.mapSilverdale} key="whoweare1">
 		<Image fill src={images.mapMsSilverdale} />
 	</Slide>,
-	<Slide notes={notes.bossman} key="whoweare1">
-		<Image fill src={images.chriswhite} />
-	</Slide>,
+	// <Slide notes={notes.bossman} key="whoweare1">
+	// 	<Image fill src={images.chriswhite} />
+	// </Slide>,
 ]

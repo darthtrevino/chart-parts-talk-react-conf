@@ -46,7 +46,7 @@ export default [
 	</Slide>,
 	<Slide key="showcase_whatif" notes={notes.whatif}>
 		<Heading size={5} textColor="secondary">
-			What if had
+			What if we had
 		</Heading>
 		<Heading size={5} textColor="secondary">
 			Vega's abstraction
@@ -256,5 +256,12 @@ export default [
 		<Heading size={2} textColor="pcontrast">
 			Mobile
 		</Heading>
+	</Slide>,
+	<Slide key="showcase_conclusion" notes={notes.conclusion}>
+		<Heading size={2} textColor="pcontrast">
+			That's all Folks!
+		</Heading>
+		<Text textColor="secondary">github.com/Microsoft/chart-parts</Text>
+		<Text textColor="secondary">twitter.com/darthtrevino</Text>
 	</Slide>,
 ]

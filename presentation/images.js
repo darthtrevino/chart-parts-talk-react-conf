@@ -4,7 +4,6 @@ export default {
 	logo: require('../assets/formidable-logo.svg'),
 	markdown: require('../assets/markdown.png'),
 	barchart2: require('../assets/bar_chart2.png'),
-	linechart: require('../assets/line_chart.png'),
 	radial_chart: require('../assets/radial_chart.png'),
 	streamgraph: require('../assets/streamgraph.png'),
 	mapBase: require('../assets/map.png'),
@@ -37,6 +36,7 @@ export default {
 
 	// Common Charts
 	barChart: require('../assets/bar_chart.png'),
+	lineChart: require('../assets/line_chart.png'),
 	pieChart: require('../assets/pie_chart.png'),
 	areaChart: require('../assets/area_chart.png'),
 	radarChart: require('../assets/radar_chart.png'),

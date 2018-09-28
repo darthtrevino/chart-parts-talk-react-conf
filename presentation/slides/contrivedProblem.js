@@ -36,7 +36,7 @@ export default [
 		<Image src={images.npmsearch} />
 	</Slide>,
 	<Slide transition={['spin']} notes={notes.yarninstall} key="contrived_yi">
-		<Heading size={4} textColor="pcontrast">
+		<Heading size={5} textColor="pcontrast">
 			> yarn install fancy-charts
 		</Heading>
 	</Slide>,

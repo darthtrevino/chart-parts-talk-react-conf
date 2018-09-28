@@ -73,7 +73,7 @@ export default [
 	</Slide>,
 	<Slide
 		key="surv_comp_viccomp"
-		notes={notes.composableVictory}
+		notes={notes.composableVictory2}
 		transition={['fade']}
 	>
 		<CommonHeader />
