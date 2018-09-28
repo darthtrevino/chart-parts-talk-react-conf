@@ -5,6 +5,7 @@ import {
 	Rect,
 	LinearScale,
 	BandScale,
+	Rule,
 	Text,
 } from '@chart-parts/react'
 import {
@@ -13,6 +14,7 @@ import {
 	HorizontalAlignment,
 } from '@chart-parts/interfaces'
 import { Renderer } from '@chart-parts/react-svg-renderer'
+import { mean } from 'd3-array'
 
 const renderer = new Renderer()
 
@@ -89,6 +91,12 @@ export default class BarChart extends React.Component {
 							align="center"
 						/>
 					)}
+					<Rule
+						x={0}
+						x2={({ view }) => view.width}
+						y={({ y, data }) => y(mean(data, d => d.amount))}
+						stroke="firebrick"
+					/>
 				</Chart>
 			</div>
 		)

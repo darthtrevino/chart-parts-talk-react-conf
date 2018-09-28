@@ -510,4 +510,52 @@ export default {
 
   Since renderless components orchestrate api interactions under the hood, and the nodes in our specification graph all have the same kinds of elements, we can organize these using Function Components pretty easily<br/><br/>
   `,
+
+	barChartSFC: `
+  In this code snippet, we're taking the same bar chart, but we're going to slice it up a little. This is a trivial example, but it demonstrates the idea.<br/><br/>
+  We have custom components that encapsulate our scale and axis components, and below we have function components that define those elements.
+  `,
+
+	composability: `
+  The flexibility afforded to us by renderless components also allows us to compose and augment charting elements in a very fluid way.  
+  `,
+	composabilityCode: `
+  So if we take a look at our bar chart, you'll notice off the bat that we're going to use the react children. We could use render props if we wanted, and that would be great for more complex situations, but 
+  in this case this will give us the effect we want<br/><br/>
+
+  And then we simply render the children elements into the chart.<br/><br/>
+
+  We can now define a new component for our meanLine. You'll notice that we're not binding this to a table, so it will render as a singleton instance. <br/><br/>
+
+  PUSH<br/><br/>
+  The x parameters will use the current view bounds, so it it will be the full width of the chart. 
+  This lets us avoid having to define a new scale, since our X scale is categorical.<br/><br/>
+
+  PUSH<br/><br/>
+  And the y value for this line will be the mean of the data.
+  `,
+
+	accessibility: `
+  Now let's talk about accessibility. It's not normally something we consider when writing visualizations, since we normally assume that our 
+  users are sighted.<br/><Br/>
+
+  But SVG does support aria tags, by supporting them in our charts, we can tell the same data stories to users who are visually impaired<br/><br/>
+  
+  This is an area that probably needs some good feedback, and it only works with our web SVG renderer, but here's our take on it:
+  `,
+
+	accessibilityCode: `
+  First off, we can add aria description and title tags to our chart at the top level. This would give any screen reader users a high-level description of what 
+  the chart is about<br/><br/>
+
+  Next, we can encode tab indexes into our marks - this will allow screen-reader users to tab through key marks in chart and navigate them in sequence.<br/><br/>
+
+  And finally we can add aria tags to individual mark elements, and encode them like any other tag to enrich them with some data.
+  `,
+
+	accessibleLiveChart: `
+  TURN ON CHROMEVOX
+
+  And now we can tab through our chart and hear descriptions of all the important data points
+  `,
 }

@@ -13,8 +13,9 @@ import CodeSlide from 'spectacle-code-slide'
 import images from '../images'
 import code from '../code'
 import notes from '../notes'
-import HeadingSlide from '../components/HeadingSlide'
+// import HeadingSlide from '../components/HeadingSlide'
 import BarChartLive from '../components/BarChart'
+import BarChartMeanLive from '../components/BarChartWithMeanLine'
 
 export default [
 	<Slide
@@ -164,6 +165,7 @@ export default [
 		transition={['fade']}
 		lang="js"
 		code={code.barChartSFC}
+		notes={notes.barChartSFC}
 		ranges={[
 			{
 				loc: [16, 18],
@@ -171,15 +173,22 @@ export default [
 			},
 			{
 				loc: [33, 51],
-				note: 'Complex chart structure can be understandable',
+			},
+			{
+				loc: [52, 58],
 			},
 		]}
 	/>,
-	<HeadingSlide text="Composability" key="showcase_composability" />,
+	<Slide key="showcase_composability" notes={notes.composability}>
+		<Heading size={2} textColor="pcontrast">
+			Composability
+		</Heading>
+	</Slide>,
 	<CodeSlide
 		key="showcase_composeability_code"
 		transition={['fade']}
 		lang="js"
+		notes={notes.composabilityCode}
 		code={code.barChartWithMean}
 		ranges={[
 			{
@@ -194,28 +203,33 @@ export default [
 			},
 			{
 				title: 'Define MeanLine Component',
-				loc: [32, 41],
+				loc: [32, 40],
 			},
 			{
 				title: 'Define MeanLine Component',
-				loc: [34, 35],
-				note: 'singleton marks appear once and are not data-bound',
+				loc: [34, 36],
+				note: 'use view bounds for full-width line',
 			},
 			{
 				title: 'Define MeanLine Component',
 				loc: [36, 37],
-				note: 'we can use the view-bounds to avoid defining a new scale',
+				note: 'determine mean line value',
 			},
 		]}
 	/>,
 	<Slide key="showcase_live_barchart">
-		TODO: INSERT LIVE BARCHART WITH MEANLINE
+		<BarChartMeanLive />
 	</Slide>,
-	<HeadingSlide text="Accessibility" key="showcase_accessibility" />,
+	<Slide key="showcase_accessibility" notes={notes.accessibility}>
+		<Heading size={2} textColor="pcontrast">
+			Accessibility
+		</Heading>
+	</Slide>,
 	<CodeSlide
 		key="showcase_accessible_code"
 		transition={['fade']}
 		lang="js"
+		notes={notes.accessibilityCode}
 		code={code.barChartAccessible}
 		ranges={[
 			{
@@ -235,5 +249,12 @@ export default [
 			},
 		]}
 	/>,
-	<HeadingSlide text="Mobile" key="showcase_mobile_header" />,
+	<Slide key="showcase_live_chart_accessible" notes={notes.accessibleLiveChart}>
+		<BarChartLive />
+	</Slide>,
+	<Slide key="showcase_mobile" notes={notes.mobile}>
+		<Heading size={2} textColor="pcontrast">
+			Mobile
+		</Heading>
+	</Slide>,
 ]
