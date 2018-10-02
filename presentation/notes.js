@@ -327,7 +327,7 @@ export default {
 
   Another great option is React-Vis by Uber. We've used this in some of our own React applications<br/><br/>
   
-  Finally, there's Recharts - this one is pretty popular on NPM and has a pretty great api<br/><br/>
+  Finally, there's Recharts, which is pretty popular and has a great API.<br/><br/>
   <br/><br/><br/>
   `,
 
@@ -661,8 +661,22 @@ export default {
   `,
 
 	mobile: `
-  And finally, the scenegraph architecture lets us render charts to any target device using Javascript.<br/><br/>
-  By using react-Native-svg based virtual-dom, we can really easily migrate our charts into native-land.
+  Now, by virtue of being scenegraph-based, we can change the target rendering technology to whatever we want, 
+  provided that we have an implementation of the renderer.<br/><br/>
+  
+  Our react renderer is just emitting React virtual-dom, and one nice thing about this means that we can emit 
+  react-native virtual-dom instead, and very easily have parity between native and mobile (at least in Javascript) 
+  <br/><br/><br/>  
+  `,
+
+	mobileCode: `
+  We just switch our rendere to the react-native rendere, and we can run on mobile devices.
+  <br/><br/>
+  
+  Our react-native-svg renderer is using the component types from react-native-svg to easily implement our charts on 
+  mobile devices.
+
+  <br/><br/><br/>
   `,
 
 	showcaseWinchester: `

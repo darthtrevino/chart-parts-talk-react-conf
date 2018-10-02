@@ -15,7 +15,11 @@ import notes from '../../notes'
 import images from '../../images'
 
 export default [
-	<Slide key="survery_comp_list_front" bgImage={images.halloweenBG}>
+	<Slide
+		key="survery_comp_list_front"
+		bgImage={images.halloweenBG}
+		notes={notes.composableLibrariesSplash}
+	>
 		<div style={{ backgroundColor: 'rgba(0,0,0,0.7)' }}>
 			<Heading size={1} textColor="yello">
 				Component-Based Libraries

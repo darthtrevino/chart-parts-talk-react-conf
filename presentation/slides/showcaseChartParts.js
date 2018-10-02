@@ -25,7 +25,7 @@ const leadUp = [
 	<CodeSlide
 		key="showcase_vegabarchart"
 		transition={['fade']}
-		lang="js"
+		lang="jsx"
 		code={code.vegaBarChart}
 		notes={notes.vegaBarChart}
 		ranges={[
@@ -91,7 +91,7 @@ const basicExample = [
 	<CodeSlide
 		key="showcase_barchart_example"
 		transition={['fade']}
-		lang="js"
+		lang="jsx"
 		code={code.barChart}
 		notes={notes.chartPartsBarChart}
 		ranges={[
@@ -157,15 +157,33 @@ const basicExample = [
 ]
 
 const mobileExample = [
-	<Slide key="showcase_mobile" notes={notes.mobile}>
+	<Slide
+		key="showcase_mobile"
+		notes={notes.mobile}
+		bgImage={images.skeleMobile}
+	>
 		<Heading size={2} textColor="pcontrast">
 			Mobile
 		</Heading>
 	</Slide>,
+	<CodeSlide
+		key="showcase_mobile_code"
+		lang="jsx"
+		notes={notes.mobileCode}
+		code={code.mobile}
+		ranges={[
+			{ loc: [9, 11], title: 'Switch Renderer' },
+			{ loc: [41, 44], title: 'Handle Native Events' },
+		]}
+	/>,
 ]
 
 const accessibilityExample = [
-	<Slide key="showcase_accessibility" notes={notes.accessibility}>
+	<Slide
+		key="showcase_accessibility"
+		notes={notes.accessibility}
+		bgImage={images.throwSkull}
+	>
 		<Heading size={2} textColor="pcontrast">
 			Accessibility
 		</Heading>
@@ -173,7 +191,7 @@ const accessibilityExample = [
 	<CodeSlide
 		key="showcase_accessible_code"
 		transition={['fade']}
-		lang="js"
+		lang="jsx"
 		notes={notes.accessibilityCode}
 		code={code.barChartAccessible}
 		ranges={[
@@ -200,20 +218,26 @@ const accessibilityExample = [
 ]
 
 const usingSfcExample = [
-	<Slide key="showcase_manage_complexity" notes={notes.managingComplexity}>
-		<Heading size={2} textColor="pcontrast">
-			Managing Complexity
-		</Heading>
-		<Layout>
-			<Appear>
-				<Text textColor="highlight">Renderless Components</Text>
-			</Appear>
-		</Layout>
+	<Slide
+		key="showcase_manage_complexity"
+		notes={notes.managingComplexity}
+		bgImage={images.rattleMeBones}
+	>
+		<div style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
+			<Heading size={2} textColor="pcontrast">
+				Managing Complexity
+			</Heading>
+			<Layout>
+				<Appear>
+					<Text textColor="highlight">Renderless Components</Text>
+				</Appear>
+			</Layout>
+		</div>
 	</Slide>,
 	<CodeSlide
 		key="showcase_sfc"
 		transition={['fade']}
-		lang="js"
+		lang="jsx"
 		code={code.barChartSFC}
 		notes={notes.barChartSFC}
 		ranges={[
@@ -232,15 +256,21 @@ const usingSfcExample = [
 ]
 
 const composabilityExample = [
-	<Slide key="showcase_composability" notes={notes.composability}>
-		<Heading size={2} textColor="pcontrast">
-			Composability
-		</Heading>
+	<Slide
+		key="showcase_composability"
+		notes={notes.composability}
+		bgImage={images.skeletonDance}
+	>
+		<div style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
+			<Heading size={2} textColor="secondary">
+				Composability
+			</Heading>
+		</div>
 	</Slide>,
 	<CodeSlide
 		key="showcase_composeability_code"
 		transition={['fade']}
-		lang="js"
+		lang="jsx"
 		notes={notes.composabilityCode}
 		code={code.barChartWithMean}
 		ranges={[
