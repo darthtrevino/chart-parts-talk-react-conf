@@ -1,13 +1,30 @@
 import React from 'react'
-import { ListItem, List, Slide, Appear, Layout, Fill, Image } from 'spectacle'
+import {
+	ListItem,
+	List,
+	Slide,
+	Appear,
+	Layout,
+	Fill,
+	Image,
+	Text,
+	Heading,
+} from 'spectacle'
 import CommonHeader from './CommonHeader'
 import notes from '../../notes'
 import images from '../../images'
 
 export default [
+	<Slide key="survery_comp_list_front" bgImage={images.halloweenBG}>
+		<div style={{ backgroundColor: 'rgba(0,0,0,0.7)' }}>
+			<Heading size={1} textColor="yello">
+				Component-Based Libraries
+			</Heading>
+		</div>
+	</Slide>,
 	<Slide
-		key="surv_comp_vicfront"
-		notes={notes.composableVictory}
+		key="surv_comp_list"
+		notes={notes.composableLibraries}
 		transition={['fade']}
 	>
 		<CommonHeader />
@@ -15,17 +32,20 @@ export default [
 			<Appear>
 				<Fill>
 					<List>
-						<ListItem textColor="yello">Victory</ListItem>
+						<Appear>
+							<ListItem textColor="yello">victory</ListItem>
+						</Appear>
+						<Appear>
+							<ListItem textColor="yello">react-vis</ListItem>
+						</Appear>
+						<Appear>
+							<ListItem textColor="yello">recharts</ListItem>
+						</Appear>
 					</List>
 				</Fill>
 			</Appear>
 		</Layout>
 	</Slide>,
-	<Slide
-		bgImage={images.victory}
-		key="surv_comp_vicpage"
-		notes={notes.composableVictoryPage}
-	/>,
 	<Slide
 		key="surv_comp_victax"
 		notes={notes.victoryTaxonomical}
@@ -33,7 +53,7 @@ export default [
 	>
 		<CommonHeader />
 		<Layout>
-			<Fill>
+			<Fill style={{ flex: 1 }}>
 				<List>
 					<ListItem textColor="yello">
 						Victory
@@ -44,30 +64,7 @@ export default [
 				</List>
 			</Fill>
 			<Fill>
-				<Image src={images.victoryApi} />
-			</Fill>
-		</Layout>
-	</Slide>,
-	<Slide
-		key="surv_comp_viccust"
-		notes={notes.victoryCustomizable}
-		transition={['fade']}
-	>
-		<CommonHeader />
-		<Layout>
-			<Fill>
-				<List>
-					<ListItem textColor="yello">
-						Victory
-						<List style={{ marginLeft: 10 }}>
-							<ListItem>taxonomical</ListItem>
-							<ListItem>custom elements</ListItem>
-						</List>
-					</ListItem>
-				</List>
-			</Fill>
-			<Fill>
-				<Image src={images.victoryCustom} />
+				<Image src={images.victoryApi} height={350} />
 			</Fill>
 		</Layout>
 	</Slide>,
@@ -84,14 +81,38 @@ export default [
 						Victory
 						<List style={{ marginLeft: 10 }}>
 							<ListItem>taxonomical</ListItem>
-							<ListItem>customizable</ListItem>
 							<ListItem>composable</ListItem>
+							<ListItem>customizable</ListItem>
 						</List>
 					</ListItem>
 				</List>
 			</Fill>
 			<Fill>
 				<Image src={images.victoryComposable} />
+			</Fill>
+		</Layout>
+	</Slide>,
+	<Slide
+		key="surv_comp_viccust"
+		notes={notes.victoryCustomizable}
+		transition={['fade']}
+	>
+		<CommonHeader />
+		<Layout>
+			<Fill style={{ flex: 1 }}>
+				<List>
+					<ListItem textColor="yello">
+						Victory
+						<List style={{ marginLeft: 10 }}>
+							<ListItem>taxonomical</ListItem>
+							<ListItem>composable</ListItem>
+							<ListItem>custom elements</ListItem>
+						</List>
+					</ListItem>
+				</List>
+			</Fill>
+			<Fill>
+				<Image src={images.victoryCustom} />
 			</Fill>
 		</Layout>
 	</Slide>,
@@ -108,8 +129,9 @@ export default [
 						Victory
 						<List style={{ marginLeft: 10 }}>
 							<ListItem>taxonomical</ListItem>
-							<ListItem>custom elements</ListItem>
 							<ListItem>composable</ListItem>
+							<ListItem>custom elements</ListItem>
+							<ListItem>svg-bound</ListItem>
 						</List>
 					</ListItem>
 				</List>
@@ -119,11 +141,6 @@ export default [
 			</Fill>
 		</Layout>
 	</Slide>,
-	<Slide
-		bgImage={images.reactVisPage}
-		notes={notes.reactVisPage}
-		key="surv_comp_rv"
-	/>,
 	<Slide key="surv_comp_rv_api" notes={notes.reactVisApi} transition={['fade']}>
 		<CommonHeader />
 		<Layout>
@@ -165,11 +182,6 @@ export default [
 			</Fill>
 		</Layout>
 	</Slide>,
-	<Slide
-		key="surv_comp_recharts_page"
-		bgImage={images.rechartsPage}
-		notes={notes.rechartsPage}
-	/>,
 	<Slide
 		key="surv_comp_recharts_overview"
 		notes={notes.rechartsDatabind}

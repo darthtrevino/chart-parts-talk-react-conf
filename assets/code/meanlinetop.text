@@ -1,0 +1,11 @@
+import React from 'react'
+import { 
+    BarChart, 
+    MeanLine,
+} from './dooty-charts'
+
+export default () => (
+    <BarChart data={...}>
+        <MeanLine />
+    </BarChart>
+)

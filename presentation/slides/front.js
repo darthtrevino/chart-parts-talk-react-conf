@@ -2,11 +2,12 @@
 import React from 'react'
 import { Heading, Slide, Layout } from 'spectacle'
 import notes from '../notes'
+import images from '../images'
 
 export default (
 	<Slide
 		transition={['zoom']}
-		bgColor="primary"
+		bgImage={images.spookyBG}
 		notes={notes.slide1}
 		fill
 		key="front"

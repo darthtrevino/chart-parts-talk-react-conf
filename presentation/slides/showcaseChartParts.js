@@ -1,13 +1,12 @@
 import React from 'react'
 import {
 	Heading,
-	ListItem,
-	List,
 	Slide,
 	Text,
 	Appear,
 	Image,
 	Layout,
+	CodePane,
 } from 'spectacle'
 import CodeSlide from 'spectacle-code-slide'
 import images from '../images'
@@ -17,7 +16,7 @@ import notes from '../notes'
 import BarChartLive from '../components/BarChart'
 import BarChartMeanLive from '../components/BarChartWithMeanLine'
 
-export default [
+const leadUp = [
 	<Slide
 		bgImage={images.vegapage}
 		key="showcase_vega"
@@ -44,7 +43,7 @@ export default [
 		{/*TODO: add live bar chart*/}
 		<Image src={images.barchart2} />
 	</Slide>,
-	<Slide key="showcase_whatif" notes={notes.whatif}>
+	<Slide key="showcase_whatif" notes={notes.whatif} bgImage={images.spookyBG}>
 		<Heading size={5} textColor="secondary">
 			What if we had
 		</Heading>
@@ -52,9 +51,11 @@ export default [
 			Vega's abstraction
 		</Heading>
 		<Appear>
-			<Heading size={4} textColor="yello">
-				...but with components?
-			</Heading>
+			<div style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
+				<Heading size={4} textColor="yello">
+					...but with components?
+				</Heading>
+			</div>
 		</Appear>
 	</Slide>,
 	<Slide
@@ -84,6 +85,9 @@ export default [
 	>
 		<Image src={images.dropout} />
 	</Slide>,
+]
+
+const basicExample = [
 	<CodeSlide
 		key="showcase_barchart_example"
 		transition={['fade']}
@@ -150,6 +154,52 @@ export default [
 	<Slide key="showcase_live_chart">
 		<BarChartLive />
 	</Slide>,
+]
+
+const mobileExample = [
+	<Slide key="showcase_mobile" notes={notes.mobile}>
+		<Heading size={2} textColor="pcontrast">
+			Mobile
+		</Heading>
+	</Slide>,
+]
+
+const accessibilityExample = [
+	<Slide key="showcase_accessibility" notes={notes.accessibility}>
+		<Heading size={2} textColor="pcontrast">
+			Accessibility
+		</Heading>
+	</Slide>,
+	<CodeSlide
+		key="showcase_accessible_code"
+		transition={['fade']}
+		lang="js"
+		notes={notes.accessibilityCode}
+		code={code.barChartAccessible}
+		ranges={[
+			{
+				loc: [20, 21],
+				title: 'a11y',
+				note: 'add a top-level chart description',
+			},
+			{
+				loc: [27, 28],
+				title: 'a11y',
+				note: 'define a tab-index for keyboard-navigability',
+			},
+			{
+				loc: [28, 30],
+				title: 'a11y',
+				note: 'include an aria decription for the element',
+			},
+		]}
+	/>,
+	<Slide key="showcase_live_chart_accessible" notes={notes.accessibleLiveChart}>
+		<BarChartLive />
+	</Slide>,
+]
+
+const usingSfcExample = [
 	<Slide key="showcase_manage_complexity" notes={notes.managingComplexity}>
 		<Heading size={2} textColor="pcontrast">
 			Managing Complexity
@@ -179,6 +229,9 @@ export default [
 			},
 		]}
 	/>,
+]
+
+const composabilityExample = [
 	<Slide key="showcase_composability" notes={notes.composability}>
 		<Heading size={2} textColor="pcontrast">
 			Composability
@@ -217,51 +270,42 @@ export default [
 			},
 		]}
 	/>,
+	<Slide key="showcase_meantop" notes={notes.composableComposed}>
+		<CodePane
+			lang="jsx"
+			theme="external"
+			source={code.barChartWithMeanTop}
+			textSize={40}
+		/>
+	</Slide>,
 	<Slide key="showcase_live_barchart">
 		<BarChartMeanLive />
 	</Slide>,
-	<Slide key="showcase_accessibility" notes={notes.accessibility}>
-		<Heading size={2} textColor="pcontrast">
-			Accessibility
-		</Heading>
-	</Slide>,
-	<CodeSlide
-		key="showcase_accessible_code"
-		transition={['fade']}
-		lang="js"
-		notes={notes.accessibilityCode}
-		code={code.barChartAccessible}
-		ranges={[
-			{
-				loc: [20, 21],
-				title: 'a11y',
-				note: 'add a top-level chart description',
-			},
-			{
-				loc: [27, 28],
-				title: 'a11y',
-				note: 'define a tab-index for keyboard-navigability',
-			},
-			{
-				loc: [28, 30],
-				title: 'a11y',
-				note: 'include an aria decription for the element',
-			},
-		]}
+	<Slide
+		key="showcase_winchester"
+		bgImage={images.winchester}
+		notes={notes.showcaseWinchester}
 	/>,
-	<Slide key="showcase_live_chart_accessible" notes={notes.accessibleLiveChart}>
-		<BarChartLive />
-	</Slide>,
-	<Slide key="showcase_mobile" notes={notes.mobile}>
-		<Heading size={2} textColor="pcontrast">
-			Mobile
-		</Heading>
-	</Slide>,
-	<Slide key="showcase_conclusion" notes={notes.conclusion}>
-		<Heading size={2} textColor="pcontrast">
-			That's all Folks!
-		</Heading>
-		<Text textColor="secondary">github.com/Microsoft/chart-parts</Text>
-		<Text textColor="secondary">twitter.com/darthtrevino</Text>
+]
+
+export default [
+	...leadUp,
+	...basicExample,
+	...mobileExample,
+	...usingSfcExample,
+	...accessibilityExample,
+	...composabilityExample,
+	<Slide
+		key="showcase_conclusion"
+		notes={notes.conclusion}
+		bgImage={images.dealWithIt}
+	>
+		<div style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
+			<Heading size={2} textColor="pcontrast">
+				That's all Folks!
+			</Heading>
+			<Text textColor="yello">github.com/Microsoft/chart-parts</Text>
+			<Text textColor="yello">twitter.com/darthtrevino</Text>
+		</div>
 	</Slide>,
 ]

@@ -21,17 +21,16 @@ export default class Presentation extends React.Component {
 	render() {
 		return (
 			<Deck
-				transition={['zoom', 'slide']}
+				transition={['slide']}
 				transitionDuration={500}
 				theme={theme}
+				progress="bar"
 			>
 				{frontSlide}
 				{whoWeAre}
 				{aboutOurWork}
 				{chartsAreImportant}
-				{chartTypeCarousel(this.state.animIndex, animIndex =>
-					this.setState({ animIndex }),
-				)}
+				{chartTypeCarousel}
 				{contrivedProblem}
 				{reactAndD3}
 				{gogTheory(this.state.animIndex, animIndex =>

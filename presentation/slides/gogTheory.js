@@ -40,7 +40,10 @@ export default (animIndex, setAnimIndex) => [
 					opacity: 1,
 					transform: 'translate3d(-230px, -361px, 0px) scale(0.4) rotate(0deg)',
 				},
-				{},
+				{
+					opacity: 1,
+					transform: 'translate3d(-230px, -361px, 0px) scale(0.4) rotate(0deg)',
+				},
 				{},
 				{},
 				{},
@@ -59,18 +62,22 @@ export default (animIndex, setAnimIndex) => [
 		</Heading>
 		<List>
 			<Appear>
-				<ListItem textColor="highlight">
-					Specification
+				<ListItem textColor="highlight" textSize={55}>
+					Specification Components
 					<Text textColor="yello" textSize={25} style={{ marginLeft: 60 }}>
 						Data, Trans, Scale, Coord, Element, Guide
 					</Text>
 				</ListItem>
 			</Appear>
 			<Appear>
-				<ListItem textColor="highlight">Scenegraph Generation</ListItem>
+				<ListItem textSize={55} textColor="highlight">
+					Scenegraph Generation
+				</ListItem>
 			</Appear>
 			<Appear>
-				<ListItem textColor="highlight">Rendering</ListItem>
+				<ListItem textSize={55} textColor="highlight">
+					Rendering
+				</ListItem>
 			</Appear>
 		</List>
 	</Slide>,

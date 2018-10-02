@@ -1,4 +1,17 @@
 export default {
+	profile: require('../assets/louvre.png'),
+	dooty: require('../assets/dootyboi.gif'),
+	skeleton_army: require('../assets/skeleton_army.jpg'),
+	bones: require('../assets/bones.jpg'),
+	shoggoth: require('../assets/shoggoth.jpg'),
+	skelethumb: require('../assets/skelethumb.png'),
+	doot: require('../assets/doot.png'),
+	dootier: require('../assets/dootier.gif'),
+	dealWithIt: require('../assets/deal_with_it.gif'),
+	spookyBG: require('../assets/spooky_bg.jpg'),
+	spookyAsylumBG: require('../assets/spooky_asylum_bg.jpg'),
+	hauntedHouseBG: require('../assets/haunted_house_bg.jpg'),
+	halloweenBG: require('../assets/halloween_bg.jpg'),
 	city: require('../assets/city.jpg'),
 	kat: require('../assets/kat.png'),
 	logo: require('../assets/formidable-logo.svg'),
@@ -20,6 +33,7 @@ export default {
 	npmsearch: require('../assets/npm_search.png'),
 	lumbergh: require('../assets/lumbergh.gif'),
 	rage: require('../assets/rage.png'),
+	angry_dooting: require('../assets/angry_dooting.gif'),
 	missingAbstraction: require('../assets/missing_abstraction.png'),
 	wilkinson: require('../assets/wilkinson_book.jpg'),
 	analogy: require('../assets/analogy.png'),
@@ -33,6 +47,7 @@ export default {
 	barchartapi: require('../assets/barchart_api.png'),
 	hans: require('../assets/hans.gif'),
 	d3: require('../assets/d3.png'),
+	pipboy: require('../assets/pipboy.png'),
 
 	// Common Charts
 	barChart: require('../assets/bar_chart.png'),

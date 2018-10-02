@@ -9,6 +9,8 @@ import {
 	Image,
 	Layout,
 	Fill,
+	Code,
+	CodePane,
 } from 'spectacle'
 import CodeSlide from 'spectacle-code-slide'
 
@@ -17,11 +19,15 @@ import images from '../images'
 import code from '../code'
 
 export default [
-	<Slide notes={notes.stepsForUsingNewLibrary} key="contrived_steps">
+	<Slide
+		notes={notes.stepsForUsingNewLibrary}
+		key="contrived_steps"
+		bgImage={images.spookyAsylumBG}
+	>
 		<Heading heading caps size={1} textColor="secondary">
 			Steps for
 		</Heading>
-		<Heading caps size={2} textColor="highlight">
+		<Heading caps size={2} textColor="yello">
 			Using a new
 		</Heading>
 		<Heading caps textColor="secondary">
@@ -35,28 +41,31 @@ export default [
 	>
 		<Image src={images.npmsearch} />
 	</Slide>,
-	<Slide transition={['spin']} notes={notes.yarninstall} key="contrived_yi">
-		<Heading size={5} textColor="pcontrast">
+	<Slide notes={notes.yarninstall} key="contrived_yi">
+		<Code textColor="yello" language="js">
 			> yarn install fancy-charts
-		</Heading>
+		</Code>
 	</Slide>,
-	<CodeSlide
-		key="contrived_uselib"
-		notes={notes.useFancyCharts}
-		transition={['fade']}
-		lang="js"
-		code={code.fancyBarChart}
-		ranges={[
-			{ loc: [1, 2], note: 'Import fancy-charts, w00t!!' },
-			{ loc: [4, 5], note: 'Use the library 🙌' },
-		]}
-	/>,
+	<Slide key="cortrived_uselib_codepane" notes={notes.useFancyCharts}>
+		<Heading size={3}>🙌 🙌 🙌</Heading>
+		<CodePane
+			fill
+			lang="jsx"
+			theme="external"
+			textSize={30}
+			source={code.fancyBarChart}
+		/>
+		<Heading size={3}>🙌 🙌 🙌</Heading>
+	</Slide>,
 	<Slide
 		transition={['fade']}
 		notes={notes.fancybarchartrendered}
 		key="contrived_barchart"
 	>
 		<Image src={images.barchart2} />
+		<div style={{ position: 'absolute', right: 0, bottom: 0 }}>
+			<Image src={images.pipboy} height={250} />
+		</div>
 	</Slide>,
 	<Slide
 		transition={['fade']}
@@ -102,23 +111,22 @@ export default [
 	<Slide transition={['fade']} notes={notes.barchartapi} key="contrived_api">
 		<Image src={images.barchartapi} />
 	</Slide>,
-	<Slide notes={notes.hans} key="contrived_hans">
-		<Layout>
-			<Fill>
-				<Image fill src={images.hans} />
-			</Fill>
-			<Fill>
-				<Text textColor="secondary">High-Level Charting Abstractions</Text>
-				<Heading size={1} fill style={{ padding: 5 }}>
-					👇
-				</Heading>
-				<Text textColor="highlight">Low-Level 2D Libraries</Text>
-			</Fill>
-		</Layout>
+	<Slide notes={notes.hans} key="contrived_hans" bgImage={images.hans}>
+		<div style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
+			<Heading size={2} textColor="secondary">
+				Abstract Charts
+			</Heading>
+			<Heading size={1} fill style={{ padding: 5 }}>
+				👇👇👇
+			</Heading>
+			<Heading size={2} textColor="highlight">
+				2D Libraries
+			</Heading>
+		</div>
 	</Slide>,
 	<Slide
 		transition={['fade']}
-		bgImage={images.rage}
+		bgImage={images.angry_dooting}
 		notes={notes.rage}
 		key="contrived_rage"
 	/>,

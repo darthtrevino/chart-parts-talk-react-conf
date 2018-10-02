@@ -3,41 +3,24 @@ export default {
     Good morning! My name is Chris Trevino, and I'm an software engineer with Microsoft Research.<br/><br/>
     To set this talk up with a little bit of context, I'd like to briefly tell you a bit about my team's work.  
   `,
-	mapMs: `
-    If you're familiar with the Seattle are, then you probably know that our main campus is over here on the east side, in Redmond.
-  `,
-	mapSilverdale: `
-    But my team is a little goofy<br/><br/>
-    We are over here in Silverdale, with Bigfoot and wookies.<br/><br/>
+	aboutMe: `
+    Good morning! My name is Chris Trevino, and I'm an software engineer with Microsoft Research in Silverdale, WA.<br/><br/>
+
+    I've been writing Javascript for about 5 years now - before that I spent a lot of time doing back-end development using tools like Java, C#, etc..<br/><br/>
+
+    I prefer using classes and I don't mind hierarchies of them - which probably makes me a bit of a weirdo here<br/><br/>
+
+    To set this talk up with a little bit of context, I'd like to briefly tell you a bit about my team's work.<br/><br/>
+
     We are kind of a newer team whose emphasis is on applying data analytics and machine learning to large sets of textual data, and trying to convey insights from that<br/><br/>
-  
-    `,
 
-	usingANewChartingLibrary: `
-  These are the common steps we always run into when using a new charting library
-  `,
-
-	// bossman: `
-	// My boss is Chris White, who's our team's principal researcher.<br/><br/>
-	// He's a much better public speaker than I am, so if I screw this up, send your complaints to him.
-	// `,
-
-	ourwork: `We work on a grab-bag of data problems.<br/><br/>
-  Our job usually involves getting a large set of data from somewhere and brainstorming 
-  on ways to make it useful or interesting, or to get insights from it.<br/><br/>
-  
-  This sometimes takes the form of brand management, helping individuals and 
-  brands understand where conversations about them are happening, and what the general tone of those conversations are.<br/><br/>
-
-  Or understanding how information flows through news and influence networks: e.g. where ideas come from and how they propagate...<br/><br/>
-  Or fighting tech scams, human trafficking, and other really bad things...<br/><br/>
-  Or trying to find ways to apply data to healthcare cost problems, which is a topic we're actively working on...
-  <br/><br/><br/>
+    <br/><br/><br/>    
   `,
 
 	ourteam: `
-  Our team is broken up into a few parts, and we have a handful of very smart humans working on the Data and ML part of our problems.<br/><br/>
-  We also have some team members who wore on services that apply those techniques with large data sources.
+  I'm part of a full-stack team that runs the gamut from data analysis and ML to backend data services to user interfaces. <br/><br/>
+  We have a handful of very smart humans working on the Data and ML part of our problems.<br/><br/>
+  We also have some team members who wore on services that apply those techniques with large data sources.<br/><br/>
   `,
 
 	ourteam2: `
@@ -45,13 +28,27 @@ export default {
   We're a team of about 5 people, and we're giant react fanpeople. 
   `,
 
+	ourwork: `We work on a grab-bag of data problems.<br/><br/>
+  Our job usually involves looking at large datasets from sister teams and brainstorming 
+  on ways to make it useful or interesting, or to glean insights from it.<br/><br/>
+  
+  This sometimes takes the form of brand management, helping individuals and 
+  brands understand where conversations about them are happening, and what the general tone of those conversations are.<br/><br/>
+
+  Or understanding how information flows through news and influence networks: e.g. where ideas come from and how they propagate...<br/><br/>
+
+  Or fighting tech scams, human trafficking, and other really bad things...<br/><br/>
+
+  Or trying to find ways to apply data to healthcare cost problems, which is a topic we're actively working on...
+  <br/><br/><br/>
+  `,
+
 	uiwork: `
   Our team builds a lot of data visualizations to try and communicate a lot of 
   different kinds of data. <br/><br/>
 
   We're not necessarily experts in experimental data visualization: there are 
-  other teams at Microsoft Research that very much are, but we try to apply 
-  visualization on almost a daily basis<br/><br/>
+  other teams at Microsoft Research that are, but we apply visualization on almost a daily basis<br/><br/>
 
   A lot of times, our work is as simple as wiring up a PowerBI workbook that
   tells a story with data, and allows users to explore the data using that modality. 
@@ -63,18 +60,24 @@ export default {
   Sometimes we get to do one off experiments, to see what mixes of technologies work 
   well, and how well they scale with input data<br/><br/>
 
-  And sometimes we get to make applications - in the web and on mobile - that deliver 
+  And sometimes we get to make applications - in the web and on mobile, usually in React, - that deliver 
   a custom experience and tell a very specific story.
   <br/><br/><br/>
   `,
 
 	uiemphasis: `
-  Now this is all just to emphasize that for us, data visualization is absolutely essential to what we do. It's ofter our first method for understanding nuance in data that's hard to 
-  discern in its raw form.<br/><br/>
+  Now this is all just to emphasize that for us, data visualization is absolutely essential to what we do. 
+  It's ofter our first method for understanding nuance in data that's hard to discern in its raw form.<br/><br/>
+
   A lot of times when we work with teams, they're seeing their data visualized for the first time and it can be illuminating for them. <br/><br/>
+
   I would wager that data visualization is important for you too. Maybe not all of the time, and maybe it's not super complex, but we're all UI developers, and it's a problem space we all run into<br/><br/>
   Usually, this takes the form of charting...
   <br/><br/><br/>
+  `,
+
+	usingANewChartingLibrary: `
+  These are the common steps we always run into when using a new charting library
   `,
 
 	charting: `
@@ -153,8 +156,10 @@ export default {
   <br/>- or the customer, 
   <br/>- maybe at the pub for having terrible parking after 6, 
   <br/>- but mostly, we're angry at ourselves.<br/><br/>
+
   We selected our charting library because it's components had an easy abstraction at the top-level, 
   but we don't havy any recourse for when we need something subtle or custom in that framework.<br/><br/>
+
   Obviously, this is a contrived example, but we've all been in situations where the expressiveness afforded to us 
   by the abstraction level of a library we've selected doesn't match that of our problem.
   <br/><br/><br/>
@@ -306,16 +311,30 @@ export default {
   <br/><br/><br/>
   `,
 
-	composableVictory: `
+	composableLibrariesSplash: `
   Now there are other charting libraries that are not based on the Grammar of Graphics system (at least as far as I can tell), but are
   flexible and composable by virtue of being component-based.<br/><br/>
 
   The React development community has made some very compelling charting libraries that get us into that sweet spot of 
   being able to customize charts without making them from scratch.<br/><br/>
 
-  PUSH<br/><br/>
-  And one great option is victory-charts by Formidable.
   <br/><br/><br/>
+  `,
+
+	composableLibraries: `  
+  
+  One great option is victory-charts by Formidable labs<br/><br/>
+
+  Another great option is React-Vis by Uber. We've used this in some of our own React applications<br/><br/>
+  
+  Finally, there's Recharts - this one is pretty popular on NPM and has a pretty great api<br/><br/>
+  <br/><br/><br/>
+  `,
+
+	composableApis: `
+  Let's take a look at their APIs.<br/><br/>
+
+  One thing we'll see out of the gate is how taxonomic they are. What this means is   
   `,
 
 	composableVictoryPage: `
@@ -324,7 +343,8 @@ export default {
   `,
 
 	victoryTaxonomical: `
-  Their API for charting elements is kind of taxonomical in nature. What that means is that each Victory component is basically a different kind of chart<br/><br/> 
+  Their API for charting elements is kind of taxonomical in nature. <br/><br/>
+  What that means is that each Victory component is basically a different kind of chart<br/><br/> 
   And the language we use to express our own charts is kind of limited by kinds of chart types they provide<br/><br/>
   
   Some libraries, even the theory-grounded ones, provide a catalogue of chart types instead of low-level primitives.<br/><br/>
@@ -334,7 +354,7 @@ export default {
   `,
 
 	victoryCustomizable: `
-  One really nice thing about Victory is that they've thought about how users would develop custom components. 
+  One really nice thing about Victory is that they've thought about how users would develop custom components.<br/><br/>
   A lot of the "grammar of graphics" implementations are envisioned as closed systems that contain all the visual 
   elements you'll ever want.
   `,
@@ -351,10 +371,6 @@ export default {
   <br/><br/>
   `,
 
-	reactVisPage: `
-  Another great option is React-Vis by Uber. We've used this in some of our React applications, and it's been fantastic.
-  `,
-
 	reactVisApi: `
   The components of the react-vis API are named really well. The component types are expressed as series of mark types being drawn instead of taxonomical chart types.<br/><br/>
   This is basically just a difference in naming, but conceptually it gets us closer to the ideas in the grammar of graphics.<br/><br/>
@@ -366,12 +382,6 @@ export default {
   Switching rendering in react-vis is done by implementing a canvas-based component. <br/><br/>
   This is better than having nothing in terms of being able to switch rendering engines, but we can start to see 
   that not having a scenegraph in these libraries makes implementing alternate rendering engines difficult.`,
-
-	rechartsPage: `
-  The last one we're going to look at is a library called Recharts.<br/><br/>
-  This is a library that we didn't really learn about until I was getting this talk ready, and it gave me just a touch
-  of existential despair. But it has some great qualities that make it fit well into the ideas we're talking about.
-  `,
 
 	rechartsDatabind: `
   The mechanism for getting data into Recharts componts is a little different than react-vis or victory<br/><br/>
@@ -404,8 +414,8 @@ export default {
   `,
 
 	commonThemes: `
-  Now that we've looked at a few composable libraries, and have thought about them from the viewpoint of the grammar of graphics, 
-  there are some common themes and ideas we've picked up.
+  We've talked briefly about the grammar-of-graphics theory, and we've taken a look at a few component-based charting libraries. <br/><br/>
+  Let's talk about some common themes that have arisen from looking at these things together.
   `,
 
 	taxonomyVsElements: `
@@ -419,7 +429,10 @@ export default {
   and we want to be able to eject out into the raw pieces, or add new children if we need to customize our chart<br/><br/>
   `,
 	directVsScenegraph: `
-  Another concept to consider is how flexible our rendering system is - are we rendering directly to a view technology (like all the libraries we've seen), or are we emitting an intermediate scenegraph?<br/><br/>
+  Another concept to consider is how flexible our rendering system is - are we 
+  rendering directly to a view technology (like all the libraries we've seen), 
+  or are we emitting an intermediate scenegraph?<br/><br/>
+  
   Scenegraph-based charting libraries, by their nature, are going to be easier to apply to different rendering technologies.<br/><br/>
   This probably has some implications for extensibility<br/><br/>
   how would render-prop based components enter into the chart?<br/><br/>
@@ -432,10 +445,12 @@ export default {
   <br/><br/><br/>
   `,
 	dataInjectionVsDataBinding: `
-  We've briefly mentioned this, but ne thing we haven't dug into much is how we deal with data in our charts. We've talked about different ways of injecting data into our chart components,
+  We've briefly mentioned this, but one thing we haven't dug into much is how we deal with data in our charts. 
+  We've talked about different ways of injecting data into our chart components (namely direct or bound), 
   but we haven't really discussed what that means.<br/><br/>
-  In all of the libraries we've seen so far, the onus for data aggregation, faceting, statistical computing, etc.. is put on the developer. It's up to you to do 
-  that performantly and inject it into the right places in your chart components. <br/><br/>
+
+  In all of the libraries we've seen so far, the onus for data aggregation, faceting, statistical computation, is put on the developer. 
+  It's up to you to do  that performantly and inject it into the right places in your chart components. <br/><br/>
   In the "grammar of graphics", the data computation is a part of the pipeline of creating a visual.
   There are some interesting ideas on how to do this effectively, but in component-land, as far as I can tell it's kind of an open problem. 
   <br/><br/><br/>
@@ -615,6 +630,11 @@ export default {
   And the y value will be the computed mean of the data.<br/><br/>
   `,
 
+	composableComposed: `
+  Now we have the basic elements that we want, and we can compose them pretty easily.<br/><br/>
+  Now we're dealing with exactly the abstraction level we want - we can make meaningful component types out of our system of primitives.
+  `,
+
 	accessibility: `
   Now let's talk about accessibility. It's not normally something we consider when writing visualizations, since we normally assume that our 
   users are sighted.<br/><Br/>
@@ -644,6 +664,10 @@ export default {
   And finally, the scenegraph architecture lets us render charts to any target device using Javascript.<br/><br/>
   By using react-Native-svg based virtual-dom, we can really easily migrate our charts into native-land.
   `,
+
+	showcaseWinchester: `
+  And with that, we've solved our problem, and the pint is back on.
+   `,
 
 	conclusion: `
   And that's about it!<br/><br/>

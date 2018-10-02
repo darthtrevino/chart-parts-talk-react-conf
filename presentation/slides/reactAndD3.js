@@ -18,12 +18,12 @@ export default [
 			Using d3 and React
 		</Heading>
 		<Layout>
-			<Fill>
+			<Fill style={{ padding: 10 }}>
 				<Appear>
 					<Text textColor="yello">Use React to wrap d3</Text>
 				</Appear>
 			</Fill>
-			<Fill>
+			<Fill style={{ padding: 10 }}>
 				<Appear>
 					<Text textColor="highlight">Use d3 utils to author React dom</Text>
 				</Appear>

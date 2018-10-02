@@ -6,4 +6,5 @@ export default {
 	barChartSFC: require('raw-loader!../assets/code/bar-chart-sfc.text'),
 	barChartWithMean: require('raw-loader!../assets/code/bar-chart-with-mean.text'),
 	barChartAccessible: require('raw-loader!../assets/code/bar-chart-accessible.text'),
+	barChartWithMeanTop: require('raw-loader!../assets/code/meanlinetop.text'),
 }
