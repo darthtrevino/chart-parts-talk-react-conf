@@ -28,15 +28,23 @@ export default (
 								fit
 							>
 								<HiImWrapper pose={animIndex == 0 ? 'shifted' : 'normal'}>
-									<PosedText pose={animIndex === 0 ? 'visible' : 'hidden'}>
-										Hi I'm&nbsp;
-									</PosedText>
-									<span style={{ color: palette.crimson }}>Chris</span>
+									<div>
+										<PosedText pose={animIndex === 0 ? 'visible' : 'hidden'}>
+											Hi I'm&nbsp;
+										</PosedText>
+										<span style={{ color: palette.crimson }}>Chris</span>
+										<PosedText
+											pose={animIndex === 0 ? 'hidden' : 'visible'}
+											style={{ color: palette.crimson }}
+										>
+											&nbsp;Trevino
+										</PosedText>
+									</div>
 									<PosedText
 										pose={animIndex === 0 ? 'hidden' : 'visible'}
-										style={{ color: palette.crimson }}
+										style={{ marginLeft: 47 }}
 									>
-										&nbsp;Trevino
+										@darthtrevino
 									</PosedText>
 								</HiImWrapper>
 							</Heading>
@@ -51,7 +59,7 @@ export default (
 								JavaScript Convert
 							</ListItemPosed>
 							<ListItemPosed pose={animIndex > 2 ? 'visible' : 'hidden'}>
-								@darthtrevino
+								Loves 🌮🌮🌮
 							</ListItemPosed>
 						</List>
 					</Fill>

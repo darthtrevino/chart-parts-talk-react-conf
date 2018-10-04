@@ -10,8 +10,8 @@ import {
 	Text,
 	Heading,
 } from 'spectacle'
-import notes from '../notes'
-import images from '../images'
+import notes from '../../notes'
+import images from '../../images'
 
 const CommonHeader = () => (
 	<Heading size={6} caps textColor="highlight" fill>

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Slide, Anim } from 'spectacle'
 
+const containerStyle = { width: '100%', height: '100%' }
+
 export default class WalkableSlide extends React.Component {
 	state = { animIndex: -1 }
 
@@ -12,6 +14,13 @@ export default class WalkableSlide extends React.Component {
 		for (let i = 1; i < numSteps; ++i) {
 			targets.push({})
 		}
+
+		let content = null
+		try {
+			content = renderContent(animIndex + 1, numSteps)
+		} catch (err) {
+			console.log('error rendering content', err)
+		}
 		return (
 			<Slide notes={notes} {...rest}>
 				<Anim
@@ -21,9 +30,7 @@ export default class WalkableSlide extends React.Component {
 					transitionDuration={0}
 					onAnim={(forwards, animIndex) => this.setState({ animIndex })}
 				>
-					<div style={{ width: '100%', height: '100%' }}>
-						{renderContent(animIndex + 1, numSteps)}
-					</div>
+					<div style={containerStyle}>{content}</div>
 				</Anim>
 			</Slide>
 		)

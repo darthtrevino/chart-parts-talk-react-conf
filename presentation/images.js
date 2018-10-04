@@ -27,8 +27,8 @@ export default {
 	mapMs: require('../assets/map-ms.png'),
 	mapMsSilverdale: require('../assets/map-ms-silverdale.png'),
 	healthcare: require('../assets/healthcare.png'),
-	narcissism: require('../assets/narcissism.jpg'),
-	dcu: require('../assets/dcu.jpg'),
+	narcissism: require('../assets/narcissism.png'),
+	dcu: require('../assets/dcu.png'),
 	network: require('../assets/network.png'),
 	ourteam: require('../assets/our-team.png'),
 	ourteam2: require('../assets/our-team-2.png'),
@@ -51,6 +51,9 @@ export default {
 	hans: require('../assets/hans.gif'),
 	d3: require('../assets/d3.png'),
 	pipboy: require('../assets/pipboy.png'),
+	rage: require('../assets/rage.png'),
+
+	fancyGif: require('../assets/use_fancy_charts.gif'),
 
 	// Common Charts
 	barChart: require('../assets/bar_chart.png'),
