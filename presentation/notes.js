@@ -137,9 +137,6 @@ export default {
   Your boss has discussed new requirements with your customer, and your new, fancy, chart needs a little work...<br/><br/>
   `,
 	smallchange: `but it's no big deal`,
-	weekend: `And you shouldn't worry about it.<br/><br/>
-  Your friends are definitely not at the pub waiting for you already</br>
-  `,
 	barchartwithmean: `
   According to the new requirements, all we need to do is add a mean-line to our bar chart.<br/><br/>
   For some reason, it's super important for the analysts, and it's a key metric for them.

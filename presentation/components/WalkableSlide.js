@@ -5,11 +5,11 @@ export default class WalkableSlide extends React.Component {
 	state = { animIndex: -1 }
 
 	render() {
-		const { numStates, renderContent, notes, ...rest } = this.props
+		const { numSteps, renderContent, notes, ...rest } = this.props
 		const { animIndex } = this.state
 
 		const targets = []
-		for (let i = 1; i < numStates; ++i) {
+		for (let i = 1; i < numSteps; ++i) {
 			targets.push({})
 		}
 		return (
@@ -22,7 +22,7 @@ export default class WalkableSlide extends React.Component {
 					onAnim={(forwards, animIndex) => this.setState({ animIndex })}
 				>
 					<div style={{ width: '100%', height: '100%' }}>
-						{renderContent(animIndex + 1, numStates)}
+						{renderContent(animIndex + 1, numSteps)}
 					</div>
 				</Anim>
 			</Slide>

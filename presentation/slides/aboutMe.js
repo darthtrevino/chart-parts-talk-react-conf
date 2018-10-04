@@ -10,7 +10,7 @@ import posed from 'react-pose'
 export default (
 	<WalkableSlide
 		key="about_me"
-		numStates={4}
+		numSteps={4}
 		notes={notes.aboutMe}
 		renderContent={animIndex => (
 			<SlideZoom
