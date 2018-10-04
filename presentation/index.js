@@ -16,44 +16,30 @@ import gogTheory from './slides/gogTheory'
 import chartTypeCarousel from './slides/chartTypeCarousel'
 import gogLessons from './slides/gog_lessons'
 
-export default class Presentation extends React.Component {
-	state = { animIndex: 0 }
-
-	render() {
-		const { animIndex } = this.state
-		console.log('Deck@', animIndex)
-		return (
-			<Deck
-				transition={[
-					'fade',
-					'slide',
-					(transitioning, forward) => {
-						return {
-							transform: `
-							translate3d(0%, ${transitioning ? -100 : 0}%, 0)
-							`,
-						}
-					},
-				]}
-				transitionDuration={500}
-				controls={false}
-				theme={theme}
-				progress="bar"
-			>
-				{frontSlide}
-				{aboutMe}
-				{aboutOurWork}
-				{chartsAreImportant}
-				{chartTypeCarousel}
-				{problemDescription}
-				{composableCharts}
-				{gogTheory(animIndex, this.setAnimIndex)}
-				{gogLessons}
-				{gogImplementationSurvey}
-				{showcaseChartParts}
-			</Deck>
-		)
-	}
-
-	setAnimIndex = animIndex => this.setState({ animIndex })
-}
+export default () => (
+	<Deck
+		transition={[
+			'fade',
+			'slide',
+			(transitioning, forward) => ({
+				transform: `translate3d(0%, ${transitioning ? -100 : 0}%, 0)`,
+			}),
+		]}
+		transitionDuration={500}
+		controls={false}
+		theme={theme}
+		progress="bar"
+	>
+		{frontSlide}
+		{aboutMe}
+		{aboutOurWork}
+		{chartsAreImportant}
+		{chartTypeCarousel}
+		{problemDescription}
+		{composableCharts}
+		{gogTheory}
+		{gogLessons}
+		{gogImplementationSurvey}
+		{showcaseChartParts}
+	</Deck>
+)

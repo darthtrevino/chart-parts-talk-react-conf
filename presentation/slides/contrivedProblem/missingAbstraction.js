@@ -97,7 +97,12 @@ export default (
 			const centerPoses = ['hidden', 'hidden', 'hidden', 'visible']
 			return (
 				<div>
-					<Heading size={1} caps fit textColor="pcontrast">
+					<Heading
+						size={1}
+						fit
+						textColor="pcontrast"
+						style={{ fontWeight: 200 }}
+					>
 						The Missing Abstraction
 					</Heading>
 					<div style={containerStyle}>

@@ -1,8 +1,8 @@
 export default {
 	profile: require('../assets/profile_mtns.jpg'),
 	dooty: require('../assets/dootyboi.gif'),
-	skeleton_army: require('../assets/skeleton_army.jpg'),
-	bones: require('../assets/bones.jpg'),
+	skeletonArmy: require('../assets/skeleton_army.png'),
+	bones: require('../assets/bones.png'),
 	shoggoth: require('../assets/shoggoth.jpg'),
 	skelethumb: require('../assets/skelethumb.png'),
 	doot: require('../assets/doot.png'),
@@ -15,7 +15,6 @@ export default {
 	halloweenBG: require('../assets/halloween_bg.jpg'),
 	rattleMeBones: require('../assets/rattle-me-bones.gif'),
 	city: require('../assets/city.jpg'),
-	kat: require('../assets/kat.png'),
 	throwSkull: require('../assets/throw_skull.gif'),
 	skeletonDance: require('../assets/skeletondance.gif'),
 	logo: require('../assets/formidable-logo.svg'),
@@ -23,9 +22,6 @@ export default {
 	barchart2: require('../assets/bar_chart2.png'),
 	radial_chart: require('../assets/radial_chart.png'),
 	streamgraph: require('../assets/streamgraph.png'),
-	mapBase: require('../assets/map.png'),
-	mapMs: require('../assets/map-ms.png'),
-	mapMsSilverdale: require('../assets/map-ms-silverdale.png'),
 	healthcare: require('../assets/healthcare.png'),
 	narcissism: require('../assets/narcissism.png'),
 	dcu: require('../assets/dcu.png'),
@@ -52,6 +48,7 @@ export default {
 	d3: require('../assets/d3.png'),
 	pipboy: require('../assets/pipboy.png'),
 	rage: require('../assets/rage.png'),
+	dom: require('../assets/dom.png'),
 
 	fancyGif: require('../assets/use_fancy_charts.gif'),
 
