@@ -1,58 +1,65 @@
 export default {
 	slide1: `
-    Good morning! My name is Chris Trevino, and I'm an software engineer with Microsoft Research.<br/><br/>
-    To set this talk up with a little bit of context, I'd like to briefly tell you a bit about my team's work.  
+    Good morning!
   `,
 	aboutMe: `
-    Good morning! My name is Chris Trevino, and I'm an software engineer with Microsoft Research in Silverdale, WA.<br/><br/>
+    My name is Chris Trevino, and I'm an software engineer with Microsoft 
+    Research in Silverdale, WA.
+    <br/><br/>
+    
+    I've been writing Javascript for about 5 years now - before that I spent a 
+    lot of time doing back-end development using tools like Java, C#, etc..
+    <br/><br/>
 
-    I've been writing Javascript for about 5 years now - before that I spent a lot of time doing back-end development using tools like Java, C#, etc..<br/><br/>
+    To set this talk up with a little bit of context, I'd like to briefly tell
+    you a bit about my team's work.
+    <br/><br/>
 
-    I prefer using classes and I don't mind hierarchies of them - which probably makes me a bit of a weirdo here<br/><br/>
-
-    To set this talk up with a little bit of context, I'd like to briefly tell you a bit about my team's work.<br/><br/>
-
-    We are kind of a newer team whose emphasis is on applying data analytics and machine learning to large sets of textual data, and trying to convey insights from that<br/><br/>
+    We are kind of a newer team, made of data analysts, backend developers, and 
+    UI developers, whose emphasis is on applying data-analytics and machine 
+    learning to large sets of textual data, and trying to convey insights that data.
 
     <br/><br/><br/>    
   `,
 
-	ourteam: `
-  I'm part of a full-stack team that runs the gamut from data analysis and ML to backend data services to user interfaces. <br/><br/>
-  We have a handful of very smart humans working on the Data and ML part of our problems.<br/><br/>
-  We also have some team members who wore on services that apply those techniques with large data sources.<br/><br/>
-  `,
-
-	ourteam2: `
-  However, I work on user interfaces.<br/><br/>
-  We're a team of about 5 people, and we're giant react fanpeople. 
-  `,
-
-	ourwork: `We work on a grab-bag of data problems.<br/><br/>
-  Our job usually involves looking at large datasets from sister teams and brainstorming 
-  on ways to make it useful or interesting, or to glean insights from it.<br/><br/>
+	ourwork: `
+  We work on a grab-bag of data problems.
+  <br/><br/>
   
+  Our job usually involves looking at large datasets from sister teams and
+  brainstorming on ways to make it useful or interesting, or to glean insights
+  from it.
+  <br/><br/>
+
   This sometimes takes the form of brand management, helping individuals and 
-  brands understand where conversations about them are happening, and what the general tone of those conversations are.<br/><br/>
+  brands understand where conversations about them are happening, and what 
+  the general tone of those conversations are.
+  <br/><br/>
 
-  Or understanding how information flows through news and influence networks: e.g. where ideas come from and how they propagate...<br/><br/>
+  Or understanding how information flows through news and influence networks: 
+  e.g. where ideas come from and how they propagate...
+  <br/><br/>
 
-  Or fighting tech scams, human trafficking, and other really bad things...<br/><br/>
+  Or fighting tech scams, human trafficking, and other really bad things...
+  <br/><br/>
 
-  Or trying to find ways to apply data to healthcare cost problems, which is a topic we're actively working on...
+  Or trying to find ways to apply data to healthcare cost problems, which is a
+   topic we're actively working on...
   <br/><br/><br/>
   `,
 
 	uiwork: `
   Our team builds a lot of data visualizations to try and communicate a lot of 
-  different kinds of data. <br/><br/>
+  different kinds of data.
+  <br/><br/>
 
-  We're not necessarily experts in experimental data visualization: there are 
-  other teams at Microsoft Research that are, but we apply visualization on almost a daily basis<br/><br/>
+  We're a mix of researchers and developers who try to apply data visualization
+  and analytical processes on a daily basis
+  <br/><br/>
 
   A lot of times, our work is as simple as wiring up a PowerBI workbook that
-  tells a story with data, and allows users to explore the data using that modality. 
-  For a lot of users, that works very well.<br/><br/>
+  tells a story with data, and allows users to explore the data using that 
+  modality. For a lot of users, that works very well.<br/><br/>
 
   Sometimes we make custom PowerBI visuals that help us tell those stories, we have 
   several of our own published on the PowerBI marketplace.<br/><br/>
@@ -149,19 +156,8 @@ export default {
   It's not expressive enough to adapt to subtle changes in our requirements<br/><br/>
   At this point, you may be so jaded with your fancy-charts experience that you eject it, 
   not use any abstraction at all, and rewrite the chart from scratch using custom code<br/><br/>
-  `,
-	rage: `   
-  And now we're angry: 
-  <br/>- maybe at our manager 
-  <br/>- or the customer, 
-  <br/>- maybe at the pub for having terrible parking after 6, 
-  <br/>- but mostly, we're angry at ourselves.<br/><br/>
-
-  We selected our charting library because it's components had an easy abstraction at the top-level, 
-  but we don't havy any recourse for when we need something subtle or custom in that framework.<br/><br/>
-
-  Obviously, this is a contrived example, but we've all been in situations where the expressiveness afforded to us 
-  by the abstraction level of a library we've selected doesn't match that of our problem.
+  And that will probably involve using d3, and then you have to decide how to make react 
+  and d3 work together, because both of those technologies control what goes to the DOM
   <br/><br/><br/>
   `,
 
@@ -353,12 +349,6 @@ export default {
   <br/><br/><br/>
   `,
 
-	victoryCustomizable: `
-  One really nice thing about Victory is that they've thought about how users would develop custom components.<br/><br/>
-  A lot of the "grammar of graphics" implementations are envisioned as closed systems that contain all the visual 
-  elements you'll ever want.
-  `,
-
 	composableVictory2: `
   And even though it's taxonomical in nature, you can compose these taxonomical charts to really cool effect. 
   Here they have a pie chart expressing a breakdown of given points on an area chart.
@@ -492,8 +482,12 @@ export default {
 
   Then we'll define our axis components, oriented to the edges of our view-space<br/><br/>
 
-  Finally, we'll define our visual components. These will be bound to data<br/><br/> 
-  Or to static values <br/><br/>  
+  Finally, we'll define our visual components. We instances of these to a table, which will emit one mark per row.<br/><br/>
+  
+  The attributes of the marks can be bound to data<br/><br/> 
+
+  Or to static values 
+  <br/><br/><br/>  
   `,
 
 	vegaBarChartLive: `

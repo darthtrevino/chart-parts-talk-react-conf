@@ -4,6 +4,28 @@ import { Slide, Anim, Text, Image } from 'spectacle'
 import notes from '../notes'
 import images from '../images'
 
+class ChartTypeCarouselSlide extends React.Component {
+	state = { animIndex: -1 }
+
+	render() {
+		const { ...rest } = this.props
+		const { animIndex } = this.state
+		return (
+			<Slide notes={notes.aboutMe} {...rest}>
+				<Anim
+					fromStyle={{}}
+					toStyle={[{}, {}, {}]}
+					easing="quadInOut"
+					transitionDuration={0}
+					onAnim={(forwards, animIndex) => this.setState({ animIndex })}
+				>
+					<div />
+				</Anim>
+			</Slide>
+		)
+	}
+}
+
 export default [
 	<Slide notes={notes.charting} key="chartsimportant0" transition={['fade']} />,
 	<Slide notes={notes.charting} key="chartsimportant1">
@@ -23,8 +45,5 @@ export default [
 	</Slide>,
 	<Slide notes={notes.charting} key="chartsimportant6">
 		<Image src={images.boxPlots} height={500} />
-	</Slide>,
-	<Slide notes={notes.charting} key="chartsimportante">
-		<Image src={images.violinChart} height={500} />
 	</Slide>,
 ]

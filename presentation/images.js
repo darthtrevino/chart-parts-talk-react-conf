@@ -1,5 +1,5 @@
 export default {
-	profile: require('../assets/louvre.png'),
+	profile: require('../assets/profile_mtns.jpg'),
 	dooty: require('../assets/dootyboi.gif'),
 	skeleton_army: require('../assets/skeleton_army.jpg'),
 	bones: require('../assets/bones.jpg'),
@@ -36,7 +36,6 @@ export default {
 	winchester: require('../assets/winchester.gif'),
 	npmsearch: require('../assets/npm_search.png'),
 	lumbergh: require('../assets/lumbergh.gif'),
-	rage: require('../assets/rage.png'),
 	angry_dooting: require('../assets/angry_dooting.gif'),
 	missingAbstraction: require('../assets/missing_abstraction.png'),
 	wilkinson: require('../assets/wilkinson_book.jpg'),

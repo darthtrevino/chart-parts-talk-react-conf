@@ -30,13 +30,14 @@ const leadUp = [
 		notes={notes.vegaBarChart}
 		ranges={[
 			{ loc: [2, 5], note: 'set chart size' },
-			{ loc: [6, 21], note: 'define data source' },
-			{ loc: [22, 32], note: 'wire up some event channels' },
-			{ loc: [33, 50], note: 'define scales' },
-			{ loc: [50, 55], note: 'add some axes' },
-			{ loc: [55, 72], note: 'define the mark shapes' },
-			{ loc: [64, 65], note: 'bind attributes to data fields' },
-			{ loc: [67, 68], note: 'or set statically' },
+			{ loc: [6, 15], note: 'define data source' },
+			{ loc: [16, 28], note: 'wire up some event channels' },
+			{ loc: [29, 39], note: 'define scales' },
+			{ loc: [50, 54], note: 'add some axes' },
+			{ loc: [55, 69], note: 'define the mark shapes' },
+			{ loc: [58, 59], note: 'bind mark to a table' },
+			{ loc: [61, 65], note: 'bind attributes to data fields' },
+			{ loc: [65, 68], note: 'or set statically' },
 		]}
 	/>,
 	<Slide key="showcase_vegabarchartlive" notes={notes.vegaBarChartLive}>

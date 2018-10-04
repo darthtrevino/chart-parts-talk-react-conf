@@ -1,8 +1,8 @@
 import React from 'react'
 import { Heading, Slide, Image, Layout, Fill } from 'spectacle'
 
-import notes from '../../notes'
-import images from '../../images'
+import notes from '../notes'
+import images from '../images'
 
 export default [
 	<Slide

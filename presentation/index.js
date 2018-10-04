@@ -1,44 +1,59 @@
 import './styles'
 import React from 'react'
-import { Deck } from 'spectacle'
+import { Deck, Magic, Slide, Heading } from 'spectacle'
 import theme from './theme'
 
 // Talk Sections
 import frontSlide from './slides/front'
-import whoWeAre from './slides/whoWeAre'
+import aboutMe from './slides/aboutMe'
 import aboutOurWork from './slides/aboutOurWork'
 import chartsAreImportant from './slides/chartsAreImportant'
-import contrivedProblem from './slides/contrivedProblem'
-import reactAndD3 from './slides/reactAndD3'
+import problemDescription from './slides/contrivedProblem'
+import composableCharts from './slides/composableCharts'
 import gogImplementationSurvey from './slides/gogImplementationSurvey'
 import showcaseChartParts from './slides/showcaseChartParts'
 import gogTheory from './slides/gogTheory'
 import chartTypeCarousel from './slides/chartTypeCarousel'
+import gogLessons from './slides/gog_lessons'
 
 export default class Presentation extends React.Component {
 	state = { animIndex: 0 }
 
 	render() {
+		const { animIndex } = this.state
+		console.log('Deck@', animIndex)
 		return (
 			<Deck
-				transition={['slide']}
+				transition={[
+					'fade',
+					'slide',
+					(transitioning, forward) => {
+						return {
+							transform: `
+							translate3d(0%, ${transitioning ? -100 : 0}%, 0)
+							`,
+						}
+					},
+				]}
 				transitionDuration={500}
+				controls={false}
 				theme={theme}
 				progress="bar"
 			>
 				{frontSlide}
-				{whoWeAre}
+				{aboutMe}
 				{aboutOurWork}
 				{chartsAreImportant}
 				{chartTypeCarousel}
-				{contrivedProblem}
-				{reactAndD3}
-				{gogTheory(this.state.animIndex, animIndex =>
-					this.setState({ animIndex }),
-				)}
+				{problemDescription}
+				{composableCharts}
+				{gogTheory(animIndex, this.setAnimIndex)}
+				{gogLessons}
 				{gogImplementationSurvey}
 				{showcaseChartParts}
 			</Deck>
 		)
 	}
+
+	setAnimIndex = animIndex => this.setState({ animIndex })
 }

@@ -16,17 +16,12 @@ import images from '../images'
 import notes from '../notes'
 
 export default (animIndex, setAnimIndex) => [
-	<Slide notes={notes.missingAbstraction} key="theory_ma">
-		<Heading size={1} caps fit textColor="pcontrast">
-			The Missing Abstraction
-		</Heading>
-		<Appear>
-			<Image src={images.missingAbstraction} />
-		</Appear>
-	</Slide>,
 	<Slide transition={['fade']} notes={notes.gog} key="gog_walk">
 		<Anim
-			onAnim={(forwards, animIndex) => setAnimIndex(animIndex)}
+			onAnim={(forwards, animIndex) => {
+				console.log('GTHEORY', animIndex)
+				setAnimIndex(animIndex)
+			}}
 			fromStyle={{
 				opacity: 0,
 				transform: 'translate3d(0px, -100px, 0px)  scale(1) rotate(0deg)',

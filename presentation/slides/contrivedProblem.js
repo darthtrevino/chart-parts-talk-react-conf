@@ -9,6 +9,7 @@ import {
 	Image,
 	Layout,
 	Fill,
+	Appear,
 	Code,
 	CodePane,
 } from 'spectacle'
@@ -63,9 +64,6 @@ export default [
 		key="contrived_barchart"
 	>
 		<Image src={images.barchart2} />
-		<div style={{ position: 'absolute', right: 0, bottom: 0 }}>
-			<Image src={images.pipboy} height={250} />
-		</div>
 	</Slide>,
 	<Slide
 		transition={['fade']}
@@ -124,10 +122,12 @@ export default [
 			</Heading>
 		</div>
 	</Slide>,
-	<Slide
-		transition={['fade']}
-		bgImage={images.angry_dooting}
-		notes={notes.rage}
-		key="contrived_rage"
-	/>,
+	<Slide notes={notes.missingAbstraction} key="theory_ma">
+		<Heading size={1} caps fit textColor="pcontrast">
+			The Missing Abstraction
+		</Heading>
+		<Appear>
+			<Image src={images.missingAbstraction} />
+		</Appear>
+	</Slide>,
 ]

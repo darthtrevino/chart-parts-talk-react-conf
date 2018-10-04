@@ -1,43 +1,30 @@
 // Import React
 import React from 'react'
-import { Heading, Slide, Layout } from 'spectacle'
+import { Slide, Layout, Fill, Text } from 'spectacle'
 import notes from '../notes'
 import images from '../images'
 
 export default (
-	<Slide
-		transition={['zoom']}
-		bgImage={images.spookyBG}
-		notes={notes.slide1}
-		fill
-		key="front"
-	>
-		<Heading size={2} fit caps lineHeight={1}>
-			The Missing
-		</Heading>
-		<Heading
-			caps
-			fill
-			size={1}
-			lineHeight={1.3}
-			style={{
-				background: '-webkit-linear-gradient(#eee, #222)',
-				['-webkit-background-clip']: 'text',
-				['-webkit-text-fill-color']: 'transparent',
-			}}
-		>
-			Abstraction
-		</Heading>
-		<Heading caps fit size={3} textColor="pcontrast" lineHeight={1}>
-			of Charting
-		</Heading>
-		<Layout fit>
-			<Heading size={4} fill lineHeight={1} textColor="highlight">
-				Chris Trevino
-			</Heading>
-			<Heading size={4} fill lineHeight={1} textColor="highlight">
-				Microsoft
-			</Heading>
+	<Slide notes={notes.slide1} fill key="front">
+		<Fill>
+			<Text textSize={60} textColor="secondary" style={{ fontWeight: 200 }}>
+				The Missing Abstraction
+			</Text>
+			<Text textSize={60} textColor="secondary">
+				of Charting
+			</Text>
+		</Fill>
+		<Layout fit style={{ marginTop: 10 }}>
+			<Text
+				textSize={30}
+				fill
+				lineHeight={1}
+				textColor="crimson"
+				fontWeight={200}
+				style={{ textAlign: 'start' }}
+			>
+				Chris Trevino - Microsoft
+			</Text>
 		</Layout>
 	</Slide>
 )

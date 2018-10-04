@@ -10,9 +10,14 @@ import {
 	Text,
 	Heading,
 } from 'spectacle'
-import CommonHeader from './CommonHeader'
-import notes from '../../notes'
-import images from '../../images'
+import notes from '../notes'
+import images from '../images'
+
+const CommonHeader = () => (
+	<Heading size={6} caps textColor="highlight" fill>
+		Component-Based Libraries
+	</Heading>
+)
 
 export default [
 	<Slide
@@ -86,37 +91,12 @@ export default [
 						<List style={{ marginLeft: 10 }}>
 							<ListItem>taxonomical</ListItem>
 							<ListItem>composable</ListItem>
-							<ListItem>customizable</ListItem>
 						</List>
 					</ListItem>
 				</List>
 			</Fill>
 			<Fill>
 				<Image src={images.victoryComposable} />
-			</Fill>
-		</Layout>
-	</Slide>,
-	<Slide
-		key="surv_comp_viccust"
-		notes={notes.victoryCustomizable}
-		transition={['fade']}
-	>
-		<CommonHeader />
-		<Layout>
-			<Fill style={{ flex: 1 }}>
-				<List>
-					<ListItem textColor="yello">
-						Victory
-						<List style={{ marginLeft: 10 }}>
-							<ListItem>taxonomical</ListItem>
-							<ListItem>composable</ListItem>
-							<ListItem>custom elements</ListItem>
-						</List>
-					</ListItem>
-				</List>
-			</Fill>
-			<Fill>
-				<Image src={images.victoryCustom} />
 			</Fill>
 		</Layout>
 	</Slide>,
