@@ -59,7 +59,7 @@ export default (
 								JavaScript Convert
 							</ListItemPosed>
 							<ListItemPosed pose={animIndex > 2 ? 'visible' : 'hidden'}>
-								Loves 🌮🌮🌮
+								🚴‍ 🌮 🍺
 							</ListItemPosed>
 						</List>
 					</Fill>

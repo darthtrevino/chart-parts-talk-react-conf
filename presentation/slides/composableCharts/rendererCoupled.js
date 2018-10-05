@@ -5,29 +5,20 @@ import WalkableSlide from '../../components/WalkableSlide'
 import notes from '../../notes'
 import images from '../../images'
 
-const transition = {
-	duration: 300,
-}
-
-const visible = {
-	opacity: 1,
-	transition,
-}
-
 const ImagePlacer = posed.div({
-	visible,
+	visible: {
+		opacity: 1,
+		transition: { duration: 300 },
+	},
 	hidden: {
 		opacity: 0,
-		transition,
-	},
-	dissolved: {
-		opacity: 0,
-		y: -500,
-		transition,
+		transition: { duration: 300 },
 	},
 })
 
-const imageStyle = { margin: 15 }
+const imageStyle = {
+	margin: 15,
+}
 const headingStyle = { fontWeight: 100 }
 
 const SlideUpTray = posed.div({
@@ -40,7 +31,7 @@ const SlideUpTray = posed.div({
 	},
 	visible: {
 		opacity: 1,
-		y: 0,
+		y: ({ y = 0 }) => y,
 		transition: {
 			duration: 500,
 		},
@@ -48,11 +39,11 @@ const SlideUpTray = posed.div({
 })
 
 const slideUpTrayStyle = {
-	position: 'absolute',
-	bottom: -30,
+	position: 'relative',
+	bottom: 0,
 	display: 'flex',
 	justifyContent: 'space-around',
-	width: '100%',
+	flex: 1,
 }
 
 export default (
@@ -62,37 +53,34 @@ export default (
 		transition={['fade']}
 		numSteps={4}
 		renderContent={step => {
-			const poseForStep = index =>
-				step >= 3 ? 'dissolved' : step < index ? 'hidden' : 'visible'
+			const poseForStep = (appear, disappear) =>
+				step >= disappear || step < appear ? 'hidden' : 'visible'
+
 			return (
-				<Fill>
+				<div style={{ display: 'flex', flex: 1, flexDirection: 'column' }}>
 					<Text textSize={50} textColor="secondary" style={headingStyle}>
-						Coupled to View Technology
+						Coupled to Rendering
 					</Text>
-
-					<div style={{ display: 'flex', justifyContent: 'space-between' }}>
-						<ImagePlacer pose={poseForStep(1)} style={imageStyle}>
-							<Image src={images.victoryCircle} />
-						</ImagePlacer>
-						<ImagePlacer pose={poseForStep(2)} style={imageStyle}>
-							<Image src={images.reactVisCanvas} />
-						</ImagePlacer>
-					</div>
-
+					<SlideUpTray pose={poseForStep(1, 2)} style={slideUpTrayStyle}>
+						<Image src={images.victoryCircle} height={300} />
+					</SlideUpTray>
+					<SlideUpTray
+						pose={poseForStep(2, 3)}
+						style={slideUpTrayStyle}
+						y={-300}
+					>
+						<Image src={images.reactVisCanvas} height={300} />
+					</SlideUpTray>
 					<SlideUpTray
 						pose={step >= 3 ? 'visible' : 'hidden'}
 						style={slideUpTrayStyle}
+						y={-600}
 					>
-						<ImagePlacer
-							pose={step >= 3 ? 'visible' : 'hidden'}
-							style={imageStyle}
-						>
-							<div style={{ backgroundColor: 'white', width: 360 }}>
-								<Image src={images.dom} height={300} />
-							</div>
-						</ImagePlacer>
+						<div style={{ backgroundColor: 'white', width: 360 }}>
+							<Image src={images.dom} height={300} />
+						</div>
 					</SlideUpTray>
-				</Fill>
+				</div>
 			)
 		}}
 	/>

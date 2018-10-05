@@ -101,7 +101,13 @@ export default (
 					<Text textSize={50} textColor="secondary" style={headingStyle}>
 						Taxonomic APIs
 					</Text>
-					<div style={{ display: 'flex', justifyContent: 'space-between' }}>
+					<div
+						style={{
+							display: 'flex',
+							justifyContent: 'space-between',
+							flex: 1,
+						}}
+					>
 						<LeftPlacer pose={poseForStep(1)} style={imageStyle}>
 							<Image src={images.skeletonArmy} height={300} />
 						</LeftPlacer>

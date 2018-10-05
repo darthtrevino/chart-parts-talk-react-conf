@@ -95,7 +95,12 @@ export default (
 			const centerPoses = ['hidden', 'hidden', 'visible', 'visible']
 			return (
 				<div>
-					<Text textSize={50} textColor="secondary" fontWeight={200}>
+					<Text
+						textSize={50}
+						textColor="secondary"
+						fontWeight={200}
+						style={{ textAlign: 'start' }}
+					>
 						Phases of the{' '}
 						<span style={{ color: step === 0 ? undefined : palette.crimson }}>
 							{step === 4 ? 'Compiler' : 'Grammar of Graphics'}

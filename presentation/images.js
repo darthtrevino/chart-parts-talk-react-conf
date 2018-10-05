@@ -26,14 +26,11 @@ export default {
 	narcissism: require('../assets/narcissism.png'),
 	dcu: require('../assets/dcu.png'),
 	network: require('../assets/network.png'),
-	ourteam: require('../assets/our-team.png'),
-	ourteam2: require('../assets/our-team-2.png'),
 	visualSurvey: require('../assets/visual-survey.png'),
 	winchester: require('../assets/winchester.gif'),
 	npmsearch: require('../assets/npm_search.png'),
 	lumbergh: require('../assets/lumbergh.gif'),
 	angry_dooting: require('../assets/angry_dooting.gif'),
-	missingAbstraction: require('../assets/missing_abstraction.png'),
 	wilkinson: require('../assets/wilkinson_book.jpg'),
 	analogy: require('../assets/analogy.png'),
 	markencoding: require('../assets/mark_encoding.png'),
@@ -45,8 +42,6 @@ export default {
 	chriswhite: require('../assets/chris_white.jpg'),
 	barchartapi: require('../assets/barchart_api.png'),
 	hans: require('../assets/hans.gif'),
-	d3: require('../assets/d3.png'),
-	pipboy: require('../assets/pipboy.png'),
 	rage: require('../assets/rage.png'),
 	dom: require('../assets/dom.png'),
 
@@ -86,5 +81,7 @@ export default {
 
 	ast: require('../assets/ast.png'),
 	dataflow: require('../assets/dataflow.png'),
+	dataflow2: require('../assets/dataflow2.png'),
+
 	dropout: require('../assets/dropout.png'),
 }

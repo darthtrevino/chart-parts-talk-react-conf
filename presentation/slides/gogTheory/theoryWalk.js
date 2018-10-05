@@ -130,7 +130,7 @@ export default (
 
 			return (
 				<Layout>
-					<BookPlacer pose={bookPose()} style={{ marginRight: 15 }}>
+					<BookPlacer pose={bookPose()} style={{ marginRight: 50 }}>
 						<Image src={images.wilkinson} height={528} />
 					</BookPlacer>
 					<Fill style={{ marginTop: 100 }}>

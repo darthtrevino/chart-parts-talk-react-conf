@@ -23,7 +23,8 @@
 		"react-pose": "^3.3.6",
 		"spectacle": "^5.2.0",
 		"spectacle-code-slide": "^0.5.2",
-		"spectacle-renderer": "^0.0.3"
+		"spectacle-renderer": "^0.0.3",
+		"styled-components": "^3.4.9"
 	},
 	"prettier": {
 		"singleQuote": true,
