@@ -45,15 +45,31 @@ const BookPlacer = posed.div({
 
 const Revealed = posed.div({
 	visible: {
+		y: 0,
 		opacity: 1,
 		transition: {
-			duration: 750,
+			duration: 500,
+		},
+	},
+	visible_slow: {
+		y: 0,
+		opacity: 1,
+		transition: {
+			duration: 8000,
 		},
 	},
 	hidden: {
+		y: 0,
 		opacity: 0,
 		transition: {
-			duration: 750,
+			duration: 500,
+		},
+	},
+	dissolved: {
+		y: 1000,
+		opacity: 0,
+		transition: {
+			duration: 500,
 		},
 	},
 })
@@ -62,6 +78,7 @@ const SlideRevealed = posed.div({
 	visible: {
 		opacity: 1,
 		x: 0,
+		y: 0,
 		transition: {
 			duration: 750,
 		},
@@ -69,8 +86,17 @@ const SlideRevealed = posed.div({
 	hidden: {
 		opacity: 0,
 		x: 500,
+		y: 0,
 		transition: {
 			duration: 750,
+		},
+	},
+	dissolved: {
+		x: 0,
+		y: 1000,
+		opacity: 0,
+		transition: {
+			duration: 500,
 		},
 	},
 })
@@ -80,7 +106,7 @@ export default (
 		transition={['fade']}
 		notes={notes.gog}
 		key="gog_walk"
-		numSteps={8}
+		numSteps={10}
 		renderContent={step => {
 			const bookPose = () => {
 				if (step === 0) {
@@ -92,8 +118,15 @@ export default (
 				}
 			}
 
-			const revealAt = index =>
-				step != null && step >= index ? 'visible' : 'hidden'
+			const revealAt = (showIndex, hideIndex) => {
+				if (step < showIndex) {
+					return 'hidden'
+				} else if (hideIndex != null && step >= hideIndex) {
+					return 'dissolved'
+				} else {
+					return 'visible'
+				}
+			}
 
 			return (
 				<Layout>
@@ -101,53 +134,63 @@ export default (
 						<Image src={images.wilkinson} height={528} />
 					</BookPlacer>
 					<Fill style={{ marginTop: 100 }}>
-						<Revealed pose={revealAt(2)}>
-							<Text textSize={40} textColor="crimson">
-								A system of charting components
-							</Text>
+						<Revealed pose={revealAt(2, 3)}>
+							<Image src={images.analogy} />
 						</Revealed>
-						<List>
-							<ListItemPosed
-								pose={revealAt(3)}
-								textSize={35}
-								style={{ fontWeight: 200 }}
-							>
-								data transformation
-							</ListItemPosed>
-							<ListItemPosed
-								pose={revealAt(4)}
-								textSize={35}
-								style={{ fontWeight: 200 }}
-							>
-								scaling
-							</ListItemPosed>
-							<ListItemPosed
-								pose={revealAt(5)}
-								textSize={35}
-								style={{ fontWeight: 200 }}
-							>
-								coordinate systems
-							</ListItemPosed>
-							<ListItemPosed
-								pose={revealAt(6)}
-								textSize={35}
-								style={{ fontWeight: 200 }}
-							>
-								shapes
-							</ListItemPosed>
-							<SlideRevealed
-								pose={revealAt(7)}
-								textSize={35}
-								style={{ fontWeight: 200 }}
-							>
-								<ListItem textSize={35} textColor="secondary">
-									axes
-								</ListItem>
-								<ListItem textSize={35} textColor="secondary">
-									legends
-								</ListItem>
-							</SlideRevealed>
-						</List>
+						<div style={{ position: 'absolute', top: 0 }}>
+							<Revealed pose={revealAt(3, 9)}>
+								<Text textSize={40} textColor="crimson">
+									A system of charting components
+								</Text>
+							</Revealed>
+							<List>
+								<ListItemPosed
+									pose={revealAt(4, 9)}
+									textSize={35}
+									style={{ fontWeight: 200 }}
+								>
+									data transformation
+								</ListItemPosed>
+								<ListItemPosed
+									pose={revealAt(5, 9)}
+									textSize={35}
+									style={{ fontWeight: 200 }}
+								>
+									scaling
+								</ListItemPosed>
+								<ListItemPosed
+									pose={revealAt(6, 9)}
+									textSize={35}
+									style={{ fontWeight: 200 }}
+								>
+									coordinate systems
+								</ListItemPosed>
+								<ListItemPosed
+									pose={revealAt(7, 9)}
+									textSize={35}
+									style={{ fontWeight: 200 }}
+								>
+									shapes
+								</ListItemPosed>
+								<SlideRevealed
+									pose={revealAt(8, 9)}
+									textSize={35}
+									style={{ fontWeight: 200 }}
+								>
+									<ListItem textSize={35} textColor="secondary">
+										axes
+									</ListItem>
+									<ListItem textSize={35} textColor="secondary">
+										legends
+									</ListItem>
+								</SlideRevealed>
+							</List>
+						</div>
+						<div style={{ position: 'absolute', top: 0 }}>
+							<Revealed pose={step >= 9 ? 'visible_slow' : 'hidden'}>
+								<Image src={images.reactlogo} />
+							</Revealed>
+						</div>
 					</Fill>
 				</Layout>
 			)
@@ -164,6 +207,7 @@ const PoseableListItem = ({ hostRef, children, ...props }) => (
 const ListItemPosed = posed(PoseableListItem)({
 	visible: {
 		x: 0,
+		y: 0,
 		opacity: 1,
 		transition: {
 			duration: 750,
@@ -172,8 +216,16 @@ const ListItemPosed = posed(PoseableListItem)({
 	hidden: {
 		opacity: 0,
 		x: 500,
+		y: 0,
 		transition: {
 			duration: 750,
+		},
+	},
+	dissolved: {
+		y: 1000,
+		opacity: 0,
+		transition: {
+			duration: 500,
 		},
 	},
 })

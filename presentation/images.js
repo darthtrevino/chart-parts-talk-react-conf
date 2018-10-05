@@ -37,7 +37,7 @@ export default {
 	wilkinson: require('../assets/wilkinson_book.jpg'),
 	analogy: require('../assets/analogy.png'),
 	markencoding: require('../assets/mark_encoding.png'),
-	reactlogo: require('../assets/react-logo.png'),
+	reactlogo: require('../assets/react_icon.png'),
 	vegapage: require('../assets/vega-page.png'),
 	altairpage: require('../assets/altair-page.png'),
 	barchartwithmean: require('../assets/bar_chart_with_mean.png'),
