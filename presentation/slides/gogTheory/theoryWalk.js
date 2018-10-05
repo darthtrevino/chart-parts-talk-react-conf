@@ -29,6 +29,7 @@ const BookPlacer = posed.div({
 			duration: 70,
 			type: 'spring',
 			stiffness: 100,
+			damping: 70,
 		},
 	},
 	side: {

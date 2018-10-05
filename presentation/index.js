@@ -28,7 +28,7 @@ export default () => (
 		transitionDuration={500}
 		controls={false}
 		theme={theme}
-		progress="bar"
+		progress="none"
 	>
 		{frontSlide}
 		{aboutMe}

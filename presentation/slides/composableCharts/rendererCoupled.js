@@ -77,7 +77,7 @@ export default (
 						y={-600}
 					>
 						<div style={{ backgroundColor: 'white', width: 360 }}>
-							<Image src={images.dom} height={300} />
+							<Image src={images.dom} height={450} />
 						</div>
 					</SlideUpTray>
 				</div>
