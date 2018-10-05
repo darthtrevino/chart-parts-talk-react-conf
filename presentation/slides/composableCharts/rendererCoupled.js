@@ -14,18 +14,16 @@ const visible = {
 	transition,
 }
 
-const DomImagePlacer = posed.div({
+const ImagePlacer = posed.div({
 	visible,
 	hidden: {
 		opacity: 0,
-		transition: {
-			duration: 300,
-		},
+		transition,
 	},
 	dissolved: {
 		opacity: 0,
 		y: -500,
-		transition: { duration: 300 },
+		transition,
 	},
 })
 
@@ -73,26 +71,26 @@ export default (
 					</Text>
 
 					<div style={{ display: 'flex', justifyContent: 'space-between' }}>
-						<DomImagePlacer pose={poseForStep(1)} style={imageStyle}>
+						<ImagePlacer pose={poseForStep(1)} style={imageStyle}>
 							<Image src={images.victoryCircle} />
-						</DomImagePlacer>
-						<DomImagePlacer pose={poseForStep(2)} style={imageStyle}>
+						</ImagePlacer>
+						<ImagePlacer pose={poseForStep(2)} style={imageStyle}>
 							<Image src={images.reactVisCanvas} />
-						</DomImagePlacer>
+						</ImagePlacer>
 					</div>
 
 					<SlideUpTray
 						pose={step >= 3 ? 'visible' : 'hidden'}
 						style={slideUpTrayStyle}
 					>
-						<DomImagePlacer
+						<ImagePlacer
 							pose={step >= 3 ? 'visible' : 'hidden'}
 							style={imageStyle}
 						>
 							<div style={{ backgroundColor: 'white', width: 360 }}>
 								<Image src={images.dom} height={300} />
 							</div>
-						</DomImagePlacer>
+						</ImagePlacer>
 					</SlideUpTray>
 				</Fill>
 			)

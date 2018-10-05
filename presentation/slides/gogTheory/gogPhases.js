@@ -88,22 +88,22 @@ export default (
 	<WalkableSlide
 		notes={notes.gogPhases}
 		key="phases_of_gog"
-		numSteps={4}
+		numSteps={5}
 		renderContent={step => {
 			const rightPoses = ['hidden', 'hidden', 'hidden', 'visible']
 			const leftPoses = ['hidden', 'visible', 'visible', 'visible']
 			const centerPoses = ['hidden', 'hidden', 'visible', 'visible']
 			return (
 				<div>
-					<Text textSize={50} textColor="secondary">
+					<Text textSize={50} textColor="secondary" fontWeight={200}>
 						Phases of the{' '}
 						<span style={{ color: step === 0 ? undefined : palette.crimson }}>
-							Grammar of Graphics
+							{step === 4 ? 'Compiler' : 'Grammar of Graphics'}
 						</span>
 					</Text>
 					<div style={containerStyle}>
 						<LeftBlock pose={leftPoses[step]} style={blockStyle}>
-							Specification Components
+							{step === 4 ? 'Program Specification' : 'Scene Specification'}
 						</LeftBlock>
 						<Arrow pose={centerPoses[step]} style={arrowStyle} />
 						<CenterBlock
@@ -111,7 +111,7 @@ export default (
 							textColor="highlight"
 							style={blockStyle}
 						>
-							Scenegraph Generation
+							{step === 4 ? 'Abstract Syntax Tree' : 'Abstract Scenegraph'}
 						</CenterBlock>
 						<Arrow pose={rightPoses[step]} style={arrowStyle} />
 						<RightBlock
@@ -119,11 +119,11 @@ export default (
 							textColor="highlight"
 							style={blockStyle}
 						>
-							Rendering
+							{step === 4 ? 'Assembly' : 'Rendering'}
 						</RightBlock>
 					</div>
 					<ElementTypeBlock
-						pose={step >= 1 ? 'visible' : 'hidden'}
+						pose={step === 0 || step === 4 ? 'hidden' : 'visible'}
 						style={{ textAlign: 'start', marginTop: 5 }}
 					>
 						<Text textColor="yello" textSize={25}>

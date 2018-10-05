@@ -10,21 +10,21 @@ import aboutOurWork from './slides/aboutOurWork'
 import chartsAreImportant from './slides/chartsAreImportant'
 import problemDescription from './slides/contrivedProblem'
 import composableCharts from './slides/composableCharts'
-import gogImplementationSurvey from './slides/gogImplementationSurvey'
-import showcaseChartParts from './slides/showcaseChartParts'
+import chartParts from './slides/chartParts'
 import gogTheory from './slides/gogTheory'
 import chartTypeCarousel from './slides/chartTypeCarousel'
-import gogLessons from './slides/gog_lessons'
+import vega from './slides/vega'
 
+const deckTransition = [
+	'fade',
+	'slide',
+	(transitioning, forward) => ({
+		transform: `translate3d(0%, ${transitioning ? -100 : 0}%, 0)`,
+	}),
+]
 export default () => (
 	<Deck
-		transition={[
-			'fade',
-			'slide',
-			(transitioning, forward) => ({
-				transform: `translate3d(0%, ${transitioning ? -100 : 0}%, 0)`,
-			}),
-		]}
+		transition={deckTransition}
 		transitionDuration={500}
 		controls={false}
 		theme={theme}
@@ -38,8 +38,7 @@ export default () => (
 		{problemDescription}
 		{composableCharts}
 		{gogTheory}
-		{gogLessons}
-		{gogImplementationSurvey}
-		{showcaseChartParts}
+		{vega}
+		{chartParts}
 	</Deck>
 )
