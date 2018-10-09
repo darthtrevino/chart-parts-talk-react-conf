@@ -98,7 +98,7 @@ export default (
 		transition={['fade']}
 		notes={notes.gogWalk}
 		key="gog_walk"
-		numSteps={11}
+		numSteps={12}
 		renderContent={step => {
 			const bookPose = () => {
 				if (step === 0) {
@@ -129,43 +129,48 @@ export default (
 						<Revealed pose={revealAt(2, 3)}>
 							<Image src={images.analogy} />
 						</Revealed>
+						<div style={{ position: 'absolute', top: 0, right: 0 }}>
+							<Revealed pose={revealAt(3, 4)}>
+								<Image src={images.legoBricks} />
+							</Revealed>
+						</div>
 						<div style={{ position: 'absolute', top: 0 }}>
-							<Revealed pose={revealAt(3, 9)}>
+							<Revealed pose={revealAt(4, 10)}>
 								<Text textSize={40} textColor="crimson">
 									A system of charting components
 								</Text>
 							</Revealed>
 							<List>
 								<ListItemPosed
-									pose={revealAt(4, 9)}
+									pose={revealAt(5, 10)}
 									textSize={35}
 									style={{ fontWeight: 200 }}
 								>
 									data transformation
 								</ListItemPosed>
 								<ListItemPosed
-									pose={revealAt(5, 9)}
+									pose={revealAt(6, 10)}
 									textSize={35}
 									style={{ fontWeight: 200 }}
 								>
 									scaling
 								</ListItemPosed>
 								<ListItemPosed
-									pose={revealAt(6, 9)}
+									pose={revealAt(7, 10)}
 									textSize={35}
 									style={{ fontWeight: 200 }}
 								>
 									coordinate systems
 								</ListItemPosed>
 								<ListItemPosed
-									pose={revealAt(7, 9)}
+									pose={revealAt(8, 10)}
 									textSize={35}
 									style={{ fontWeight: 200 }}
 								>
 									shapes
 								</ListItemPosed>
 								<SlideRevealed
-									pose={revealAt(8, 9)}
+									pose={revealAt(9, 10)}
 									textSize={35}
 									style={{ fontWeight: 200 }}
 								>
@@ -179,12 +184,12 @@ export default (
 							</List>
 						</div>
 						<div style={{ position: 'absolute', top: 0 }}>
-							<Revealed pose={revealAt(9, 10)}>
+							<Revealed pose={revealAt(10, 11)}>
 								<Image src={images.markEncoding} />
 							</Revealed>
 						</div>
 						<div style={{ position: 'absolute', top: 0 }}>
-							<Revealed pose={step >= 10 ? 'visible_slow' : 'hidden'}>
+							<Revealed pose={step >= 11 ? 'visible_slow' : 'hidden'}>
 								<Image src={images.reactLogo} />
 							</Revealed>
 						</div>

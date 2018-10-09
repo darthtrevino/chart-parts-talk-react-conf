@@ -1,4 +1,5 @@
 import React from 'react'
+import { dataset, filter, aggregate } from '@chart-parts/transform'
 import {
 	Axis,
 	Group,
@@ -16,16 +17,56 @@ import {
 } from '@chart-parts/interfaces'
 import { Renderer } from '@chart-parts/react-svg-renderer'
 
-const renderer = new Renderer()
 const population = require('vega-datasets/data/population.json')
+const renderer = new Renderer()
 
 const chartWidth = 600
 const chartHeight = 500
 const textLineWidth = 18
-const axisThickness  = 25
+const AXIS_THICKNESS = 25
 const chartPadding = 10
 const chartSegmentWidth = (chartWidth - chartPadding * 2 - textLineWidth) / 2
 const whitish = '#DDD'
+
+export default class PopulationPyramid extends React.Component {
+	state = { year: 2000 }
+
+	render() {
+		const { year } = this.state
+		const ds = dataset()
+			.addTable('population', population)
+			.addDerivedTable('popYear', 'population', filter(d => d.year === year))
+			.addDerivedTable('males', 'popYear', filter(d => d.sex === 1))
+			.addDerivedTable('females', 'popYear', filter(d => d.sex === 2))
+			.addDerivedTable('ageGroups', 'population', aggregate().groupBy('age'))
+
+		return (
+			<div>
+				<PyramidChart data={ds.tables} />
+				<YearPicker year={year} onChange={this.handleYearChanged} />
+			</div>
+		)
+	}
+
+	handleYearChanged = arg => {
+		const year = parseInt(arg.target.value, 10)
+		this.setState({ year })
+	}
+}
+
+const YearPicker = ({ year, onChange }) => (
+	<div style={{ margin: 10, display: 'flex', alignItems: 'center' }}>
+		<input
+			type="range"
+			min="1850"
+			max="2000"
+			step="10"
+			value={year}
+			onChange={onChange}
+		/>
+		<p>{year}</p>
+	</div>
+)
 
 const PyramidChart = ({ data }) => (
 	<Chart
@@ -42,25 +83,23 @@ const PyramidChart = ({ data }) => (
 	</Chart>
 )
 
-const ChartScales = () => (
-  <>
-    <BandScale
-      name="y"
-      key="y"
-      bandWidth="yband"
-      range={arg => [arg.view.height - axisThickness, 0]}
-      domain="ageGroups.age"
-      padding={0.1}
-      round
-    />
-    <OrdinalScale
-      name="c"
-      key="c"
-      domain={['1', '2']}
-      range={['#1f77b4', '#e377c2']}
-    />
-  </>
-)
+const ChartScales = () => [
+	<BandScale
+		name="y"
+		key="y"
+		bandWidth="yband"
+		range={arg => [arg.view.height - AXIS_THICKNESS, 0]}
+		domain="ageGroups.age"
+		padding={0.1}
+		round
+	/>,
+	<OrdinalScale
+		name="c"
+		key="c"
+		domain={['1', '2']}
+		range={['#1f77b4', '#e377c2']}
+	/>,
+]
 
 const AgeLabels = () => (
 	<Text
@@ -97,7 +136,15 @@ const GenderPerYearSection = ({ table, xRange, xStart }) => (
 		width={chartSegmentWidth}
 	>
 		<LinearScale domain="population.people" range={xRange} name="x" nice zero />
-		<Axis orient="bottom" scale="x"/>
+		<Axis
+			orient={AxisOrientation.Bottom}
+			scale="x"
+			labelFormat="~s"
+			thickness={AXIS_THICKNESS}
+			tickColor={whitish}
+			labelColor={whitish}
+			domainColor={whitish}
+		/>
 		<GenderPerYearRect table={table} />
 	</Group>
 )

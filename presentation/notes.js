@@ -387,7 +387,7 @@ export default {
 
 	gogWalk: `
   ${separator}  
-  This idea originated in 1999 with the publication a book titled "The Grammar of Graphics" by Leland Wilkinson, 
+  This idea comes from a book that was published in 1999 titled "The Grammar of Graphics" by Leland Wilkinson, 
   who's a well-know visualization researcher${line}
   These ideas have a handful of implementations, in various programming ecosystems${line}
 
@@ -396,14 +396,16 @@ export default {
   The grammar of graphics is named so, because it envisions an system of object-oriented system object-oriented 
   charting elements that operate together to form a cohesive chart.${line}
   These elements are analogous to words used together in sentences, syntactically and semantically, to convey meaning.${line}
+  This was diametrically opposed to charting technologies of the time which were exclusively taxonomic in nature${line}
+  A major emphasis in the grammar of graphics is to eschew taxonomies for recombinable, expressive lego pieces${line}
 
   ${separator}
   
   These elements consist of the basic pieces of charts we're all familiar with:${line}
-  ${bulletab}data transformation elements for things like aggregation, statistics, and layout computes<br/>
-  ${bulletab}data scales to map your data to view boundaries or to colors<br/>
-  ${bulletab}coordinate systems for drawing shapes<br/>
-  ${bulletab}shapes to draw<br/>
+  ${bulletab}data transformation elements for things like aggregation, statistics, and layout computes${line}
+  ${bulletab}data scales to map your data to view boundaries or to colors${line}
+  ${bulletab}coordinate systems for drawing shapes${line}
+  ${bulletab}shapes to draw${line}
   ${bulletab}and guide components for things like axes and legends${line}
 
   ${separator}
@@ -506,8 +508,10 @@ export default {
   And being Javascript people, the 800lb gorilla, the primary implementation, is Vega${line}
   
   ${separator}
-  We first learned about the Grammar of Graphics from a talk that Dominik Moretz gave at our campus where he introduced Vega-Lite${line}
+  Vega is made by the University of Washington's Interactive Data Lab.${line} 
+  Our first exposure to the ideas of the Grammar of Graphics was when Dominik Moretz came to our campus and gave a talk on Vega-Lite${line}
 
+  ${separator}
   Vega comes in two flavors, Vega and Vega Lite. ${line}
   They're part of the same ecosystem, but with different goals${line}
   Vega is a lower level abstraction on orchestrating scales and primitives${line}
@@ -614,44 +618,69 @@ export default {
   Don't expect vscode or typescript level support${line}
   `,
 
-	chartPartsArchitectureBackend: `
-  We started out by using vega's scenegraph.${line}
-  Their specification is built out into a scenegraph json object that's then drawn out using your selected renderer.${line}
+	chartPartsApi: `
+  Our React API exposes a series of charting components based on the Vega API.${line}
+  The basic component types we support at the moment are either scales, view marks, and axes.${line}
+  
+  ${separator}
 
-  We started with these objects and built a transform pipeline out into React virtual-dom. This piece of the library came up really quickly: 
-  we made a few transformation functions that turn this scenegraph into a pseodo-svg model, and then that model into React-Dom-based SVG.${line}
+  There's a bunch of scale components, and these all thunk down to D3 scales.${line}
 
-  By leaning on React's reconciliation algorithm, we've been able to avoid dealing with DOM updates in response to scenegraph changes.${line}
+  ${separator}
 
-  This will probably change in the future, especially as we start taking a hard look at how to resolve some performance issues, 
+  We implement the most commonly used Mark types in Vega.${line}
+  ${bulletab}arcs are angular wedges${line}
+  ${bulletab}rects for rectangles${line}
+  ${bulletab}rules are lines${line}
+  ${bulletab}line and area are for line-chart and area-chart type shapes${line}
+  ${bulletab}we can add text${line}
+  ${bulletab}symbols are icons like circles that can be drawn.${line}
+  ${bulletab}and groups are how we subdivide our charting area. This lets us pull off some combined-chart scenarios and data-faceting${line}
+
+  ${separator}
+  There's a single axis component, which can be parameterized with a bunch of different options${line}
+
+  ${separator}
+  And there are some components yet to do, like Legends and Dataflow.${line}
+  There are also some marks that Vega provides that we don't yet support such as geospatial shapes and images.${line}
+
+  ${end}
+  `,
+
+	chartPartsArchitecture: `
+  Let's look briefly at the architecture of chart-parts${line}
+
+  ${separator}
+  We started out this project by using vega's scenegraph, which is a plain Javascript object that describes a chart at a low-level.${line}
+
+  ${separator}
+  Using these scenegraph objects, we built a transform pipeline to turn these scenes into a pseudo-svg and then into React virtual-dom.${line}
+
+  ${separator}
+  This piece of the library came up really quickly.${line}
+  By leaning onto React's renderer and reconciliation algorithm, we side-stepped a lot of time-consuming work in the guts of dom-manipulation and scene synchronization in response to scenegraph changes.${line}
+
+  This functional pipeline may change in the future as we start taking a look at performance issues, and targeting different renderers like PIXI${line}
   but it was encouraging to see that part happen quickly${line}
 
-  This technique also allows us to wire in react event handlers in our chart components' eventing, which makes them feel normal in a React appliaction.
+  ${separator}
+  The next piece of the library, and the most time-consuming piece, was working on the specification and scenegraph generation pieces.${line}
+  We have a generic SceneBuilder fluent API that's not framework-dependent that describes scenes.${line}
+  And we have a React Renderless-Component-Based API that operates on our SceneBuilder API so that this feels nice in React${line}
+  Renderless APIs are an interesting technique we learned from watching a Ken Wheeler video,${line}
+  where components' render out null, but interact with APIs as they mount into the virtual dom.${line}
+
+  This has had some interesting ramifications for our API. One of which is that explicit parent/child relationships between component types is kind of muted.${line}
+  We can use functional components to organize our charts, and the API is none the wiser.${line}
+
+  ${separator}
+  On interesting thing about this architecture as a whole is that we are only in React-land at the very beginning and end of this process${line}
+  So if we ever want to target another framework for specifying components, or another rendering environment, we don't have to swap out the whole library${line}
   ${end}
-  `,
-
-	chartPartsArchitectureFrontend: `
-  The specification of charts is done via our component layer. We use renderless components, which do not emit any actual DOM, but instead interact with 
-  APIs as they mount. We learned about this technique from a talk Ken Wheeler gave at react-europe, and it's worked out really well, and it's had some interesting ramifications.${line}
-  
-  First, although our library is kind of designed around our use case of using react, it's not tightly coupled to it. 
-  We made a scene-specification API that our Renderless layer is interacting with. So if React ever goes the way of Angular 1, we don't necessarily lose everything</br></br>
-
-  And second, because there's no tacit structure between renderless components, you can combine them any way you want and insert fragments and functional components anywhere in your 
-  chart structure. ${line}
-  This means that you have a way of managing structural complexity using your own named components
-  ${end}
-  `,
-
-	chartPartsArchitectureDropout: `
-  One interesting thing about this technique is that if you look at the flow of when things are in "react-land" vs when they are in vanilla Javascript land, 
-  we're only in React-land at the very beginning and end of chart construction.${line}
-
-  Everything between those points is data binding into a scenegraph and the scenegraph being transformed into virtual-dom.
   `,
 
 	chartPartsBarChart: `
-  Let's take a look at what our API looks like.${line}
+  Let's dig into making a chart.${line}
   
   So first, we're going to import our charting components. In this case we need a top-level chart, axes, a rectangle and some scales.${line}
   
@@ -692,7 +721,31 @@ export default {
   Since renderless components orchestrate api interactions under the hood, and the nodes in our specification graph all have the same kinds of elements, we can organize these using Function Components pretty easily${line}
   `,
 
+	populationPyramid: `
+  Here's a slightly more complex chart.${line}
+  It's a population breakdown by year coded by labeled birth-gender.${line}
+
+  It's a lot like a bar-chart, but it's faceted and mirrored.${line}
+  This seems like it could share some structure internally.${line}
+
+  So let's look under the hood${line}
+  ${end}
+  `,
+
 	barChartSFC: `
+  At the top-level chart component, we can see a bird's-eye-view of the overall structure.${line}
+  ${bulletab}the scale definitions for coloration and vertical positioning${line}
+  ${bulletab}the age labels${line}
+  ${bulletab}and the males per age bracket${line}
+  ${bulletab}and females per age bracket${line}
+
+  ${separator}
+  
+  If we zoom into this, we can see the scale specifications${line}
+  The age label columns${line}
+  And the genderPerYear componenths${line} 
+  which share an underlying definition${line}
+
   In this code snippet, we're taking the same bar chart, but we're going to slice it up a little. This is a trivial example, but it demonstrates the idea.${line}
   We have custom components that encapsulate our scale and axis components, and below we have function components that define those elements.
   `,

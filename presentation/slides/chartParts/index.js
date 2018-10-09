@@ -11,7 +11,6 @@ import front from './front'
 import pageSplash from './pageSplash'
 import api from './api'
 import architecture from './architecture'
-import grouping from './grouping'
 import conclusion from './conclusion'
 import basicExample from './basicExample'
 import mobileExample from './mobileExample'
@@ -24,8 +23,7 @@ export default [
 	front,
 	pageSplash,
 	api,
-	grouping,
-	architecture,
+	...architecture,
 
 	// Examples
 	...basicExample,

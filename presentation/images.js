@@ -4,6 +4,7 @@ export default {
 	// army vs bones
 	skeletonArmy: require('../assets/skeleton_army.png'),
 	bones: require('../assets/bones.png'),
+	legoBricks: require('../assets/legobricks.png'),
 
 	// conclusion BG
 	dealWithIt: require('../assets/deal_with_it.gif'),

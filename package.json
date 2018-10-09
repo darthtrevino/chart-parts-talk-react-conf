@@ -24,7 +24,8 @@
 		"spectacle": "^5.2.0",
 		"spectacle-code-slide": "^0.5.2",
 		"spectacle-renderer": "^0.0.3",
-		"styled-components": "^3.4.9"
+		"styled-components": "^3.4.9",
+		"vega-datasets": "^1.19.0"
 	},
 	"prettier": {
 		"singleQuote": true,
