@@ -23,16 +23,6 @@ export default [
 		code={code.barChartWithMean}
 		ranges={[
 			{
-				loc: [16, 17],
-				title: 'Update BarChart',
-				note: 'include children',
-			},
-			{
-				loc: [28, 29],
-				title: 'Update BarChart',
-				note: 'render children into virtual dom',
-			},
-			{
 				title: 'Define MeanLine Component',
 				loc: [32, 40],
 			},
@@ -45,6 +35,16 @@ export default [
 				title: 'Define MeanLine Component',
 				loc: [36, 37],
 				note: 'determine mean line value',
+			},
+			{
+				loc: [16, 17],
+				title: 'Update BarChart',
+				note: 'include children',
+			},
+			{
+				loc: [28, 29],
+				title: 'Update BarChart',
+				note: 'render children',
 			},
 		]}
 	/>,

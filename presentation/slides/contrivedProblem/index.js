@@ -1,8 +1,3 @@
-import React from 'react'
-import { BlockQuote, Cite, Quote, Slide, Image } from 'spectacle'
-import notes from '../../notes'
-import images from '../../images'
-
 import front from './front'
 import npmSearch from './npmSearch'
 import yarnInstall from './yarnInstall'
@@ -28,5 +23,5 @@ export default [
 	withMean,
 	barChartApiPage,
 	hans,
-	missingAbstraction,
+	...missingAbstraction,
 ]

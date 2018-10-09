@@ -4,8 +4,8 @@ import notes from '../../notes'
 
 export default (
 	<TwoStepHeader
-		notes={notes.composableLibraries}
-		key="contrived_steps"
+		notes={notes.composableFront}
+		key="composable_charts_front"
 		text="A brief look at composable charting"
 		sub="in React"
 	/>

@@ -9,7 +9,7 @@ import posed from 'react-pose'
 export default (
 	<WalkableSlide
 		notes={notes.ourwork}
-		key="ourwork"
+		key="about_our_work"
 		numSteps={5}
 		renderContent={step => {
 			const poseForStep = index => {

@@ -6,7 +6,7 @@ const textStyle = { fontWeight: 200, textAlign: 'start' }
 
 export default (
 	<Slide
-		notes={notes.composableLibraries}
+		notes={notes.composableLibraryIssues}
 		key="contrived_steps"
 		transition={['fade']}
 	>

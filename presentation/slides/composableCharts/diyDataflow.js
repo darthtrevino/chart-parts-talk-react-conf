@@ -20,7 +20,7 @@ const headingStyle = { fontWeight: 100 }
 export default (
 	<Slide
 		key="surv_candidate_showcase"
-		notes={notes.composableLibraries}
+		notes={notes.diyDataflow}
 		transition={['fade']}
 	>
 		<Text textSize={50} textColor="secondary" style={headingStyle}>
@@ -37,13 +37,13 @@ export default (
 				</Text>
 				<List>
 					<Appear>
-						<ListItem>Statistical Computation</ListItem>
+						<ListItem>Data Filtering</ListItem>
 					</Appear>
 					<Appear>
-						<ListItem>Aggregation</ListItem>
+						<ListItem>Statistics and Aggregation</ListItem>
 					</Appear>
 					<Appear>
-						<ListItem>Filtering</ListItem>
+						<ListItem>Data Faceting</ListItem>
 					</Appear>
 				</List>
 			</Fill>

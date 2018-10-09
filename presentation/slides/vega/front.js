@@ -4,7 +4,7 @@ import notes from '../../notes'
 
 export default (
 	<TwoStepHeader
-		notes={notes.gog}
+		notes={notes.gogImpls}
 		key="vega_front"
 		text="What implementations of the Grammar of Graphics exist"
 		sub="in Javascript"

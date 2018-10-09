@@ -1,15 +1,6 @@
 import React from 'react'
 import posed from 'react-pose'
-import {
-	Anim,
-	Heading,
-	ListItem,
-	List,
-	Image,
-	Layout,
-	Fill,
-	Text,
-} from 'spectacle'
+import { ListItem, List, Image, Layout, Fill, Text } from 'spectacle'
 import WalkableSlide from '../../components/WalkableSlide'
 
 import images from '../../images'
@@ -105,9 +96,9 @@ const SlideRevealed = posed.div({
 export default (
 	<WalkableSlide
 		transition={['fade']}
-		notes={notes.gog}
+		notes={notes.gogWalk}
 		key="gog_walk"
-		numSteps={10}
+		numSteps={11}
 		renderContent={step => {
 			const bookPose = () => {
 				if (step === 0) {
@@ -188,8 +179,13 @@ export default (
 							</List>
 						</div>
 						<div style={{ position: 'absolute', top: 0 }}>
-							<Revealed pose={step >= 9 ? 'visible_slow' : 'hidden'}>
-								<Image src={images.reactlogo} />
+							<Revealed pose={revealAt(9, 10)}>
+								<Image src={images.markEncoding} />
+							</Revealed>
+						</div>
+						<div style={{ position: 'absolute', top: 0 }}>
+							<Revealed pose={step >= 10 ? 'visible_slow' : 'hidden'}>
+								<Image src={images.reactLogo} />
 							</Revealed>
 						</div>
 					</Fill>

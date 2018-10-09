@@ -1,24 +1,10 @@
 import React from 'react'
-import { Layout, Fill, Heading, Image, Text } from 'spectacle'
+import { Image, Text } from 'spectacle'
 import posed from 'react-pose'
 import WalkableSlide from '../../components/WalkableSlide'
 import notes from '../../notes'
 import images from '../../images'
 
-const ImagePlacer = posed.div({
-	visible: {
-		opacity: 1,
-		transition: { duration: 300 },
-	},
-	hidden: {
-		opacity: 0,
-		transition: { duration: 300 },
-	},
-})
-
-const imageStyle = {
-	margin: 15,
-}
 const headingStyle = { fontWeight: 100 }
 
 const SlideUpTray = posed.div({
@@ -48,8 +34,8 @@ const slideUpTrayStyle = {
 
 export default (
 	<WalkableSlide
-		key="surv_candidate_showcase"
-		notes={notes.composableLibraries}
+		key="coupled_to_rendering"
+		notes={notes.coupledToRendering}
 		transition={['fade']}
 		numSteps={4}
 		renderContent={step => {

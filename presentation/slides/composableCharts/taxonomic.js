@@ -88,8 +88,8 @@ const slideUpTrayStyle = {
 
 export default (
 	<WalkableSlide
-		key="surv_candidate_showcase"
-		notes={notes.composableLibraries}
+		key="taxonomic"
+		notes={notes.composableLibrariesTaxonomic}
 		numSteps={4}
 		transition={['fade']}
 		renderContent={step => {

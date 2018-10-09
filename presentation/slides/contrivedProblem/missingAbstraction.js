@@ -1,9 +1,11 @@
 import React from 'react'
 import posed from 'react-pose'
-import { Heading } from 'spectacle'
+import { Slide, Heading, Image } from 'spectacle'
+
 import WalkableSlide from '../../components/WalkableSlide'
 import notes from '../../notes'
 import { palette } from '../../theme'
+import images from '../../images'
 
 const transition = {
 	duration: 500,
@@ -86,7 +88,7 @@ const centerStyle = {
 	justifyContent: 'center',
 }
 
-export default (
+export default [
 	<WalkableSlide
 		notes={notes.missingAbstraction}
 		key="theory_ma"
@@ -119,5 +121,5 @@ export default (
 				</div>
 			)
 		}}
-	/>
-)
+	/>,
+]

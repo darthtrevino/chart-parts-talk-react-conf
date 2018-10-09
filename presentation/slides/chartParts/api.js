@@ -1,5 +1,5 @@
 import React from 'react'
-import { Slide, Text, Image } from 'spectacle'
+import { Slide, Text, Image, List, ListItem, Appear } from 'spectacle'
 
 import notes from '../../notes'
 import images from '../../images'
@@ -10,23 +10,22 @@ export default (
 		notes={notes.chartPartsArchitectureBackend}
 		transition={['fade']}
 	>
-		<Text textColor="secondary" style={{ fontWeight: 200 }}>
+		<Text textColor="crimson" style={{ fontWeight: 200 }}>
 			API Components
 		</Text>
+		<List>
+			<Appear>
+				<ListItem>Scales</ListItem>
+			</Appear>
+			<Appear>
+				<ListItem>View Marks</ListItem>
+			</Appear>
+			<Appear>
+				<ListItem>Axes</ListItem>
+			</Appear>
+			<Appear>
+				<ListItem>Groups</ListItem>
+			</Appear>
+		</List>
 	</Slide>
 )
-
-// <Slide
-// 	key="showcase_architecture_fe"
-// 	notes={notes.chartPartsArchitectureFrontend}
-// 	transition={['fade']}
-// >
-// 	<Image src={images.frontendArchitecture} />
-// </Slide>,
-// <Slide
-// 	key="showcase_architecture_dropout"
-// 	notes={notes.chartPartsArchitectureDropout}
-// 	transition={['fade']}
-// >
-// 	<Image src={images.dropout} />
-// </Slide>,

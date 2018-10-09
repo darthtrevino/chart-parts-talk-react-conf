@@ -1,13 +1,5 @@
 import React from 'react'
-import {
-	Heading,
-	Slide,
-	Text,
-	Appear,
-	Image,
-	Layout,
-	CodePane,
-} from 'spectacle'
+import { Slide, Image } from 'spectacle'
 import CodeSlide from 'spectacle-code-slide'
 import images from '../../images'
 import code from '../../code'

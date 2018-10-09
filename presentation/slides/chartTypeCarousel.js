@@ -47,7 +47,7 @@ const imagePos = {
 function poseForStep(index) {}
 export default (
 	<WalkableSlide
-		key="chart_carousel"
+		key="chart_type_carousel"
 		notes={notes.charting}
 		numSteps={7}
 		renderContent={step => {
@@ -75,10 +75,10 @@ export default (
 					<Image src={images.areaChart} height={400} />
 				</Stacked>,
 				<Stacked rotation={12} pose={poseForStep(5)} style={imagePos}>
-					<Image src={images.radarChart} height={400} />
-				</Stacked>,
-				<Stacked rotation={45} pose={poseForStep(6)} style={imagePos}>
 					<Image src={images.boxPlots} height={400} />
+				</Stacked>,
+				<Stacked rotation={12} pose={poseForStep(6)} style={imagePos}>
+					<Image src={images.radarChart} height={400} />
 				</Stacked>,
 			]
 		}}

@@ -51,7 +51,7 @@ const headingStyle = { fontWeight: 100 }
 
 export default (
 	<WalkableSlide
-		key="surv_candidate_showcase"
+		key="candidate_showcase"
 		notes={notes.composableLibraries}
 		numSteps={4}
 		renderContent={step => {

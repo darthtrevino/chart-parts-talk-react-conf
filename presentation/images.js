@@ -20,8 +20,8 @@ export default {
 	lumbergh: require('../assets/lumbergh.gif'),
 	wilkinson: require('../assets/wilkinson_book.jpg'),
 	analogy: require('../assets/analogy.png'),
-	markencoding: require('../assets/mark_encoding.png'),
-	reactlogo: require('../assets/react_icon.png'),
+	markEncoding: require('../assets/mark_encoding.png'),
+	reactLogo: require('../assets/react_icon.png'),
 	vegapage: require('../assets/vega-page.png'),
 	barchartwithmean: require('../assets/bar_chart_with_mean.png'),
 	chartPartsPage: require('../assets/chart-parts-page.png'),
@@ -38,7 +38,6 @@ export default {
 	pieChart: require('../assets/pie_chart.png'),
 	areaChart: require('../assets/area_chart.png'),
 	radarChart: require('../assets/radar_chart.png'),
-	violinChart: require('../assets/violin_chart.png'),
 	boxPlots: require('../assets/box_plots.png'),
 
 	// Victory
@@ -67,4 +66,5 @@ export default {
 	dataflow: require('../assets/dataflow.png'),
 	dataflow2: require('../assets/dataflow2.png'),
 	dropout: require('../assets/dropout.png'),
+	rodserling: require('../assets/rodserling.jpg'),
 }
