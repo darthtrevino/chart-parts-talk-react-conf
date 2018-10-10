@@ -45,20 +45,12 @@ const CenterBlock = posed.div({
 	hidden: {
 		scale: 3,
 		opacity: 0,
-		transition: {
-			...transition,
-			type: 'spring',
-			stiffness: 60,
-		},
+		transition
 	},
 	visible: {
 		scale: 1,
 		opacity: 1,
-		transition: {
-			...transition,
-			type: 'spring',
-			stiffness: 60,
-		},
+		transition
 	},
 })
 

@@ -17,7 +17,7 @@ import images from '../../images'
 
 import WalkableSlide from '../../components/WalkableSlide'
 
-const itemSize = 30
+const itemSize = 27
 
 const Revealed = posed.div({
 	hidden: {
@@ -84,16 +84,16 @@ export default (
 										<ListItem textSize={itemSize}>Text</ListItem>
 										{step >= 4
 											? [
-													<ListItem textSize={itemSize} textColor="yello">
-														Trail
+												<ListItem textSize={itemSize} textColor="yello">
+													Trail
 													</ListItem>,
-													<ListItem textSize={itemSize} textColor="yello">
-														Shape
+												<ListItem textSize={itemSize} textColor="yello">
+													Shape
 													</ListItem>,
-													<ListItem textSize={itemSize} textColor="yello">
-														Image
+												<ListItem textSize={itemSize} textColor="yello">
+													Image
 													</ListItem>,
-											  ]
+											]
 											: null}
 									</List>
 								</Revealed>

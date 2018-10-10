@@ -4,8 +4,6 @@ import notes from '../../notes'
 
 const transition = {
 	duration: 300,
-	type: 'spring',
-	stiffness: 100,
 }
 
 const visible = {

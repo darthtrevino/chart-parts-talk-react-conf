@@ -5,13 +5,13 @@ const bulletab = `${tab}•&nbsp;`
 const separator = `---------------${line}`
 
 export default {
-	slide1: `
+  slide1: `
     Good morning!
     ${line}
 
     Let's talk about charting
   `,
-	aboutMe: `
+  aboutMe: `
     I'm Chris Trevino${line}
     ${bulletab}Software engineer with Microsoft Research in Silverdale, WA.${line}
     ${bulletab}Writing Javascript for 5 years${line}
@@ -38,68 +38,14 @@ export default {
     ${end}    
   `,
 
-	ourwork: `
-    We work on a grab-bag of data problems.
-    ${line}
-    
-    The kinds of work we do usually involves${line} 
-    ${bulletab}looking at large datasets from sister teams${line}
-    ${bulletab}brainstorming on ways to make it useful or interesting,${line}
-    ${bulletab}or to glean meaning and insights from it.${line}
+  uiwork: `
+    Our team builds a lot of data visualizations to try and communicate a lot of different kinds of data.${line}
+    ${bulletab}We apply data visualization and analytic processes daily${line}
 
     ${separator}
 
-    This sometimes takes the form of brand management${line}
-    ${bulletab}helping individuals and brands understand where conversations about them are happening${line}
-    ${bulletab}what the tone of those conversations are.${line}
-    ${line}
-
-    ${separator}
-
-    Or understanding how information flows through news and influence networks:${line}
-    ${bulletab}where ideas come from${line} 
-    ${bulletab}how they propagate${line}
-    ${bulletab}how bias is injected into news${line}
-    ${line}
-
-    ${separator}
-
-    Or fighting bad actors such as ${line}
-    ${bulletab}tech scams${line}
-    ${bulletab}human trafficking${line}
-    ${bulletab}and other spooky things...${line}
-    ${line}
-
-    ${separator}
-    Or trying to find ways to apply data to our healthcare problems${line} 
-    ${bulletab}which is a topic we're actively working on...
-    ${end}
-  `,
-
-	uiwork: `
-    Our team builds a lot of data visualizations
-    ${bulletab}to try and communicate a lot of different kinds of data.${line}
-    ${bulletab}apply data visualization and analytic processes daily${line}
-
-    ${separator}
-
-    A lot of times, our work is as simple as wiring up a PowerBI workbook that
-    tells a story with data${line}
-    ${bulletab}and allows users to explore the data using that modality${line}
-    ${bulletab}For a lot of users, that works very well.${line}
-
-    ${separator}
-
-    Sometimes we make custom PowerBI visuals that help us tell those stories${line}
-    ${bulletab}we have several of published on the PowerBI marketplace.${line}
-
-    ${separator}
-
-    Sometimes we get to do one-off experiments${line}
-    ${bulletab}to see what mixes of technologies work well${line}
-    ${bulletab}and how well they scale with data${line}
-
-    ${separator} 
+    A lot of times, our work is as simple as wiring up a PowerBI notebooks with ready-to-go visualizations${line}
+    Other times we get to dig into custom visualizations and one-off experiments${line}
 
     And sometimes we get to make applications${line}
     ${bulletab}in the web and on mobile, usually in React${line}
@@ -107,7 +53,7 @@ export default {
     ${end}
   `,
 
-	uiemphasis: `
+  uiemphasis: `
     Now all this background is just to emphasize that${line} 
     ${bulletab}for us, data visualization is absolutely essential to what we do.${line}
     ${bulletab}our primary mechanism for understanding nuance in data${line}
@@ -129,13 +75,8 @@ export default {
     ${end}
   `,
 
-	usingANewChartingLibrary: `
-  These are the common steps we always run into when using a new charting library
-  `,
-
-	charting: `
-    I'm using charting and datavis synonymously${line}
-    ${bulletab}when use charts, we're usually talking about one of a few very common types.${line}
+  charting: `
+    When use charts, we're usually talking about one of a few common types.${line}
 
     ${separator}
 
@@ -151,21 +92,29 @@ export default {
 
     ${separator}
 
-    There are a lot more kinds of commonly used charts,${line}
-    ${bulletab}but you'll find the basics in pretty much any charting library you use.
+    There are a lot more kinds of classical charts
+    but you'll find the basics in pretty much any charting library you use.${line}
+
+    ${separator}
+    But now and then, these may not solve the your problem, 
+    and you may want a custom visual, or even something as tame as a minor variant on an existing visual.${line}
+
+    And to illustrate that, let's walk through an example${line}
+
     ${end}
   `,
 
-	stepsForUsingNewLibrary: `
+  stepsForUsingNewLibrary: `
     Let's take a moment to talk about our experience with Charting libraries.${line}
 
-    This section is a little unfair, so bear with me${line}
-    ${bulletab}but I hope it paints a picture of a specific type of problem that people have when they use charting libraries  
+    This section is a little unfair, so bear with me but I hope it paints a picture of${line}
+    ${bulletab}a specific type of problem that people with charting,${line}
+    ${bulletab}or high abstractions in general${line}
     
     ${end}
   `,
 
-	npmsearch: `
+  npmsearch: `
     We're knee-deep into making an application${line}
     ${bulletab}and we want to include a chart${line}
     ${bulletab}It's nothing fancy, just a bar-chart.${line}
@@ -181,14 +130,14 @@ export default {
     ${end}
     `,
 
-	yarninstall: `
+  yarninstall: `
     So we install our new charting library${line}
     ${bulletab}and we're stoked!${line}
     ${bulletab}Nothing's going wrong today, we can feel it.${line}
     ${end}
   `,
 
-	useFancyCharts: `
+  useFancyCharts: `
     And now it's time to wire the chart it into our app${line}
 
     ${bulletab}We import the Bar Chart component into our application, easy peasy.${line}
@@ -198,34 +147,34 @@ export default {
     ${end}
   `,
 
-	fancybarchartrendered: `
+  fancybarchartrendered: `
     And so we have our bar chart, and it's absolutely perfect in every way, and soooo...
   `,
 
-	winchester: `
+  winchester: `
     We finished something today, so it's time to head to the pub and celebrate....${line}
     However...${line}
   `,
 
-	lumbergh: `
+  lumbergh: `
     Your boss has discussed new requirements with your customer, and your new, fancy, chart needs a little work...${line}
   `,
 
-	smallchange: `
+  smallchange: `
     but it's no big deal, you definitely shouldn't freak out
   `,
 
-	barchartwithmean: `
+  barchartwithmean: `
     According to the new requirements, all we need to do is add a mean-line to our bar chart.${line}
     For some reason, it's super important for the analysts, and it's a key metric for them.
   `,
 
-	barchartapi: `
+  barchartapi: `
   So we take a look at the API docs. Is there a way of adding a new mark on the chart? 
   Can we add any child components?${line}
   No, no we can not.
   `,
-	hans: `
+  hans: `
   At this point, we have fallen off of the abstraction cliff${line}
   The abstraction we're using is brittle.${line}
   ${bulletab}It's not expressive enough to adapt to subtle changes in our requirements${line}
@@ -240,13 +189,13 @@ export default {
   ${end}
   `,
 
-	missingAbstractionFront: `
+  missingAbstractionFront: `
     We've landed in the zone of the missing abstraction${line}
     It feels like there should be something better, what would it look like?${line}
     ${end}
   `,
 
-	missingAbstraction: `
+  missingAbstraction: `
     We want to be able to author visualizations in higher-level terms${line}
     ${bulletab}but we run into brittle apis that force us into diving down into low-level rendering.${line}
     ${bulletab}it feels like there should be something in the middle of those options.${line}
@@ -263,7 +212,7 @@ export default {
     ${end}
   `,
 
-	composableLibrariesSplash: `
+  composableLibrariesSplash: `
   Now there are other charting libraries that are not based on the Grammar of Graphics system (at least as far as I can tell), but are
   flexible and composable by virtue of being component-based.${line}
 
@@ -273,14 +222,14 @@ export default {
   ${end}
   `,
 
-	composableFront: `
+  composableFront: `
     Instead of using a high-level charting API${line}
     ${bulletab}maybe we decide to look for a composable charting option in react.${line}
     ${bulletab}As it turns out, there are a few pretty nice options available${line}
     ${end}
   `,
 
-	composableLibraries: `  
+  composableLibraries: `  
     One great option is victory-charts by Formidable labs${line}
     ${bulletab}Victory has some pretty great qualities${line}
     ${bulletab}One of the only mobile options${line}
@@ -302,7 +251,7 @@ export default {
     ${end}
   `,
 
-	composableLibraryIssues: `
+  composableLibraryIssues: `
     There are some issues you may run into using these${line}
     ${bulletab}I don't want to trash these libraries, because they're all pretty great${line}
     ${bulletab}And maybe these aren't really deal-brakers for your use case${line}
@@ -310,7 +259,7 @@ export default {
     ${end}
   `,
 
-	composableLibrariesTaxonomic: `
+  composableLibrariesTaxonomic: `
     One thing you'll notice is that to varying degrees, their APIs are taxonomic${line}
     
     What this means is that${line}
@@ -328,16 +277,17 @@ export default {
     ${end}
   `,
 
-	coupledToRendering: `
+  coupledToRendering: `
   Another issue we run into is that we're often coupled to a specific rendering technology${line}
   
   ${separator}
-  In Victory, this means we can dynamically add elements to our chart.${line}
+  In Victory, this is how we can add low-level elements to our chart.${line}
   ${bulletab}In this piece of code, an Area chart is rendered with an adjaced circle by thunking down to raw SVG${line}
-  ${bulletab}This gives us pretty nice flexibility, if the abstraction is a little leaky${line}
+  ${bulletab}This gives us pretty nice flexibility${line}
+  ${bulletab}but the abstraction is a little leaky${line}
 
   ${separator}
-  In react-vis, this means that for each component type we're interested in
+  In react-vis, this means that for each component type we're interested in${line}
   ${bulletab}there's a canvas implementation and an svg implementation${line}
   ${bulletab}which may be a little weird, and the raw svg approach from the victory example would be brittle${line}
 
@@ -353,7 +303,7 @@ export default {
   ${end}
   `,
 
-	diyDataflow: `
+  diyDataflow: `
   One final thing we see is that we are responsible for bringing our own data operations${line}
 
   For simple charts' this isn't a big deal. But if we have a complex chart with a lot of${line}
@@ -363,7 +313,7 @@ export default {
   ${end}
   `,
 
-	victoryTaxonomical: `
+  victoryTaxonomical: `
   Their API for charting elements is kind of taxonomical in nature. ${line}
   What that means is that each Victory component is basically a different kind of chart${line} 
   And the language we use to express our own charts is kind of limited by kinds of chart types they provide${line}
@@ -378,14 +328,14 @@ export default {
   ${end}
   `,
 
-	gogFront: `
+  gogFront: `
   One idea that we've heard about, being adjacent to well-read visualization researchers is that of the "Grammar of Graphics".${line}
   It's an idea that we've found kind of exciting and satisfies a lot of our expressibility wants${line}
 
   ${end}
   `,
 
-	gogWalk: `
+  gogWalk: `
   ${separator}  
   This idea comes from a book that was published in 1999 titled "The Grammar of Graphics" by Leland Wilkinson, 
   who's a well-know visualization researcher${line}
@@ -393,7 +343,7 @@ export default {
 
   ${separator}
 
-  The grammar of graphics is named so, because it envisions an system of object-oriented system object-oriented 
+  The grammar of graphics is named so, because it envisions an system of object-oriented
   charting elements that operate together to form a cohesive chart.${line}
   These elements are analogous to words used together in sentences, syntactically and semantically, to convey meaning.${line}
   This was diametrically opposed to charting technologies of the time which were exclusively taxonomic in nature${line}
@@ -426,10 +376,10 @@ export default {
   ${end}
   `,
 
-	gogPhases: `
+  gogPhases: `
   In Wilkinson's book, the grammar-of-graphics is described by a specification language, and then charts are created by working through a process.${line}
   
-  Nhe main phases of creating charts using the Grammar of Graphics are described as:${line}
+  The main phases of creating charts using the Grammar of Graphics are described as:${line}
 
   ${separator}
   First, specify a scene using chart-element components. This specification contains a lot of moving parts, and not all of them are visual.${line}
@@ -467,7 +417,7 @@ export default {
   ${end}
   `,
 
-	dataflowProblem: `
+  dataflowProblem: `
   In the grammar of graphics, we're not just dealing with rendered view elements, there's also a system of
   filtering, statistical aggregations, data faceting, and general data manipulation, that helps to form our language of specification.${line}
 
@@ -497,12 +447,12 @@ export default {
   ${end}
   `,
 
-	gogImpls: `
+  gogImpls: `
   So this is a cool idea, it fits nicely with our component-based way of thinking. ${line}
   What are our options for implementations of this?${line}
   `,
 
-	showcaseVegaPage: `
+  showcaseVegaPage: `
   If you're in Python or R, you have ggplot and altair, which are widely used${line}
   But we're javascript developers${line}
   And being Javascript people, the 800lb gorilla, the primary implementation, is Vega${line}
@@ -524,12 +474,12 @@ export default {
   ${bulletab}you author your visuals using static JSON${line}
   ${bulletab}and the whole thing is a closed-off, seamless unit.${line}  
   
-  This is great for transform and sharing scenarios, but it makes authoring them kind of difficult.${line}
+  This is great for transport and sharing scenarios, but it makes authoring them kind of difficult.${line}
   Let's look at how you'd write some charts in Vega.
   ${end}
   `,
 
-	vegaBarChart: `
+  vegaBarChart: `
     Vega in practice is like a super structured d3.${line}
     So there's a little bit of plumbing that goes along with it.${line}
     
@@ -582,26 +532,21 @@ export default {
     ${end}  
   `,
 
-	vegaBarChartLive: `
+  vegaBarChartLive: `
   And now we have a bar-chart in Vega.${line}
 
   There's some component-based thinking going on within Vega.${line}
-  It provides individual components such as scales, axes, marks and legends that are configured either statically or in a data-bound way.${line}
   And it's incredibly expressive and can describe a broad variety of charts${line}
 
   But a declarative JSON-based API like that is kind of a pain to work with.${line}
-  You don't have great debugging seams, and it can be difficult to reason about the
-  structure of a chart. This is only exacerbated as the complexity of a chart grows.${line}
-  
-  You can imagine that as our charts grow in complexity,${line}
-  and we start introducing complex transformation graphs and signaling${line}
-  and then make it a closed system that you can't debug easily${line}
-  and you end up with something that's kind of difficult to reason about${line}
+  You don't have great debugging seams, ${line}
+  and it can be difficult to reason about the structure of a chart.${line}
+  This is only exacerbated as the complexity of a chart grows.${line}
 
   We really like the ideas here, but prefer the ergonomics of the composable charting libraries we looked at before.${line}  
   `,
 
-	whatif: `
+  whatif: `
   So our question, since first learning about Vega, and trying to integrate it into our own React applications, has been - what if were were to have access to Vega's abstraction level,${line}
 
   But you expressed it with a component-based API instead?${line}
@@ -610,7 +555,7 @@ export default {
   ${end}
   `,
 
-	chartPartsPage: `
+  chartPartsPage: `
   We're calling it chart-parts, and it's our love-letter to Vega.${line}
   I hope they're not too mad.${line}
   We had a better name, but legal said no.${line}
@@ -618,7 +563,7 @@ export default {
   Don't expect vscode or typescript level support${line}
   `,
 
-	chartPartsApi: `
+  chartPartsApi: `
   Our React API exposes a series of charting components based on the Vega API.${line}
   The basic component types we support at the moment are either scales, view marks, and axes.${line}
   
@@ -647,7 +592,7 @@ export default {
   ${end}
   `,
 
-	chartPartsArchitecture: `
+  chartPartsArchitecture: `
   Let's look briefly at the architecture of chart-parts${line}
 
   ${separator}
@@ -679,41 +624,48 @@ export default {
   ${end}
   `,
 
-	chartPartsBarChart: `
+  chartPartsBarChart: `
   Let's dig into making a chart.${line}
   
-  So first, we're going to import our charting components. In this case we need a top-level chart, axes, a rectangle and some scales.${line}
+  First, we're going to import our charting components.${line}
   
-  Next we'll pick a renderer. Right now we have an React SVG and a React-Native-SVG renderer, but we're considering adding one for PIXI as well.${line}
+  Next we'll pick a renderer. Right now we have an React SVG and a React-Native-SVG renderer.${line}
 
-  Next we set up a top-level chart. Here's where we'll set top-level values such as the width, height, padding, the renderer, and data tables for the chart${line}
+  Next we'll render the  to-level chart. This is where we'll set the dimensions, data tables, and renderer of the chart${line}
 
-  And next we'll define some scales. Scales in chart-parts are independent components that can be referenced by other components${line}
+  Next we'll define some scales components.${line}
 
-  Each scale has a name, which we'll use to reference from the drawn components.${line}
+  Each scale has a name, which we'll use to reference it in our other components.${line}
 
-  And we can bind it to a domain of the source data. Any lodash expression will work${line}
+  We can bind the scale to to a domain of the source data.${line}
   
-  We can also bind it to a view dimension. As we build complex charts, these view dimensions could be a subsection of the top-level chart, 
-  and so this will allow us to map to those dimensions. As we add axes, this will exclude that space as well${line}
-
-  Next we'll add Axis components, anchored to an edge of the viewspace and bound to a scale. These can also be customized with tick label formatting, tick counts, etc..${line}
+  And then we can also bind the range to a view dimension.${line}
+  The available space will automatically be pruned to account for axes${line}
   
-  And finally, we'll define our drawn element.${line}
+  ${separator}
+  Next we'll add Axis components${line}
+  These need to be anchored to an edge of the view-space and bound to a scale.${line}
+  There's a lot of other formatting options available for them, but this is the basic setup${line}
+  
+  ${separator}
+  And finally, we'll define our graphical marks.${line}
 
-  We can bind to a data table in our dataset. For each row in that data table we'll emit a rectangle into our scenegraph${line}
-  If we're not bound to a table, this only renders a single instance, and the context would contain whatever datum the parent was bound to.${line}
+  We can bind to a data table in our dataset.${line}
+  And then for each row in that  table we'll emit a rectangle into our scenegraph${line}
+  If we're not bound to a table, this will only render a single instance${line}
 
-  Here's how we encode attributes of the drawn elements. We define an encoding function for each attribute of the element we want to set. 
-  This encoding function is has a single parameter: a context object containing the current view size, the named scales and data tables, the datum being rendered, and the index it appears at.${line}
+  And then we encode the attributes of the mark.${line}
+  This can either be a static value or an encoding function${line}
+  Encoding functions have a single parameter: a context object containing${line}
+  ${bulletab}the current view size,${line}
+  ${bulletab}the named scales and data tables,${line}
+  ${bulletab}the datum being rendered, and it's index in the table.${line}
 
-  We can also encode them as static values that don't modulate based on data. ${line}
-
-  And finally, we can add event handlers for any event fired by the rendered view elements. We wanted to be able to integrate these charts into apps we were building, so we wanted to 
-  be able to opt-out of the built-in signal system that Vega has and handle our own events and state management.${line}
+  And finally, we can add our event handlers.${line}
+  We wanted to be able to integrate these charts into apps we were building, so we opted out of the signal system here in favor of native events${line}
   `,
 
-	managingComplexity: `
+  managingComplexity: `
   I've mentioned that Renderless Components have given us a way to manage complexity in our chart. The reason for that is that there is no tacit parent/child relationship between our elements.${line}
 
   In some charting libraries, you'll see that there's some boilerplate work done to ensure that only valid child components are used, and that kind of precludes the ability to insert your own abstraction.${line}
@@ -721,7 +673,7 @@ export default {
   Since renderless components orchestrate api interactions under the hood, and the nodes in our specification graph all have the same kinds of elements, we can organize these using Function Components pretty easily${line}
   `,
 
-	populationPyramid: `
+  populationPyramid: `
   Here's a slightly more complex chart.${line}
   It's a population breakdown by year coded by labeled birth-gender.${line}
 
@@ -732,7 +684,7 @@ export default {
   ${end}
   `,
 
-	barChartSFC: `
+  barChartSFC: `
   At the top-level chart component, we can see a bird's-eye-view of the overall structure.${line}
   ${bulletab}the scale definitions for coloration and vertical positioning${line}
   ${bulletab}the age labels${line}
@@ -750,10 +702,10 @@ export default {
   We have custom components that encapsulate our scale and axis components, and below we have function components that define those elements.
   `,
 
-	composability: `
+  composability: `
   The flexibility afforded to us by renderless components also allows us to compose and augment charting elements in a very fluid way.  
   `,
-	composabilityCode: `
+  composabilityCode: `
   So let's try to add that mean line element we were talking about in our example before ${line}
   ${separator}
 
@@ -775,12 +727,12 @@ export default {
   
   `,
 
-	composableComposed: `
+  composableComposed: `
   Now we have the basic elements that we want, and we can compose them pretty easily.${line}
   Now we're dealing with exactly the abstraction level we want - we can make meaningful component types out of our system of primitives.
   `,
 
-	accessibility: `
+  accessibility: `
   Now let's talk about accessibility. It's not normally something we consider when writing visualizations, since we normally assume that our 
   users are sighted.${line}
 
@@ -790,7 +742,7 @@ export default {
   ${line}
   `,
 
-	accessibilityCode: `
+  accessibilityCode: `
   First off, we can add aria description and title tags to our chart at the top level. This would give screen reader users a high-level description of what 
   the chart is about${line}
 
@@ -799,13 +751,13 @@ export default {
   And finally we can add aria tags to individual mark elements. We can encode them like any other parameter to let them reflect the data this mark is bound to.
   `,
 
-	accessibleLiveChart: `
+  accessibleLiveChart: `
   TURN ON CHROMEVOX${line}
 
   And now we can tab through our chart and hear descriptions of all the important data points
   `,
 
-	mobile: `
+  mobile: `
   Now, by virtue of being scenegraph-based, we can change the target rendering technology to whatever we want, 
   provided that we have an implementation of the renderer.${line}
   
@@ -814,7 +766,7 @@ export default {
   ${end}  
   `,
 
-	mobileCode: `
+  mobileCode: `
   We just switch our rendere to the react-native rendere, and we can run on mobile devices.
   ${line}
   
@@ -824,11 +776,11 @@ export default {
   ${end}
   `,
 
-	showcaseWinchester: `
+  showcaseWinchester: `
   And with that, we've solved our problem, and the pint is back on.
    `,
 
-	conclusion: `
+  conclusion: `
   And that's about it!${line}
   
   I'm not going to try and sell you on the idea that our charting library is the best one you can use. 

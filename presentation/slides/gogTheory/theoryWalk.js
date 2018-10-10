@@ -129,14 +129,14 @@ export default (
 						<Revealed pose={revealAt(2, 3)}>
 							<Image src={images.analogy} />
 						</Revealed>
-						<div style={{ position: 'absolute', top: 0, right: 0 }}>
+						<div style={{ position: 'absolute', top: 80, right: 0 }}>
 							<Revealed pose={revealAt(3, 4)}>
-								<Image src={images.legoBricks} />
+								<Image src={images.legoBricks} height={350} />
 							</Revealed>
 						</div>
-						<div style={{ position: 'absolute', top: 0 }}>
+						<div style={{ position: 'absolute', top: 40, flex: 1 }}>
 							<Revealed pose={revealAt(4, 10)}>
-								<Text textSize={40} textColor="crimson">
+								<Text textSize={30} textColor="crimson">
 									A system of charting components
 								</Text>
 							</Revealed>
@@ -183,12 +183,12 @@ export default (
 								</SlideRevealed>
 							</List>
 						</div>
-						<div style={{ position: 'absolute', top: 0 }}>
+						<div style={{ position: 'absolute', top: 80 }}>
 							<Revealed pose={revealAt(10, 11)}>
 								<Image src={images.markEncoding} />
 							</Revealed>
 						</div>
-						<div style={{ position: 'absolute', top: 0 }}>
+						<div style={{ position: 'absolute', top: 80 }}>
 							<Revealed pose={step >= 11 ? 'visible_slow' : 'hidden'}>
 								<Image src={images.reactLogo} />
 							</Revealed>

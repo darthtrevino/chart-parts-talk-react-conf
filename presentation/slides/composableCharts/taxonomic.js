@@ -2,14 +2,11 @@ import React from 'react'
 import { Layout, Fill, Heading, Image, Text } from 'spectacle'
 import posed from 'react-pose'
 import WalkableSlide from '../../components/WalkableSlide'
-import { palette } from '../../theme'
 import notes from '../../notes'
 import images from '../../images'
 
 const transition = {
 	duration: 300,
-	type: 'spring',
-	stiffness: 100,
 }
 
 const visible = {

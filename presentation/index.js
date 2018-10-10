@@ -6,7 +6,6 @@ import theme from './theme'
 // Talk Sections
 import frontSlide from './slides/front'
 import aboutMe from './slides/aboutMe'
-import aboutOurWork from './slides/aboutOurWork'
 import chartsAreImportant from './slides/chartsAreImportant'
 import problemDescription from './slides/contrivedProblem'
 import composableCharts from './slides/composableCharts'
@@ -32,7 +31,6 @@ export default () => (
 	>
 		{frontSlide}
 		{aboutMe}
-		{aboutOurWork}
 		{chartsAreImportant}
 		{chartTypeCarousel}
 		{problemDescription}
