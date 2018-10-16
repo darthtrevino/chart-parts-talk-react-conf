@@ -687,18 +687,18 @@ export default {
   Our library uses an abstract scenegraph,${line}
   and that means we can change the target rendering technology to whatever we want,${line}
   
-  Our react renderer is just emitting React virtual-dom, and one nice thing about this means that we can emit 
-  react-native virtual-dom instead, and very easily have parity between native and mobile (at least in Javascript) 
+  Our react renderer is just emitting React virtual-dom.${line}
+  We can emit react-native virtual-dom just as easily${line}
+  So now it's possible to share charting definitions between native and mobile${line}
   ${end}  
   `,
 
   mobileCode: `
-  We just switch our rendere to the react-native rendere, and we can run on mobile devices.
+  The first thing we'll do is use the react-native-svg renderer
   ${line}
-  
-  Our react-native-svg renderer is using the component types from react-native-svg to easily implement our charts on 
-  mobile devices.
-
+  And then we'll handle native touch events instead of click events.
+  ${line}
+  👀That's it
   ${end}
   `,
 
@@ -713,6 +713,8 @@ export default {
   We plan on continuing to develop this tool and taking this experiment as far as we can${line}
   We welcome your feedback, and your contributions and perspectives.${line}
   We hope this becomes a valuable tool for the community.${line}
+
+  Check us out on github, or hit me up on Twitter${line}
 
   Thank you so much!
   ${end}

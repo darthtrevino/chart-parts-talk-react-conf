@@ -20,7 +20,7 @@ export default [
 		ranges={[
 			{ loc: [9, 11], title: 'Switch Renderer' },
 			{ loc: [15, 16], title: 'Use Native Renderer' },
-			{ loc: [41, 44], title: 'Handle Native Events' },
+			{ loc: [19, 22], title: 'Handle Native Events' },
 		]}
 	/>,
 ]
