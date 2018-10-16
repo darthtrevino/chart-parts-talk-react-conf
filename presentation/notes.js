@@ -39,8 +39,9 @@ export default {
   `,
 
   uiwork: `
-    Our team builds a lot of data visualizations to try and communicate a lot of different kinds of data.${line}
-    ${bulletab}We apply data visualization and analytic processes daily${line}
+    Our team builds a lot of visual analytics to try and 
+    ${bulletab}communicate key insights in data${line}
+    ${bulletab}and give users freedom and control to explore their data${line}
 
     ${separator}
 
@@ -256,11 +257,14 @@ export default {
     Victory's top-level API is taxonomic, but if you look deeper into their docs,${line}
     you'll find that they provide a couple of levels of lower-level charting elements. ${line}
     They actually do a pretty good job of glissading between abstraction levels.${line}
-    ${line}
+    
+    ${separator}
+    
     The react-vis API provides a set of shape-series components.${line}
     These components are named really well, because it avoids a taxonomic top-level, but it's the only abstraction level${line}
     So one-off elements require some manual work in SVG${line}
-    ${line}
+    
+    ${separator}
     And finally the Recharts API, which has taxonomic chart containers${line}
     What this means is that your top level chart is taxonomic - e.g. LineChart or BarChart, and that limits what legal children the chart can have${line}
     Which feels arbitrarily retrictive${line}
@@ -302,17 +306,18 @@ export default {
   `,
 
   gogWalk: `
-  ${separator}  
   This idea comes from a book that was published in 1999 titled "The Grammar of Graphics" by Leland Wilkinson, 
   who's a well-know visualization researcher and VP of Tableau Software${line}
   These ideas have a handful of explicit implementations, in various programming ecosystems${line}
-
+  👀${line}
   ${separator}
 
-  The grammar of graphics envisions an system of object-oriented
-  charting elements that operate together to form a cohesive chart.${line}
-  It's called a grammar becasue these elements are analogous to words used together in sentences, to convey meaning.${line}
-  This was diametrically opposed to charting technologies of the time which were exclusively taxonomic in nature${line}
+  The grammar of graphics envisions a
+  ${bulletab}system of OO charting elements${line}
+  ${bulletab}that operate together to form charts, like Voltron.${line}
+  ${bulletab}It's called a grammar becasue these elements are analogous to words used together in sentences${line}
+
+  This was diametrically opposed to charting technologies of the time which were taxonomic in nature${line}
   A major emphasis in the grammar of graphics is to eschew taxonomies for recombinable, expressive lego pieces${line}
 
   ${separator}
@@ -423,7 +428,6 @@ export default {
     ${bulletab}It's basically an embedded, declarative Redux${line}
 
     ${separator}
-
     Next you define your scales.${line}
     Scales are how we map your data to UI dimensions, such as width, height, and color.${line}
     Each scale here is a named object so we can reference it later${line}
@@ -443,15 +447,14 @@ export default {
   vegaBarChartLive: `
   And now we have a bar-chart in Vega.${line}
 
-  There's some component-based thinking going on within Vega.${line}
-  And it's incredibly expressive and can describe a broad variety of charts${line}
+  ${bulletab}There's some component-based thinking going on here.${line}
+  ${bulletab}It's incredibly expressive and can describe a broad variety of charts${line}
+  ${bulletab}But a declarative JSON-based API is kind of a pain to work with.${line}
+  ${bulletab}You don't have great debugging seams${line}
+  ${bulletab}And it can be difficult to reason about the structure of a chart.${line}
+  ${bulletab}And this is only exacerbated as the complexity of a chart grows.${line}
 
-  But a declarative JSON-based API like that is kind of a pain to work with.${line}
-  You don't have great debugging seams, because it's a closed-off system${line}
-  so it can be difficult to reason about the structure of a chart.${line}
-  And this is only exacerbated as the complexity of a chart grows.${line}
-
-  We really like the ideas here, but prefer the ergonomics of the composable charting libraries we looked at before.${line}  
+  We really like the ideas here, but prefer the ergonomics 👀of the composable charting libraries we looked at before.${line}  
   `,
 
   whatif: `
