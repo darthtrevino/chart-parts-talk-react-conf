@@ -54,14 +54,14 @@ export default [
 				note: 'Bind to Data',
 			},
 			{
-				loc: [36, 37],
-				title: 'Define Marks',
-				note: 'attributes can be defined with an encoding function',
-			},
-			{
 				loc: [40, 41],
 				title: 'Define Marks',
 				note: 'attributes can be static',
+			},
+			{
+				loc: [36, 37],
+				title: 'Define Marks',
+				note: 'attributes can be defined with an encoding function',
 			},
 			{
 				loc: [41, 44],

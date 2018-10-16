@@ -102,21 +102,30 @@ const boxColumnContainerStyle = {
 	alignItems: 'center',
 	justifyContent: 'center'
 }
+const sideTextContainerStyle = {
+	display: 'flex',
+	flexDirection: 'column',
+	justifyContent: 'center',
+	alignItems: 'center',
+	marginRight: 25,
+}
+
+const containerStyle = { display: 'flex', width: 700, height: 350 }
 
 export default (
 	<WalkableSlide
 		key="taxonomic"
 		notes={notes.composableLibrariesTaxonomic}
-		numSteps={9}
+		numSteps={8}
 		transition={['fade']}
 		renderContent={step => {
 			const poseForStep = index => {
-				return step >= 3 ? 'dissolved' : step < index ? 'hidden' : 'visible'
+				return step >= 2 ? 'dissolved' : step < index ? 'hidden' : 'visible'
 			}
 			return (
 				<Fill>
 					<Text textSize={50} textColor="secondary" style={headingStyle}>
-						Taxonomic
+						Taxonomic APIs
 					</Text>
 					<div
 						style={{
@@ -129,100 +138,61 @@ export default (
 							<Image src={images.skeletonArmy} height={300} />
 						</LeftPlacer>
 						<CenterPlacer
-							pose={poseForStep(2)}
+							pose={poseForStep(1)}
 							style={{ display: 'flex', alignItems: 'center' }}
 						>
 							<Text textSize={50} textColor="secondary" style={headingStyle}>
 								vs
 							</Text>
 						</CenterPlacer>
-						<RightPlacer pose={poseForStep(2)} style={imageStyle}>
+						<RightPlacer pose={poseForStep(1)} style={imageStyle}>
 							<Image src={images.bones} height={300} />
 						</RightPlacer>
 					</div>
 					<SlideUpTray
-						pose={step === 3 ? 'visible' : 'hidden'}
+						pose={step === 2 || step === 3 ? 'visible' : 'hidden'}
 						style={slideUpTrayStyle}
 					>
-						<div style={{ display: 'flex', alignItems: 'center' }}>
-							<Image src={images.victoryApi} height={360} />
-						</div>
-					</SlideUpTray>
-					<SlideUpTray
-						pose={step === 4 ? 'visible' : 'hidden'}
-						style={slideUpTrayStyle}
-					>
-						<div style={{ display: 'flex' }}>
-							<div style={{
-								display: 'flex',
-								flexDirection: 'column',
-								justifyContent: 'center',
-								alignItems: 'center',
-								marginRight: 25,
-							}}>
+						<div style={containerStyle}>
+							<div style={sideTextContainerStyle}>
 								<Text textSize={35} textColor="secondary">Victory</Text>
 							</div>
 							<div style={boxColumnContainerStyle}>
-								<div style={victoryBoxStyle}>Taxonomic Charts</div>
-								<div style={victoryBoxStyle}>Simple Components</div>
-								<div style={victoryBoxStyle}>Draw Primitives</div>
+								{step === 2 ? <Image src={images.victoryApi} height={360} /> : [
+									<div key="a" style={victoryBoxStyle}>Taxonomic Charts</div>,
+									<div key="b" style={victoryBoxStyle}>Simple Components</div>,
+									<div key="c" style={victoryBoxStyle}>Draw Primitives</div>
+								]}
 							</div>
 						</div>
 					</SlideUpTray>
 					<SlideUpTray
-						pose={step === 5 ? 'visible' : 'hidden'}
+						pose={step === 4 || step === 5 ? 'visible' : 'hidden'}
 						style={slideUpTrayStyle}
 					>
-						<div style={{ display: 'flex', alignItems: 'center' }}>
-							<Image src={images.reactVisApi} height={360} />
-						</div>
-					</SlideUpTray>
-					<SlideUpTray
-						pose={step === 6 ? 'visible' : 'hidden'}
-						style={slideUpTrayStyle}
-					>
-						<div style={{ display: 'flex' }}>
-							<div style={{
-								display: 'flex',
-								flexDirection: 'column',
-								justifyContent: 'center',
-								alignItems: 'center',
-								marginRight: 25,
-								height: 320,
-							}}>
+						<div style={containerStyle}>
+							<div style={sideTextContainerStyle}>
 								<Text textSize={35} textColor="secondary">React-Vis</Text>
 							</div>
 							<div style={boxColumnContainerStyle}>
-								<div style={victoryBoxStyle}>Mark-Series Components</div>
+								{step === 4 ? <Image src={images.reactVisApi} height={360} /> :
+									<div style={victoryBoxStyle}>Mark-Series Components</div>}
 							</div>
 						</div>
 					</SlideUpTray>
 					<SlideUpTray
-						pose={step === 7 ? 'visible' : 'hidden'}
+						pose={step === 6 || step === 7 ? 'visible' : 'hidden'}
 						style={slideUpTrayStyle}
 					>
-						<div style={{ display: 'flex', alignItems: 'center' }}>
-							<Image src={images.rechartsTaxonomical} height={360} />
-						</div>
-					</SlideUpTray>
-					<SlideUpTray
-						pose={step === 8 ? 'visible' : 'hidden'}
-						style={slideUpTrayStyle}
-					>
-						<div style={{ display: 'flex' }}>
-							<div style={{
-								display: 'flex',
-								flexDirection: 'column',
-								justifyContent: 'center',
-								alignItems: 'center',
-								marginRight: 25,
-								height: 320,
-							}}>
+						<div style={containerStyle}>
+							<div style={sideTextContainerStyle}>
 								<Text textSize={35} textColor="secondary">Recharts</Text>
 							</div>
 							<div style={boxColumnContainerStyle}>
-								<div style={victoryBoxStyle}>Taxonomical Containers</div>
-								<div style={victoryBoxStyle}>Legal Children</div>
+								{step === 6 ? <Image src={images.rechartsTaxonomical} height={360} /> : [
+									<div key="a" style={victoryBoxStyle}>Taxonomical Containers</div>,
+									<div key="b" style={victoryBoxStyle}>Legal Children</div>
+								]}
 							</div>
 						</div>
 					</SlideUpTray>

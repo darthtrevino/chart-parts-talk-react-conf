@@ -68,4 +68,6 @@ export default {
 	dataflow2: require('../assets/dataflow2.png'),
 	dropout: require('../assets/dropout.png'),
 	rodserling: require('../assets/rodserling.jpg'),
+
+	microsoft: require('../assets/microsoft.png'),
 }

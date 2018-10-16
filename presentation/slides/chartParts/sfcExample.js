@@ -8,7 +8,7 @@ import notes from '../../notes'
 export default [
 	<TwoStepHeader
 		key="showcase_mobile"
-		notes={notes.mobile}
+		notes={notes.managingComplexity}
 		text={'Example Showcase'}
 		sub={'Managing Complexity with Functional Components'}
 	/>,

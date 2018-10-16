@@ -10,7 +10,6 @@ import {
 import posed from 'react-pose'
 
 import notes from '../../notes'
-import images from '../../images'
 
 import WalkableSlide from '../../components/WalkableSlide'
 
@@ -25,12 +24,19 @@ const Revealed = posed.div({
 	},
 })
 
+const colStyle = {
+	flex: 1,
+	display: 'flex',
+	flexDirection: 'column',
+	alignItems: 'center',
+}
+
 export default (
 	<WalkableSlide
 		key="showcase_api"
 		notes={notes.chartPartsApi}
 		transition={['fade']}
-		numSteps={5}
+		numSteps={8}
 		renderContent={step => {
 			return (
 				<div>
@@ -39,7 +45,7 @@ export default (
 					</Text>
 					<Fill>
 						<Layout>
-							<Fill>
+							<div style={colStyle}>
 								<Revealed pose={step >= 1 ? 'visible' : 'hidden'}>
 									<Heading textSize={30} textColor="crimson">
 										Scales
@@ -61,8 +67,8 @@ export default (
 										<ListItem textSize={itemSize}>Quantile</ListItem>
 									</List>
 								</Revealed>
-							</Fill>
-							<Fill>
+							</div>
+							<div style={colStyle}>
 								<Revealed pose={step >= 1 ? 'visible' : 'hidden'}>
 									<Heading textSize={30} textColor="crimson">
 										Marks
@@ -71,16 +77,18 @@ export default (
 								<Revealed pose={step >= 3 ? 'visible' : 'hidden'}>
 									<List>
 										<ListItem textSize={itemSize}>Arc</ListItem>
-										<ListItem textSize={itemSize}>Area</ListItem>
-										<ListItem textSize={itemSize}>Group</ListItem>
-										<ListItem textSize={itemSize}>Line</ListItem>
-										<ListItem textSize={itemSize}>Path</ListItem>
 										<ListItem textSize={itemSize}>Rect</ListItem>
 										<ListItem textSize={itemSize}>Rule</ListItem>
-										<ListItem textSize={itemSize}>Symbol</ListItem>
 										<ListItem textSize={itemSize}>Text</ListItem>
-										{step >= 4
-											? [
+										<ListItem textSize={itemSize}>Symbol</ListItem>
+										<ListItem textSize={itemSize}>Path</ListItem>
+										{step >= 4 && [
+											<ListItem textSize={itemSize}>Area</ListItem>,
+											<ListItem textSize={itemSize}>Line</ListItem>
+										]}
+										{step >= 5 && <ListItem textSize={itemSize}>Group</ListItem>}
+										{step >= 7
+											&& [
 												<ListItem textSize={itemSize} textColor="yello" key="trail">
 													Trail
 													</ListItem>,
@@ -90,27 +98,29 @@ export default (
 												<ListItem textSize={itemSize} textColor="yello" key="image">
 													Image
 													</ListItem>,
-											]
-											: null}
+											]}
 									</List>
 								</Revealed>
-							</Fill>
-							<Fill>
+							</div>
+							<div style={colStyle}>
 								<Revealed pose={step >= 1 ? 'visible' : 'hidden'}>
 									<Heading textSize={30} textColor="crimson">
-										Axes
+										Guides
 									</Heading>
 								</Revealed>
-							</Fill>
-							<Fill>
-								<Revealed pose={step >= 4 ? 'visible' : 'hidden'}>
+								<Revealed pose={step >= 6 ? 'visible' : 'hidden'}>
+									<List>
+										<ListItem textSize={itemSize}>Axis</ListItem>
+										<ListItem textSize={itemSize} textColor={step >= 7 ? 'yello' : 'transparent'}> Legend</ListItem>
+									</List>
+								</Revealed>
+							</div>
+							<div style={colStyle}>
+								<Revealed pose={step >= 7 ? 'visible' : 'hidden'}>
 									<Heading textSize={30} textColor="crimson">
 										TODO
 									</Heading>
 									<List>
-										<ListItem textSize={itemSize} textColor="yello">
-											Legend
-										</ListItem>
 										<ListItem textSize={itemSize} textColor="yello">
 											Dataflow
 										</ListItem>
@@ -119,10 +129,10 @@ export default (
 										</ListItem>
 									</List>
 								</Revealed>
-							</Fill>
+							</div>
 						</Layout>
 					</Fill>
-				</div>
+				</div >
 			)
 		}}
 	/>

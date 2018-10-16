@@ -44,12 +44,12 @@ const imagePos = {
 	backgroundColor: 'white',
 	boxShadow: '3px 3px #444',
 }
-function poseForStep(index) {}
+function poseForStep(index) { }
 export default (
 	<WalkableSlide
 		key="chart_type_carousel"
 		notes={notes.charting}
-		numSteps={7}
+		numSteps={6}
 		renderContent={step => {
 			const poseForStep = index => {
 				if (index === step) {
@@ -62,22 +62,22 @@ export default (
 			}
 
 			return [
-				<Stacked rotation={-30} pose={poseForStep(1)} style={imagePos}>
+				<Stacked rotation={-30} pose={poseForStep(0)} style={imagePos}>
 					<Image src={images.barChart} height={400} />
 				</Stacked>,
-				<Stacked rotation={30} pose={poseForStep(2)} style={imagePos}>
+				<Stacked rotation={30} pose={poseForStep(1)} style={imagePos}>
 					<Image src={images.lineChart} height={400} />
 				</Stacked>,
-				<Stacked rotation={10} pose={poseForStep(3)} style={imagePos}>
+				<Stacked rotation={10} pose={poseForStep(2)} style={imagePos}>
 					<Image src={images.pieChart} height={400} />
 				</Stacked>,
-				<Stacked rotation={15} pose={poseForStep(4)} style={imagePos}>
+				<Stacked rotation={15} pose={poseForStep(3)} style={imagePos}>
 					<Image src={images.areaChart} height={400} />
 				</Stacked>,
-				<Stacked rotation={12} pose={poseForStep(5)} style={imagePos}>
+				<Stacked rotation={12} pose={poseForStep(4)} style={imagePos}>
 					<Image src={images.boxPlots} height={400} />
 				</Stacked>,
-				<Stacked rotation={12} pose={poseForStep(6)} style={imagePos}>
+				<Stacked rotation={12} pose={poseForStep(5)} style={imagePos}>
 					<Image src={images.radarChart} height={400} />
 				</Stacked>,
 			]

@@ -1,6 +1,5 @@
-// Import React
 import React from 'react'
-import { Slide, Layout, Fill, Text } from 'spectacle'
+import { Slide, Layout, Fill, Text, Image } from 'spectacle'
 import notes from '../notes'
 import images from '../images'
 
@@ -14,7 +13,7 @@ export default (
 				of Charting
 			</Text>
 		</Fill>
-		<Layout fit style={{ marginTop: 10 }}>
+		<Layout fit style={{ marginTop: 10, display: 'flex', justifyContent: 'space-between' }}>
 			<Text
 				textSize={30}
 				fill
@@ -23,8 +22,9 @@ export default (
 				fontWeight={200}
 				style={{ textAlign: 'start' }}
 			>
-				Chris Trevino - Microsoft
+				Chris Trevino
 			</Text>
+			<Image src={images.microsoft} height={30} />
 		</Layout>
 	</Slide>
 )
