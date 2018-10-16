@@ -27,9 +27,9 @@ export default [
 
 	// Examples
 	...basicExample,
-	...mobileExample,
-	...sfcExample,
 	...accessibilityExample,
+	...sfcExample,
+	...mobileExample,
 	...composabilityExample,
 
 	conclusion,

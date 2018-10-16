@@ -4,6 +4,7 @@ import posed from 'react-pose'
 import WalkableSlide from '../../components/WalkableSlide'
 import notes from '../../notes'
 import images from '../../images'
+import { palette } from '../../theme'
 
 const transition = {
 	duration: 300,
@@ -83,11 +84,30 @@ const slideUpTrayStyle = {
 	width: '100%',
 }
 
+const victoryBoxStyle = {
+	backgroundColor: palette.crimson,
+	height: 100,
+	width: 250,
+	borderRadius: 10,
+	margin: 8,
+	alignItems: 'center',
+	justifyContent: 'center',
+	display: 'flex'
+}
+
+const boxColumnContainerStyle = {
+	flex: 1,
+	display: 'flex',
+	flexDirection: 'column',
+	alignItems: 'center',
+	justifyContent: 'center'
+}
+
 export default (
 	<WalkableSlide
 		key="taxonomic"
 		notes={notes.composableLibrariesTaxonomic}
-		numSteps={4}
+		numSteps={9}
 		transition={['fade']}
 		renderContent={step => {
 			const poseForStep = index => {
@@ -96,7 +116,7 @@ export default (
 			return (
 				<Fill>
 					<Text textSize={50} textColor="secondary" style={headingStyle}>
-						Taxonomic APIs
+						Taxonomic
 					</Text>
 					<div
 						style={{
@@ -121,17 +141,92 @@ export default (
 						</RightPlacer>
 					</div>
 					<SlideUpTray
-						pose={step >= 3 ? 'visible' : 'hidden'}
+						pose={step === 3 ? 'visible' : 'hidden'}
 						style={slideUpTrayStyle}
 					>
-						<LeftPlacer pose={poseForStep(3)} style={imageStyle}>
-							<Image src={images.victoryApi} height={300} />
-						</LeftPlacer>
-						<RightPlacer pose={poseForStep(3)} style={imageStyle}>
-							<Image src={images.rechartsTaxonomical} height={300} />
-						</RightPlacer>
+						<div style={{ display: 'flex', alignItems: 'center' }}>
+							<Image src={images.victoryApi} height={360} />
+						</div>
 					</SlideUpTray>
-				</Fill>
+					<SlideUpTray
+						pose={step === 4 ? 'visible' : 'hidden'}
+						style={slideUpTrayStyle}
+					>
+						<div style={{ display: 'flex' }}>
+							<div style={{
+								display: 'flex',
+								flexDirection: 'column',
+								justifyContent: 'center',
+								alignItems: 'center',
+								marginRight: 25,
+							}}>
+								<Text textSize={35} textColor="secondary">Victory</Text>
+							</div>
+							<div style={boxColumnContainerStyle}>
+								<div style={victoryBoxStyle}>Taxonomic Charts</div>
+								<div style={victoryBoxStyle}>Simple Components</div>
+								<div style={victoryBoxStyle}>Draw Primitives</div>
+							</div>
+						</div>
+					</SlideUpTray>
+					<SlideUpTray
+						pose={step === 5 ? 'visible' : 'hidden'}
+						style={slideUpTrayStyle}
+					>
+						<div style={{ display: 'flex', alignItems: 'center' }}>
+							<Image src={images.reactVisApi} height={360} />
+						</div>
+					</SlideUpTray>
+					<SlideUpTray
+						pose={step === 6 ? 'visible' : 'hidden'}
+						style={slideUpTrayStyle}
+					>
+						<div style={{ display: 'flex' }}>
+							<div style={{
+								display: 'flex',
+								flexDirection: 'column',
+								justifyContent: 'center',
+								alignItems: 'center',
+								marginRight: 25,
+								height: 320,
+							}}>
+								<Text textSize={35} textColor="secondary">React-Vis</Text>
+							</div>
+							<div style={boxColumnContainerStyle}>
+								<div style={victoryBoxStyle}>Mark-Series Components</div>
+							</div>
+						</div>
+					</SlideUpTray>
+					<SlideUpTray
+						pose={step === 7 ? 'visible' : 'hidden'}
+						style={slideUpTrayStyle}
+					>
+						<div style={{ display: 'flex', alignItems: 'center' }}>
+							<Image src={images.rechartsTaxonomical} height={360} />
+						</div>
+					</SlideUpTray>
+					<SlideUpTray
+						pose={step === 8 ? 'visible' : 'hidden'}
+						style={slideUpTrayStyle}
+					>
+						<div style={{ display: 'flex' }}>
+							<div style={{
+								display: 'flex',
+								flexDirection: 'column',
+								justifyContent: 'center',
+								alignItems: 'center',
+								marginRight: 25,
+								height: 320,
+							}}>
+								<Text textSize={35} textColor="secondary">Recharts</Text>
+							</div>
+							<div style={boxColumnContainerStyle}>
+								<div style={victoryBoxStyle}>Taxonomical Containers</div>
+								<div style={victoryBoxStyle}>Legal Children</div>
+							</div>
+						</div>
+					</SlideUpTray>
+				</Fill >
 			)
 		}}
 	/>

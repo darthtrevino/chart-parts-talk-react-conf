@@ -1,15 +1,15 @@
 import React from 'react'
-import { Heading, Slide, Image } from 'spectacle'
+import { Heading, Slide, Image, Code } from 'spectacle'
 import notes from '../../notes'
 import images from '../../images'
+import code from '../../code'
+import CodeSlide from 'spectacle-code-slide'
 
 export default (
-	<Slide
+	<CodeSlide lang="jsx" code={code.fancyBarChart}
 		key="cortrived_uselib_codepane"
 		notes={notes.useFancyCharts}
 		transition={['flip']}
-	>
-		<Heading size={3}>🙏</Heading>
-		<Image src={images.fancyGif} height={500} fill />
-	</Slide>
+		ranges={[{ loc: [0, 7], title: "🙏" }]}
+	/>
 )

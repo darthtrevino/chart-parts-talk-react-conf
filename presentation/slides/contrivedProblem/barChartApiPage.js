@@ -40,6 +40,8 @@ const RageImage = posed.div({
 	},
 })
 
+const rageStyle = { position: 'absolute', top: 0, left: 0 }
+
 export default (
 	<WalkableSlide
 		transition={['fade']}
@@ -54,7 +56,7 @@ export default (
 					</ApiImage>
 					<RageImage
 						pose={step >= 2 ? 'zoom' : 'default'}
-						style={{ position: 'absolute', top: 0, left: 0 }}
+						style={rageStyle}
 					>
 						<Image src={images.rage} fill />
 					</RageImage>

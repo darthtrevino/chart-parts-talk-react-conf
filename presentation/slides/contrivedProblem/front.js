@@ -6,7 +6,7 @@ export default (
 	<TwoStepHeader
 		notes={notes.stepsForUsingNewLibrary}
 		key="contrived_steps"
-		text="Steps for using a new charting library"
+		text="Using a new charting library"
 		sub="a slightly contrived problem"
 	/>
 )

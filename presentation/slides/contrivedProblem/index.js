@@ -1,6 +1,5 @@
 import front from './front'
 import npmSearch from './npmSearch'
-import yarnInstall from './yarnInstall'
 import useFancyCharts from './useFancyCharts'
 import renderedBarChart from './renderedBarChart'
 import barChartApiPage from './barChartApiPage'
@@ -14,7 +13,6 @@ import withMean from './withMean'
 export default [
 	front,
 	npmSearch,
-	yarnInstall,
 	useFancyCharts,
 	renderedBarChart,
 	winchester,

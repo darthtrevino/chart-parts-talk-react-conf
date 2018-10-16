@@ -1,12 +1,9 @@
 import React from 'react'
 import {
-	Slide,
 	Text,
 	Fill,
-	Image,
 	List,
 	ListItem,
-	Appear,
 	Heading,
 	Layout,
 } from 'spectacle'
@@ -17,7 +14,7 @@ import images from '../../images'
 
 import WalkableSlide from '../../components/WalkableSlide'
 
-const itemSize = 27
+const itemSize = 25
 
 const Revealed = posed.div({
 	hidden: {
@@ -68,7 +65,7 @@ export default (
 							<Fill>
 								<Revealed pose={step >= 1 ? 'visible' : 'hidden'}>
 									<Heading textSize={30} textColor="crimson">
-										View Marks
+										Marks
 									</Heading>
 								</Revealed>
 								<Revealed pose={step >= 3 ? 'visible' : 'hidden'}>
@@ -84,13 +81,13 @@ export default (
 										<ListItem textSize={itemSize}>Text</ListItem>
 										{step >= 4
 											? [
-												<ListItem textSize={itemSize} textColor="yello">
+												<ListItem textSize={itemSize} textColor="yello" key="trail">
 													Trail
 													</ListItem>,
-												<ListItem textSize={itemSize} textColor="yello">
+												<ListItem textSize={itemSize} textColor="yello" key="shape">
 													Shape
 													</ListItem>,
-												<ListItem textSize={itemSize} textColor="yello">
+												<ListItem textSize={itemSize} textColor="yello" key="image">
 													Image
 													</ListItem>,
 											]
@@ -116,6 +113,9 @@ export default (
 										</ListItem>
 										<ListItem textSize={itemSize} textColor="yello">
 											Dataflow
+										</ListItem>
+										<ListItem textSize={itemSize} textColor="yello">
+											Animation
 										</ListItem>
 									</List>
 								</Revealed>

@@ -146,14 +146,14 @@ export default (
 									textSize={35}
 									style={{ fontWeight: 200 }}
 								>
-									data transformation
+									shapes
 								</ListItemPosed>
 								<ListItemPosed
 									pose={revealAt(6, 10)}
 									textSize={35}
 									style={{ fontWeight: 200 }}
 								>
-									scaling
+									scales
 								</ListItemPosed>
 								<ListItemPosed
 									pose={revealAt(7, 10)}
@@ -162,15 +162,8 @@ export default (
 								>
 									coordinate systems
 								</ListItemPosed>
-								<ListItemPosed
-									pose={revealAt(8, 10)}
-									textSize={35}
-									style={{ fontWeight: 200 }}
-								>
-									shapes
-								</ListItemPosed>
 								<SlideRevealed
-									pose={revealAt(9, 10)}
+									pose={revealAt(8, 10)}
 									textSize={35}
 									style={{ fontWeight: 200 }}
 								>
@@ -181,6 +174,13 @@ export default (
 										legends
 									</ListItem>
 								</SlideRevealed>
+								<ListItemPosed
+									pose={revealAt(9, 10)}
+									textSize={35}
+									style={{ fontWeight: 200 }}
+								>
+									data transformation
+								</ListItemPosed>
 							</List>
 						</div>
 						<div style={{ position: 'absolute', top: 80 }}>

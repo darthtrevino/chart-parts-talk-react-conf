@@ -115,27 +115,31 @@ export default {
   `,
 
   npmsearch: `
-    We're knee-deep into making an application${line}
-    ${bulletab}and we want to include a chart${line}
-    ${bulletab}It's nothing fancy, just a bar-chart.${line}
+    So we're knee-deep into making our application${line}
+    ${bulletab}and we need to include a chart for our metrics page${line}
+    ${bulletab}fortunately it's nothing fancy, we just a bar-chart.${line}
 
     ${separator}
 
     So we head to NPM and search for something simple that matches our use case. ${line}
-    ${bulletab}And we find fancy charts (woop woop!)${line}
+    ${bulletab}And we find this cool library called fancy-charts${line}
     ${bulletab}which appears to be super popular${line}
     ${bulletab}it has lots of downloads and stars${line}
-    ${bulletab}and has a clean up-front API${line}
-    ${bulletab}We just pass our data in and charts pop out${line}
-    ${end}
-    `,
 
-  yarninstall: `
-    So we install our new charting library${line}
+    ${separator}
+
+    After that, we check the docs, and the API looks pretty decent${line}
+    ${bulletab}and has a clean up-front props interface${line}
+    ${bulletab}We just pass our data in and charts pop out${line}
+
+    ${separator}
+    And we install this sweet new charting library${line}
     ${bulletab}and we're stoked!${line}
     ${bulletab}Nothing's going wrong today, we can feel it.${line}
     ${end}
-  `,
+
+    ${end}
+    `,
 
   useFancyCharts: `
     And now it's time to wire the chart it into our app${line}
@@ -157,7 +161,8 @@ export default {
   `,
 
   lumbergh: `
-    Your boss has discussed new requirements with your customer, and your new, fancy, chart needs a little work...${line}
+    Your boss has discussed the charting requirements with your customer,${line}
+    and your bar-chart chart needs a little work...${line}
   `,
 
   smallchange: `
@@ -165,8 +170,7 @@ export default {
   `,
 
   barchartwithmean: `
-    According to the new requirements, all we need to do is add a mean-line to our bar chart.${line}
-    For some reason, it's super important for the analysts, and it's a key metric for them.
+    According to the requirements, all we need to do is add a mean-line to our bar chart.${line}
   `,
 
   barchartapi: `
@@ -181,18 +185,10 @@ export default {
   
   ${separator}
 
-  At this point, you may be so jaded with your fancy-charts experience that you eject it.${line}
-  Maybe now you don't want to use any abstraction at all, and rewrite from scratch${line}
-  ${bulletab}will probably involve d3${line}
-  ${bulletab}you have to decide how to make react and d3 work together${line}
-  ${bulletab}both of those technologies control what goes to the DOM${line}
+  At this point, you may be so frustrated with your experience that you eject it and go straight down into 2D apis.${line}
+  And maybe that means using d3, and figuring out how to make that work with react${line}
+  Or maybe you're diving straight into the blood and guts of doing your own scaling and axes and using SVG, Canvas, or whatever directly${line}
   ${end}
-  `,
-
-  missingAbstractionFront: `
-    We've landed in the zone of the missing abstraction${line}
-    It feels like there should be something better, what would it look like?${line}
-    ${end}
   `,
 
   missingAbstraction: `
@@ -201,14 +197,8 @@ export default {
     ${bulletab}it feels like there should be something in the middle of those options.${line}
     ${bulletab}Something more verbose than a chart tag${line}
     ${bulletab}Something higher-level than 2d instances${line}
-    ${bulletab}Something that lends us productivity and flexibility${line}
-    
-    ${separator}
-    Maybe 90% of the time, we use high-level components.${line}
-    But once in a while${line}
-    ${bulletab}if we need to customize a chart${line}
-    ${bulletab}we can "eject" out of it, like we can our build systems (with CRA)${line}
-    ${bulletab}and tweak it however we want..
+    ${bulletab}Something that lends us productivity and expressivity${line}
+    ${bulletab}Maybe something that still gives us high abstractions, but are ejectable into details${line}
     ${end}
   `,
 
@@ -232,7 +222,8 @@ export default {
   composableLibraries: `  
     One great option is victory-charts by Formidable labs${line}
     ${bulletab}Victory has some pretty great qualities${line}
-    ${bulletab}One of the only mobile options${line}
+    ${bulletab}only mobile option${line}
+    ${bulletab}theming${line}
     ${bulletab}custom elements${line}
     ${bulletab}animations api${line}
 
@@ -254,26 +245,33 @@ export default {
   composableLibraryIssues: `
     There are some issues you may run into using these${line}
     ${bulletab}I don't want to trash these libraries, because they're all pretty great${line}
-    ${bulletab}And maybe these aren't really deal-brakers for your use case${line}
-    ${bulletab}But they're things we've run into${line}
+    ${bulletab}And maybe these aren't really deal-breakers for your use case${line}
+    ${bulletab}But they're things that we have run into${line}
     ${end}
   `,
 
   composableLibrariesTaxonomic: `
     One thing you'll notice is that to varying degrees, their APIs are taxonomic${line}
     
-    What this means is that${line}
-    ${bulletab}the element API reflects a fixed set of chart-types${line}
-    ${bulletab}these might be composable, and you can do really interesting things with that${line}
+    A purely taxonomic API would be one that reflects a fixed series of chart-types${line}
+    ${bulletab}these might be composable, and you can make some really creative charts with that${line}
     ${bulletab}but it's kind of like using pre-made sentences to express our language instead of words${line}
 
     ${separator}
-    On the left, here's the basic chart elements for Victory${line}
-    ${bulletab}These are the composable elements we use to put charts together${line}
-    
-    ${separator}
-    And on the right, here's Recharts' top-level API${line}
-    ${bulletab}The kinds of components you can use in these charts is determined by the kind of top-level chart you have${line}
+
+    So let's look at the APIs for these charts${line}
+    Victory's top-level API is taxonomic, but if you look deeper into their docs,${line}
+    you'll find that they provide a couple of levels of lower-level charting elements. ${line}
+    They actually do a pretty good job of glissading between abstraction levels.${line}
+    ${line}
+    The react-vis API provides a set of shape-series components.${line}
+    These components are named really well, because it avoids a taxonomic top-level, but it's the only abstraction level${line}
+    So one-off elements require some manual work in SVG${line}
+    ${line}
+    And finally the Recharts API, which has taxonomic chart containers${line}
+    What this means is that your top level chart is taxonomic - e.g. LineChart or BarChart, and that limits what legal children the chart can have${line}
+    Which feels arbitrarily retrictive${line}
+
     ${end}
   `,
 
@@ -283,7 +281,7 @@ export default {
   ${separator}
   In Victory, this is how we can add low-level elements to our chart.${line}
   ${bulletab}In this piece of code, an Area chart is rendered with an adjaced circle by thunking down to raw SVG${line}
-  ${bulletab}This gives us pretty nice flexibility${line}
+  ${bulletab}This gives us pretty nice flexibility, and the ability to do wild things with our SVG${line}
   ${bulletab}but the abstraction is a little leaky${line}
 
   ${separator}
@@ -310,21 +308,9 @@ export default {
   ${bulletab}data filtering, statistical computations, or data faceting${line}
   ${bulletab}this starts to get a little hairier${line}
   ${bulletab}especially if these things interact dynamically and we want to be performant${line}
-  ${end}
-  `,
 
-  victoryTaxonomical: `
-  Their API for charting elements is kind of taxonomical in nature. ${line}
-  What that means is that each Victory component is basically a different kind of chart${line} 
-  And the language we use to express our own charts is kind of limited by kinds of chart types they provide${line}
-  
-  Some libraries, even the theory-grounded ones, provide a catalogue of chart types instead of low-level primitives.${line}
-  They still work well, but it's analogous to talking in prebuilt sentences instead of words.${line}
-
-  There's no reason these can't co-exist together.${line}
-  One pretty normal concept is to build terser, higher abstractions on top of lower abstractions${line}
-  which gives us the flexibility to glissade between those different modes of expression${line}
- 
+  ${separator}
+  This is an area where there's still a lot of progress that can be made in component-land.${line} 
   ${end}
   `,
 
@@ -339,7 +325,7 @@ export default {
   ${separator}  
   This idea comes from a book that was published in 1999 titled "The Grammar of Graphics" by Leland Wilkinson, 
   who's a well-know visualization researcher${line}
-  These ideas have a handful of implementations, in various programming ecosystems${line}
+  These ideas have a handful of explicit implementations, in various programming ecosystems${line}
 
   ${separator}
 
@@ -352,11 +338,11 @@ export default {
   ${separator}
   
   These elements consist of the basic pieces of charts we're all familiar with:${line}
-  ${bulletab}data transformation elements for things like aggregation, statistics, and layout computes${line}
-  ${bulletab}data scales to map your data to view boundaries or to colors${line}
-  ${bulletab}coordinate systems for drawing shapes${line}
   ${bulletab}shapes to draw${line}
-  ${bulletab}and guide components for things like axes and legends${line}
+  ${bulletab}data scales to map your data to view boundaries or to colors${line}
+  ${bulletab}coordinate systems to map the shapes into${line}
+  ${bulletab}guide components for things like axes and legends${line}
+  ${bulletab}and data transformation elements for things like aggregation, statistics, and layout computes${line}
 
   ${separator}
   
@@ -382,18 +368,11 @@ export default {
   The main phases of creating charts using the Grammar of Graphics are described as:${line}
 
   ${separator}
-  First, specify a scene using chart-element components. This specification contains a lot of moving parts, and not all of them are visual.${line}
-  ${bulletab}This includes data inputs${line}
-  ${bulletab}data transformations and statistical aggregations${line}
-  ${bulletab}scale definitions${line}
-  ${bulletab}coordinate systems such as cartesian or polar${line}
-  ${bulletab}rendered shapes or elements${line}
-  ${bulletab}and defining any guides such as axes and legends.${line}
-
+  First, specify a scene using chart-element components${line}
+  
   ${separator}
   Next, we need to assemble an abstract scenegraph.${line}
-  ${bulletab}This means taking our data sources${line}
-  ${bulletab}flowing them through our specification${line}
+  ${bulletab}This means taking our data sources and walking them through our specification${line}
   ${bulletab}and emitting a resultant scene that expresses a abstract notion of a chart.${line}
 
   It's important that this scenegraph is abstract, because it gives us the ability to use the same scenegraph 
@@ -417,36 +396,6 @@ export default {
   ${end}
   `,
 
-  dataflowProblem: `
-  In the grammar of graphics, we're not just dealing with rendered view elements, there's also a system of
-  filtering, statistical aggregations, data faceting, and general data manipulation, that helps to form our language of specification.${line}
-
-  A feature you may see in Grammar of Graphics implementations is a dataflow graph.${line}
-  
-  A dataflow graph is a way of describing data transforms as a pipeline of processing nodes.${line}
-  Each node can augment, aggregate, or cull data from our source data tables.${line}
-  Ideally, they can perform these computations progressively, so that we can support progressive rendering by using streaming data sources${line}
-  Or we can respond efficiently to filtering and pivoting operations.${line}
-
-  ${separator}
-
-  So the way these things work, you describe a network of transform nodes that are dependent on each other's output,${line}
-  ${bulletab}pump your data into the input nodes${line}
-  ${bulletab}and your rendering elements use what comes out on the other side${line}
-  ${bulletab}it can even extend beyond this point with data faceting${line}
-  ${bulletab}and data operations that dovetail with view specification${line}
-
-  ${separator}
-
-  This is still kind of an open problem in component-land.${line}
-  The Vega project, which we'll see in a minute, features a data transform graph as a key concept, but it's difficult to use outside of Vega.${line}  
-  
-  It would be nice if we could express this at the component level - maybe something that's based on Observables and emerging signal-graph work.${line} 
-
-  Something like this would benefit every Javascript charting library.
-  ${end}
-  `,
-
   gogImpls: `
   So this is a cool idea, it fits nicely with our component-based way of thinking. ${line}
   What are our options for implementations of this?${line}
@@ -464,30 +413,26 @@ export default {
   ${separator}
   Vega comes in two flavors, Vega and Vega Lite. ${line}
   They're part of the same ecosystem, but with different goals${line}
-  Vega is a lower level abstraction on orchestrating scales and primitives${line}
-  And Vega-Lite is a higher-level abstraction for making charts that look good and follow best practices${line}
-  To lean on the grammar analogy a bit, Vega is concerned with Syntax - the structure of when words can be used.${line}
-  And vega-lite is concened with semantics - how can we make words that make sense together${line}
+  Vega provides the lower level components and primitives${line}
+  And Vega-Lite provides a higher-level on-rails abstraction for making good charts${line}
 
   ${separator}
-  In both of these libraries though${line}
-  ${bulletab}you author your visuals using static JSON${line}
-  ${bulletab}and the whole thing is a closed-off, seamless unit.${line}  
-  
-  This is great for transport and sharing scenarios, but it makes authoring them kind of difficult.${line}
+
   Let's look at how you'd write some charts in Vega.
   ${end}
   `,
 
   vegaBarChart: `
-    Vega in practice is like a super structured d3.${line}
+    In Vega and Vega-Lite, you author visuals using static JSON definitions.${line}
+
+    Vega in practice is basically a super structured d3 with a notion of scene nodes.${line}
+    
     So there's a little bit of plumbing that goes along with it.${line}
     
     To start, we need to set our chart options,${line}
-    ${bulletab}here's where we'd select what renderer to use - svg or canvas,
-    ${bulletab}the background color of the chart${line}
-    ${bulletab}and the dimensions and padding to use${line}
-    ${bulletab}axes will stretch that size out, so be careful of that.${line}
+    ${bulletab}here's where we'd select whether to use svg or canvas,
+    ${bulletab}the background color${line}
+    ${bulletab}and the dimensions and padding${line}
 
     ${separator}
 
@@ -497,17 +442,16 @@ export default {
     ${bulletab}and either a static definition like we have here or a URL.${line}
 
     You can also define data transformation steps that will perform aggregation or layout transform on the input data.${line}
-    This is the start of the vega-dataflow pipeline.${line}
+    This is the start of the vega-dataflow graph, which is an important concept, but we're not going to get into it now.${line}
 
     ${separator}
 
     Next we'll define some event handling. This sets up an internal "signaling system".${line}
 
     We haven't talked about signals yet, but in Vega,${line}
-    ${bulletab}signals are basically a set of named variables that the charts cand bind to${line}
+    ${bulletab}signals are named variables that the charts cand bind to${line}
     ${bulletab}and update when interactions happen${line}
-
-    It's basically like an embedded, declarative Redux${line}
+    ${bulletab}It's basically an embedded, declarative Redux${line}
 
     When you instantiate this in JS, there's an API on the view object Vega gives you that will let you ${line}
     ${bulletab}subscribe to changes and ${line}
@@ -539,9 +483,9 @@ export default {
   And it's incredibly expressive and can describe a broad variety of charts${line}
 
   But a declarative JSON-based API like that is kind of a pain to work with.${line}
-  You don't have great debugging seams, ${line}
-  and it can be difficult to reason about the structure of a chart.${line}
-  This is only exacerbated as the complexity of a chart grows.${line}
+  You don't have great debugging seams, because it's a closed-off system${line}
+  so it can be difficult to reason about the structure of a chart.${line}
+  And this is only exacerbated as the complexity of a chart grows.${line}
 
   We really like the ideas here, but prefer the ergonomics of the composable charting libraries we looked at before.${line}  
   `,

@@ -6854,6 +6854,13 @@ rc@~1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~1.0.4"
 
+react-audio-player@^0.10.0:
+  version "0.10.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/react-audio-player/-/react-audio-player-0.10.0.tgz#f08f3572028a5a56663abba6a7e8ce60ba80ded3"
+  integrity sha512-r61UqwSfi9N8KO4GXfdbOskTzJHQGd/yyJ04GNmr26EIiboXmKLt55d2rH6Gti5p+Ju0DQXNxo+7tBhXOSc6ww==
+  dependencies:
+    prop-types "^15.5.8"
+
 react-deep-force-update@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-2.1.1.tgz#8ea4263cd6455a050b37445b3f08fd839d86e909"

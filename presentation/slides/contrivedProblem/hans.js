@@ -22,9 +22,9 @@ const HansText = posed.div({
 	},
 	bottom: {
 		opacity: 1,
-		y: 600,
+		y: 520,
 		transition: {
-			duration: 500,
+			duration: 1500,
 		},
 	},
 })

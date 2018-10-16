@@ -10,7 +10,7 @@ import posed from 'react-pose'
 export default (
 	<WalkableSlide
 		key="about_me"
-		numSteps={4}
+		numSteps={2}
 		notes={notes.aboutMe}
 		renderContent={animIndex => (
 			<SlideZoom
@@ -52,13 +52,13 @@ export default (
 					</Fill>
 					<Fill>
 						<List>
-							<ListItemPosed pose={animIndex > 0 ? 'visible' : 'hidden'}>
+							<ListItemPosed pose={animIndex >= 1 ? 'visible' : 'hidden'}>
 								MSR Silverdale
 							</ListItemPosed>
-							<ListItemPosed pose={animIndex > 1 ? 'visible' : 'hidden'}>
+							<ListItemPosed pose={animIndex >= 1 ? 'visible' : 'hidden'}>
 								JavaScript Convert
 							</ListItemPosed>
-							<ListItemPosed pose={animIndex > 2 ? 'visible' : 'hidden'}>
+							<ListItemPosed pose={animIndex >= 1 ? 'visible' : 'hidden'}>
 								🚴‍ 🌮 🍺
 							</ListItemPosed>
 						</List>
