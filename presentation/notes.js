@@ -6,17 +6,17 @@ const separator = `---------------${line}`
 
 export default {
   slide1: `
-    Good morning!
+    Hello everyone
     ${line}
 
-    Let's talk about charting
+    Let's talk about charting!
   `,
   aboutMe: `
     I'm Chris Trevino${line}
     ${bulletab}Software engineer with Microsoft Research in Silverdale, WA.${line}
-    ${bulletab}Writing Javascript for 5 years${line}
-    ${bulletab}Before that, back-end dev (Java, C#, C++)${line}
-    ${bulletab}I use classes a lot${line}
+    ${bulletab}JS for 5 years${line}
+    ${bulletab}Before, I did a bunch of backend and embedded work - C++, C#, Java${line}
+    ${bulletab}So I use classes a lot${line}
     ${bulletab}Please don't kick me out${line}
 
     ${separator}
@@ -31,15 +31,16 @@ export default {
     ${separator}
     
     Our emphasis is on applying${line}
-    ${bulletab}data-analytics and${line}
+    ${bulletab}data-analytics${line}
     ${bulletab}machine learning${line}
+    ${bulletab}and visual analytic processes${line}
     ${bulletab}to large sets of textual data${line}
     ${bulletab}and trying to convey insights that data${line}
     ${end}    
   `,
 
   uiwork: `
-    Our team builds a lot of visual analytics to try and 
+    Our team builds a lot of interactive visualizations to try and ${line}
     ${bulletab}communicate key insights in data${line}
     ${bulletab}and give users freedom and control to explore their data${line}
 
@@ -59,12 +60,6 @@ export default {
     ${bulletab}for us, data visualization is absolutely essential to what we do.${line}
     ${bulletab}our primary mechanism for understanding nuance in data${line}
     ${bulletab}hard to discern in its raw form.${line}
-
-    ${separator}
-
-    Sometimes when we work with teams, they're seeing their data visualized for the first time${line}
-    ${bulletab}or arranged in a new way${line}
-    ${bulletab}and it can be illuminating for them. ${line}
 
     ${separator}
 
@@ -191,6 +186,7 @@ export default {
   `,
 
   missingAbstraction: `
+    Our team calls this the problem of the missing abstraction${line}
     We want to be able to author visualizations in higher-level terms${line}
     ${bulletab}but we run into brittle abstractions that force us into low-level rendering.${line}
     ${bulletab}it feels like there should be something in the middle of those options.${line}
@@ -212,8 +208,10 @@ export default {
   `,
 
   composableFront: `
-    We're going to look at this problem from a couple of different angles, both community-driven and academic.${line}
-    ${bulletab}So first, let's look at the charting options in the react community.${line}
+    So let's look at what may fit this abstraction gap.${line}
+    We're going to look at this from a couple of different angles.${line}
+    In a second, we'll look at what's in academia.${line}    
+    ${bulletab}So first, let's look at the composable charting options in the react community.${line}
     ${end}
   `,
 
@@ -309,13 +307,13 @@ export default {
   This idea comes from a book that was published in 1999 titled "The Grammar of Graphics" by Leland Wilkinson, 
   who's a well-know visualization researcher and VP of Tableau Software${line}
   These ideas have a handful of explicit implementations, in various programming ecosystems${line}
-  👀${line}
   ${separator}
 
   The grammar of graphics envisions a
   ${bulletab}system of OO charting elements${line}
   ${bulletab}that operate together to form charts, like Voltron.${line}
   ${bulletab}It's called a grammar becasue these elements are analogous to words used together in sentences${line}
+  ${bulletab}You can combine them in expressive ways, but there's also rules on how to use them${line}
 
   This was diametrically opposed to charting technologies of the time which were taxonomic in nature${line}
   A major emphasis in the grammar of graphics is to eschew taxonomies for recombinable, expressive lego pieces${line}
@@ -324,16 +322,16 @@ export default {
   
   These elements consist of the basic pieces of charts we're all familiar with:${line}
   ${bulletab}shapes to draw${line}
-  ${bulletab}data scales to map your data to view boundaries or to colors${line}
-  ${bulletab}coordinate systems to map the shapes into${line}
-  ${bulletab}guide components for things like axes and legends${line}
+  ${bulletab}scales to map data to view dimensions${line}
+  ${bulletab}coordinate systems for your shapes to draw into${line}
+  ${bulletab}guide components to help users understand what we're looking at${line}
   ${bulletab}and data transformation elements for things like aggregation, statistics, and layout computes${line}
 
   ${separator}
   
   As an example, say we have a rectangle component, 
   and we want to encode an instance of it into our chart in cartesian space${line}
-  This rectangle will encoded parameters for its ${line}
+  Our rectangle will encode some properties based on the data it's bound to${line}
   ${bulletab}x,y start position${line}
   ${bulletab}width and height${line}
   ${bulletab}and a color.${line}
@@ -531,12 +529,14 @@ export default {
 
   ${separator}
   On interesting thing about this architecture as a whole is that we are only in React-land at the very beginning and end of this process${line}
-  So if we ever want to target another framework for specifying components, or another rendering environment, we don't have to swap out the whole library${line}
+  So if we ever want to target another framework (for some reason),${line}
+  or another rendering environment,${line}
+  we don't have to swap out the whole library${line}
   ${end}
   `,
 
   chartPartsBarChart: `
-  Let's make a bar-chart!${line}
+  Let's make a bar-chart with chart-parts!${line}
   
   First, we'll import our charting components.${line}
   
@@ -577,14 +577,14 @@ export default {
   ${bulletab}and it's index in the table.${line}
 
   And finally, we can add our event handlers.${line}
-  Being application developers, we're used to managing our state with tools like Redux, hso we
+  Being application developers, we're used to managing our state with tools like Redux, so we
   opted out of the signal system here in favor of native events${line}
   `,
 
   managingComplexity: `
-  I've mentioned that using Renderless Components let us manage complexity in our chart.${line}
+  I've mentioned that using Renderless Components${line}
   
-  We can use Functional Components to organize API interactions,${line}
+  One nice side-effect of that is that we can use Functional Components to organize API interactions,${line}
   Which makes this easier to grok than Vega${line}
 
   In some component libraries (of any type, not just charts), ${line}
@@ -619,11 +619,8 @@ export default {
   
   If we zoom into this, we can see the scale specifications${line}
   The age label columns${line}
-  And the genderPerYear componenths${line} 
-  which share an underlying definition${line}
-
-  In this code snippet, we're taking the same bar chart, but we're going to slice it up a little. This is a trivial example, but it demonstrates the idea.${line}
-  We have custom components that encapsulate our scale and axis components, and below we have function components that define those elements.
+  And the genderPerYear components${line} 
+  which share an underlying low-level definition${line}
   `,
 
   composability: `
@@ -657,13 +654,15 @@ export default {
   `,
 
   accessibility: `
-  Now let's talk about accessibility.${line}
+  Let's look at a few more examples${line}
+  First, let's talk about accessibility.${line}
   Accessibily is extremely important to Microsoft, and it should be important for all of us.${line}
   Non-sighted users tend to be underserved in datavis${line}
   
   One of the questions we asked ourselves when making this was how accessible could we make it.${line}
 
-  SVG supports aria tags, and by utilizing that tool, we can deliver interpretable charts to non-sighted users.${line}
+  SVG supports aria tags${line}
+  By using that, we can deliver interpretable charts to non-sighted users.${line}
   
   This is an area that needs feedback from screen-reader users,${line}
   and it presently only works with our web SVG renderer,${line}
@@ -710,8 +709,6 @@ export default {
    `,
 
   conclusion: `
-  And that's about it!${line}
-  
   The grammar of graphics is an idea that my team believes in.${line}
   We plan on continuing to develop this tool and taking this experiment as far as we can${line}
   We welcome your feedback, and your contributions and perspectives.${line}

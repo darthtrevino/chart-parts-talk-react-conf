@@ -85,10 +85,14 @@ const apiImageStyle = { position: 'absolute', bottom: -220, left: 0 }
 
 export default (
 	<WalkableSlide notes={notes.npmsearch} key="contrived_npmsearch" numSteps={6} renderContent={step => {
+		const barchartSteps = ['visible', 'hidden', 'hidden', 'hidden', 'hidden', 'hidden']
 		const searchImageStates = ['hidden', 'visible', 'zoom', 'hidden', 'hidden', 'hidden']
 		const apiImageStates = ['hidden', 'hidden', 'hidden', 'visible', 'zoom', 'hidden']
 		const codePlacerStates = ['hidden', 'hidden', 'hidden', 'hidden', 'hidden', 'visible']
 		return [
+			<NpmSearchImage style={npmSearchStyle} pose={barchartSteps[step]} key="search">
+				<Image src={images.barChart} fill />
+			</NpmSearchImage>,
 			<NpmSearchImage style={npmSearchStyle} pose={searchImageStates[step]} key="search">
 				<Image src={images.npmsearch} fill />
 			</NpmSearchImage>,
