@@ -1,5 +1,5 @@
 import React from 'react'
-import { Layout, Image, Heading, Fill, List, ListItem } from 'spectacle'
+import { Layout, Image, Heading, Fill, List, ListItem, Text } from 'spectacle'
 import { palette } from '../theme'
 import WalkableSlide from '../components/WalkableSlide'
 
@@ -42,7 +42,7 @@ export default (
 									</div>
 									<PosedText
 										pose={animIndex === 0 ? 'hidden' : 'visible'}
-										style={{ marginLeft: 47 }}
+										style={{ marginLeft: 47, }}
 									>
 										@darthtrevino
 									</PosedText>
@@ -52,14 +52,20 @@ export default (
 					</Fill>
 					<Fill>
 						<List>
-							<ListItemPosed pose={animIndex >= 1 ? 'visible' : 'hidden'}>
-								MSR Silverdale
+							<ListItemPosed pose={animIndex >= 1 ? 'visible' : 'hidden'} textSize={35}>
+								Microsoft Research
+								<Text textColor="crimson" textSize={30} style={{ marginLeft: 45 }}>Silverdale, WA</Text>
 							</ListItemPosed>
-							<ListItemPosed pose={animIndex >= 1 ? 'visible' : 'hidden'}>
+							<ListItemPosed pose={animIndex >= 1 ? 'visible' : 'hidden'} style={{ marginTop: 20 }} textSize={35}>
 								JavaScript Convert
 							</ListItemPosed>
-							<ListItemPosed pose={animIndex >= 1 ? 'visible' : 'hidden'}>
-								🚴‍ 🌮 🍺
+							<ListItemPosed pose={animIndex >= 1 ? 'visible' : 'hidden'} style={{ marginTop: 10 }}>
+								<div style={{ display: 'inline-block' }}>
+									<span style={{ display: 'flex', flexDirection: 'row' }}>
+										🚴‍ 🌮 🍺
+										<Image src={images.cougs} height={40} width={40} style={cougStyle} />
+									</span>
+								</div>
 							</ListItemPosed>
 						</List>
 					</Fill>
@@ -68,6 +74,8 @@ export default (
 		)}
 	/>
 )
+
+const cougStyle = { marginLeft: 8, marginTop: 0, marginRight: 0, marginBottom: 0 }
 
 const HiImWrapper = posed.div({
 	shifted: {
@@ -98,13 +106,13 @@ const PosedText = posed.span({
 	},
 })
 
-const PoseableListItem = ({ hostRef, children }) => (
+const PoseableListItem = ({ hostRef, children, ...props }) => (
 	<div ref={hostRef}>
-		<ListItem>{children}</ListItem>
+		<ListItem {...props}>{children}</ListItem>
 	</div>
 )
 
-const PoseableSildeZoom = ({ hostRef, children }) => (
+const PosableSlideZoom = ({ hostRef, children }) => (
 	<div ref={hostRef}>{children}</div>
 )
 
@@ -125,7 +133,26 @@ const ListItemPosed = posed(PoseableListItem)({
 	},
 })
 
-const SlideZoom = posed(PoseableSildeZoom)({
+
+
+const DivItemPosed = posed.div({
+	visible: {
+		x: 0,
+		opacity: 1,
+		transition: {
+			duration: 750,
+		},
+	},
+	hidden: {
+		opacity: 0,
+		x: 500,
+		transition: {
+			duration: 750,
+		},
+	},
+})
+
+const SlideZoom = posed(PosableSlideZoom)({
 	highlight: {
 		scale: 1.5,
 		x: 400,

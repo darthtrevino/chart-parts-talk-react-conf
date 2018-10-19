@@ -70,4 +70,6 @@ export default {
 	rodserling: require('../assets/rodserling.jpg'),
 
 	microsoft: require('../assets/microsoft.png'),
+
+	cougs: require('../assets/wsu-cougarhead.png')
 }
