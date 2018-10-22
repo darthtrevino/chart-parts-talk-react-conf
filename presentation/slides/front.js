@@ -13,7 +13,14 @@ export default (
 				of Charting
 			</Text>
 		</Fill>
-		<Layout fit style={{ marginTop: 10, display: 'flex', justifyContent: 'space-between' }}>
+		<Layout
+			fit
+			style={{
+				marginTop: 40,
+				display: 'flex',
+				justifyContent: 'space-between',
+			}}
+		>
 			<Text
 				textSize={30}
 				fill

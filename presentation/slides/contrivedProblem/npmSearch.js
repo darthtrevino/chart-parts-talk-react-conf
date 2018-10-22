@@ -84,26 +84,71 @@ const apiImageStyle = { position: 'absolute', bottom: -220, left: 0 }
 //<Slide notes={notes.yarninstall} key="contrived_yi" transition={['flip']}>
 
 export default (
-	<WalkableSlide notes={notes.npmsearch} key="contrived_npmsearch" numSteps={6} renderContent={step => {
-		const barchartSteps = ['visible', 'hidden', 'hidden', 'hidden', 'hidden', 'hidden']
-		const searchImageStates = ['hidden', 'visible', 'zoom', 'hidden', 'hidden', 'hidden']
-		const apiImageStates = ['hidden', 'hidden', 'hidden', 'visible', 'zoom', 'hidden']
-		const codePlacerStates = ['hidden', 'hidden', 'hidden', 'hidden', 'hidden', 'visible']
-		return [
-			<NpmSearchImage style={npmSearchStyle} pose={barchartSteps[step]} key="search">
-				<Image src={images.barChart} fill />
-			</NpmSearchImage>,
-			<NpmSearchImage style={npmSearchStyle} pose={searchImageStates[step]} key="search">
-				<Image src={images.npmsearch} fill />
-			</NpmSearchImage>,
-			<ApiImage style={apiImageStyle} pose={apiImageStates[step]} key="check_api">
-				<Image src={images.barchartapi} fill />
-			</ApiImage>,
-			<CodePlacer pose={codePlacerStates[step]} key="install">
-				<Code textColor="yello" language="sh">
-					> yarn install fancy-charts
-				</Code>
-			</CodePlacer>
-		]
-	}} />
+	<WalkableSlide
+		notes={notes.npmsearch}
+		key="contrived_npmsearch"
+		numSteps={6}
+		renderContent={step => {
+			const barchartSteps = [
+				'visible',
+				'hidden',
+				'hidden',
+				'hidden',
+				'hidden',
+				'hidden',
+			]
+			const searchImageStates = [
+				'hidden',
+				'visible',
+				'zoom',
+				'hidden',
+				'hidden',
+				'hidden',
+			]
+			const apiImageStates = [
+				'hidden',
+				'hidden',
+				'hidden',
+				'visible',
+				'zoom',
+				'hidden',
+			]
+			const codePlacerStates = [
+				'hidden',
+				'hidden',
+				'hidden',
+				'hidden',
+				'hidden',
+				'visible',
+			]
+			return [
+				<NpmSearchImage
+					style={npmSearchStyle}
+					pose={barchartSteps[step]}
+					key="search"
+				>
+					<Image src={images.barChart} fill height={500} />
+				</NpmSearchImage>,
+				<NpmSearchImage
+					style={npmSearchStyle}
+					pose={searchImageStates[step]}
+					key="search"
+				>
+					<Image src={images.npmsearch} fill />
+				</NpmSearchImage>,
+				<ApiImage
+					style={apiImageStyle}
+					pose={apiImageStates[step]}
+					key="check_api"
+				>
+					<Image src={images.barchartapi} fill />
+				</ApiImage>,
+				<CodePlacer pose={codePlacerStates[step]} key="install">
+					<Code textColor="yello" language="sh">
+						> yarn install fancy-charts
+					</Code>
+				</CodePlacer>,
+			]
+		}}
+	/>
 )

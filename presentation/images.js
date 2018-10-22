@@ -1,5 +1,7 @@
 export default {
 	profile: require('../assets/profile_mtns.jpg'),
+	microsoft: require('../assets/microsoft.png'),
+	cougs: require('../assets/wsu-cougarhead.png'),
 
 	// army vs bones
 	skeletonArmy: require('../assets/skeleton_army.png'),
@@ -10,11 +12,6 @@ export default {
 	dealWithIt: require('../assets/deal_with_it.gif'),
 
 	barchart2: require('../assets/bar_chart2.png'),
-	streamgraph: require('../assets/streamgraph.png'),
-	healthcare: require('../assets/healthcare.png'),
-	narcissism: require('../assets/narcissism.png'),
-	dcu: require('../assets/dcu.png'),
-	network: require('../assets/network.png'),
 	visualSurvey: require('../assets/visual-survey.png'),
 	winchester: require('../assets/winchester.gif'),
 	npmsearch: require('../assets/npm_search.png'),
@@ -23,53 +20,48 @@ export default {
 	analogy: require('../assets/analogy.png'),
 	markEncoding: require('../assets/mark_encoding.png'),
 	reactLogo: require('../assets/react_icon.png'),
-	vegapage: require('../assets/vega-page.png'),
 	barchartwithmean: require('../assets/bar_chart_with_mean.png'),
 	chartPartsPage: require('../assets/chart-parts-page.png'),
 	barchartapi: require('../assets/barchart_api.png'),
 	hans: require('../assets/hans.gif'),
 	rage: require('../assets/rage.png'),
 	dom: require('../assets/dom.png'),
-
 	fancyGif: require('../assets/use_fancy_charts.gif'),
 
 	// Common Charts
-	barChart: require('../assets/bar_chart.png'),
-	lineChart: require('../assets/line_chart.png'),
-	pieChart: require('../assets/pie_chart.png'),
-	areaChart: require('../assets/area_chart.png'),
-	radarChart: require('../assets/radar_chart.png'),
-	boxPlots: require('../assets/box_plots.png'),
+	barChart: require('../assets/chart_types/bar_chart.png'),
+	lineChart: require('../assets/chart_types/line_chart.png'),
+	pieChart: require('../assets/chart_types/pie_chart.png'),
+	areaChart: require('../assets/chart_types/area_chart.png'),
+	radarChart: require('../assets/chart_types/radar_chart.png'),
+	boxPlots: require('../assets/chart_types/box_plots.png'),
 
 	// Victory
-	victory: require('../assets/victory.png'),
-	victoryApi: require('../assets/victory-api.png'),
-	victoryCustom: require('../assets/victory-custom.png'),
-	victoryComposable: require('../assets/victory-composable.png'),
-	victoryCircle: require('../assets/victory-circle.png'),
+	victory: require('../assets/victory/victory.png'),
+	victoryApi: require('../assets/victory/victory-api.png'),
+	victoryCustom: require('../assets/victory/victory-custom.png'),
+	victoryComposable: require('../assets/victory/victory-composable.png'),
+	victoryCircle: require('../assets/victory/victory-circle.png'),
 
 	// React-Vis
-	reactVisPage: require('../assets/reactvis-page.png'),
-	reactVisApi: require('../assets/reactvis-apiseries.png'),
-	reactVisCanvas: require('../assets/reactvis-canvas.png'),
+	reactVisPage: require('../assets/reactvis/reactvis-page.png'),
+	reactVisApi: require('../assets/reactvis/reactvis-apiseries.png'),
+	reactVisCanvas: require('../assets/reactvis/reactvis-canvas.png'),
 
 	// Recharts
-	rechartsPage: require('../assets/recharts-page.png'),
-	rechartsCustom: require('../assets/recharts-customizable.png'),
-	rechartsDatabind: require('../assets/recharts-databind.png'),
-	rechartsCustomChart: require('../assets/recharts-customchart.png'),
-	rechartsTaxonomical: require('../assets/recharts-taxonomical.png'),
+	rechartsPage: require('../assets/recharts/recharts-page.png'),
+	rechartsCustom: require('../assets/recharts/recharts-customizable.png'),
+	rechartsDatabind: require('../assets/recharts/recharts-databind.png'),
+	rechartsCustomChart: require('../assets/recharts/recharts-customchart.png'),
+	rechartsTaxonomical: require('../assets/recharts/recharts-taxonomical.png'),
 
-	// ChartParts
-	backendArchitecture: require('../assets/lib-backend.png'),
-	frontendArchitecture: require('../assets/lib-frontend.png'),
+	// Vega
+	vegapage: require('../assets/vega-page.png'),
 
-	dataflow: require('../assets/dataflow.png'),
-	dataflow2: require('../assets/dataflow2.png'),
-	dropout: require('../assets/dropout.png'),
-	rodserling: require('../assets/rodserling.jpg'),
-
-	microsoft: require('../assets/microsoft.png'),
-
-	cougs: require('../assets/wsu-cougarhead.png')
+	// Essex
+	essexElbowPlots: require('../assets/essex/elbow_plots.png'),
+	essexPbi: require('../assets/essex/pbi.png'),
+	essexMoose: require('../assets/essex/moose.png'),
+	essexTimeClusters: require('../assets/essex/time_clusters.png'),
+	essexTopics: require('../assets/essex/topics.png'),
 }

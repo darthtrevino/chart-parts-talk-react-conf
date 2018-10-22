@@ -92,7 +92,7 @@ const victoryBoxStyle = {
 	margin: 8,
 	alignItems: 'center',
 	justifyContent: 'center',
-	display: 'flex'
+	display: 'flex',
 }
 
 const boxColumnContainerStyle = {
@@ -100,7 +100,7 @@ const boxColumnContainerStyle = {
 	display: 'flex',
 	flexDirection: 'column',
 	alignItems: 'center',
-	justifyContent: 'center'
+	justifyContent: 'center',
 }
 const sideTextContainerStyle = {
 	display: 'flex',
@@ -155,14 +155,26 @@ export default (
 					>
 						<div style={containerStyle}>
 							<div style={sideTextContainerStyle}>
-								<Text textSize={35} textColor="secondary">Victory</Text>
+								<Text textSize={35} textColor="secondary">
+									Victory
+								</Text>
 							</div>
 							<div style={boxColumnContainerStyle}>
-								{step === 2 ? <Image src={images.victoryApi} height={360} /> : [
-									<div key="a" style={victoryBoxStyle}>Taxonomic Charts</div>,
-									<div key="b" style={victoryBoxStyle}>Simple Components</div>,
-									<div key="c" style={victoryBoxStyle}>Draw Primitives</div>
-								]}
+								{step === 2 ? (
+									<Image src={images.victoryApi} height={360} />
+								) : (
+									[
+										<div key="a" style={victoryBoxStyle}>
+											Taxonomic Charts
+										</div>,
+										<div key="b" style={victoryBoxStyle}>
+											Simple Components
+										</div>,
+										<div key="c" style={victoryBoxStyle}>
+											Draw Primitives
+										</div>,
+									]
+								)}
 							</div>
 						</div>
 					</SlideUpTray>
@@ -172,11 +184,23 @@ export default (
 					>
 						<div style={containerStyle}>
 							<div style={sideTextContainerStyle}>
-								<Text textSize={35} textColor="secondary">React-Vis</Text>
+								<Text textSize={35} textColor="secondary">
+									Recharts
+								</Text>
 							</div>
 							<div style={boxColumnContainerStyle}>
-								{step === 4 ? <Image src={images.reactVisApi} height={360} /> :
-									<div style={victoryBoxStyle}>Mark-Series Components</div>}
+								{step === 4 ? (
+									<Image src={images.rechartsTaxonomical} height={360} />
+								) : (
+									[
+										<div key="a" style={victoryBoxStyle}>
+											Taxonomical Containers
+										</div>,
+										<div key="b" style={victoryBoxStyle}>
+											Legal Children
+										</div>,
+									]
+								)}
 							</div>
 						</div>
 					</SlideUpTray>
@@ -186,17 +210,20 @@ export default (
 					>
 						<div style={containerStyle}>
 							<div style={sideTextContainerStyle}>
-								<Text textSize={35} textColor="secondary">Recharts</Text>
+								<Text textSize={35} textColor="secondary">
+									React-Vis
+								</Text>
 							</div>
 							<div style={boxColumnContainerStyle}>
-								{step === 6 ? <Image src={images.rechartsTaxonomical} height={360} /> : [
-									<div key="a" style={victoryBoxStyle}>Taxonomical Containers</div>,
-									<div key="b" style={victoryBoxStyle}>Legal Children</div>
-								]}
+								{step === 6 ? (
+									<Image src={images.reactVisApi} height={360} />
+								) : (
+									<div style={victoryBoxStyle}>Mark-Series Components</div>
+								)}
 							</div>
 						</div>
 					</SlideUpTray>
-				</Fill >
+				</Fill>
 			)
 		}}
 	/>
