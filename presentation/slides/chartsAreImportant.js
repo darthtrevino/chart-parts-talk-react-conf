@@ -2,7 +2,22 @@ import React from 'react'
 import { Slide, Heading, Anim } from 'spectacle'
 import images from '../images'
 import notes from '../notes'
+import WalkableSlide from '../components/WalkableSlide'
 
+// export default (
+// 	<WalkableSlide
+// 		numSteps={6}
+// 		renderContent={step => {
+// 			return (
+// 				<>
+// 					<Heading fill textColor="pcontrast">
+// 						Visualization is how we communicate complex data
+// 					</Heading>
+// 				</>
+// 			)
+// 		}}
+// 	/>
+// )
 export default [
 	<Slide
 		transition={['fade']}

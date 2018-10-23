@@ -125,7 +125,7 @@ export default (
 				<NpmSearchImage
 					style={npmSearchStyle}
 					pose={barchartSteps[step]}
-					key="search"
+					key="presearch"
 				>
 					<Image src={images.barChart} fill height={500} />
 				</NpmSearchImage>,

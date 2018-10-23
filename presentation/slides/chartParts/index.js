@@ -23,7 +23,7 @@ export default [
 	front,
 	pageSplash,
 	api,
-	...architecture,
+	architecture,
 
 	// Examples
 	...basicExample,
