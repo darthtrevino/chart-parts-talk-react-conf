@@ -47,8 +47,11 @@ export default {
     ${separator}
 
     A lot of times, our work is as simple as wiring up a PowerBI notebooks with ready-to-go visualizations${line}
+
+    ${separator}
     Other times we get to dig into custom visualizations and one-off experiments${line}
 
+    ${separator}
     And sometimes we get to make applications${line}
     ${bulletab}in the web and on mobile, usually in React${line}
     ${bulletab}that deliver a custom experience and tell a very specific story.
@@ -57,7 +60,9 @@ export default {
 
 	uiemphasis: `
     Now all this background is just to emphasize that${line} 
-    ${bulletab}for us, data visualization is absolutely essential to what we do.${line}
+    ${bulletab}for us, data visualization and visual analytics${line}
+    (applying analytical processes to interactive visualizations)${line}
+    is absolutely essential to what we do.${line}
     ${bulletab}our primary mechanism for understanding nuance in data${line}
     ${bulletab}hard to discern in its raw form.${line}
 
