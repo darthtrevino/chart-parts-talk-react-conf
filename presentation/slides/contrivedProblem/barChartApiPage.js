@@ -48,21 +48,16 @@ export default (
 		numSteps={3}
 		notes={notes.barchartapi}
 		key="contrived_api"
-		renderContent={step => {
-			return (
-				<div>
-					<ApiImage pose={step >= 1 ? 'zoom' : 'default'}>
-						<Image src={images.barchartapi} fill />
-					</ApiImage>
-					<RageImage
-						pose={step >= 2 ? 'zoom' : 'default'}
-						style={rageStyle}
-					>
-						<Image src={images.rage} fill />
-					</RageImage>
-				</div>
-			)
-		}}
+		renderContent={step => (
+			<>
+				<ApiImage pose={step >= 1 ? 'zoom' : 'default'}>
+					<Image src={images.barchartapi} fill />
+				</ApiImage>
+				<RageImage pose={step >= 2 ? 'zoom' : 'default'} style={rageStyle}>
+					<Image src={images.rage} fill />
+				</RageImage>
+			</>
+		)}
 	>
 		<Image src={images.barchartapi} />
 	</WalkableSlide>

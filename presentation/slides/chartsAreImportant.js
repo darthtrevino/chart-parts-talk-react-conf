@@ -44,6 +44,7 @@ export default [
 	<WalkableSlide
 		numSteps={3}
 		notes={notes.uiwork}
+		key="uiwork"
 		renderContent={step => {
 			const poseForStep = index => {
 				if (step < index) {
@@ -73,6 +74,7 @@ export default [
 		notes={notes.uiemphasis}
 		bgImage={images.visualSurvey}
 		bgDarken={0.8}
+		key="uiemphasis"
 		transition={['fade']}
 	>
 		<Heading fill textColor="pcontrast">

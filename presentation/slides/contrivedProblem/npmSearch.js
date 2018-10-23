@@ -121,34 +121,25 @@ export default (
 				'hidden',
 				'visible',
 			]
-			return [
-				<NpmSearchImage
-					style={npmSearchStyle}
-					pose={barchartSteps[step]}
-					key="presearch"
-				>
-					<Image src={images.barChart} fill height={500} />
-				</NpmSearchImage>,
-				<NpmSearchImage
-					style={npmSearchStyle}
-					pose={searchImageStates[step]}
-					key="search"
-				>
-					<Image src={images.npmsearch} fill />
-				</NpmSearchImage>,
-				<ApiImage
-					style={apiImageStyle}
-					pose={apiImageStates[step]}
-					key="check_api"
-				>
-					<Image src={images.barchartapi} fill />
-				</ApiImage>,
-				<CodePlacer pose={codePlacerStates[step]} key="install">
-					<Code textColor="yello" language="sh">
-						> yarn install fancy-charts
-					</Code>
-				</CodePlacer>,
-			]
+			return (
+				<>
+					<NpmSearchImage style={npmSearchStyle} pose={barchartSteps[step]}>
+						<Image src={images.barChart} fill height={500} />
+					</NpmSearchImage>
+					<NpmSearchImage style={npmSearchStyle} pose={searchImageStates[step]}>
+						<Image src={images.npmsearch} fill />
+					</NpmSearchImage>
+					<ApiImage style={apiImageStyle} pose={apiImageStates[step]}>
+						<Image src={images.barchartapi} fill />
+					</ApiImage>
+					<CodePlacer pose={codePlacerStates[step]}>
+						<Code textColor="yello" language="sh">
+							> yarn install fancy-charts
+						</Code>
+					</CodePlacer>
+					,
+				</>
+			)
 		}}
 	/>
 )

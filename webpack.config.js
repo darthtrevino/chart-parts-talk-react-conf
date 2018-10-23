@@ -5,12 +5,7 @@ var webpack = require('webpack')
 
 module.exports = {
 	devtool: 'cheap-module-source-map',
-	entry: [
-		'@babel/polyfill',
-		'webpack-hot-middleware/client',
-		'react-hot-loader/patch',
-		'./index',
-	],
+	entry: ['@babel/polyfill', 'webpack-hot-middleware/client', './index'],
 	output: {
 		path: path.join(__dirname, 'dist'),
 		filename: 'bundle.js',
