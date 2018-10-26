@@ -13,7 +13,7 @@ const renderer = new Renderer()
 const dataset = require('./data.json)
 
 export default () => (
-  <Chart width={400} height={200} renderer={renderer} data={dataset}>
+  <Chart renderer={renderer}>
     {/** charty bits */}
     <Rect
       table="data"

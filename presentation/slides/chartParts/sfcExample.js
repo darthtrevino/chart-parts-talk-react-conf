@@ -25,24 +25,19 @@ export default [
 				note: 'top-level chart definition',
 			},
 			{
-				loc: [44, 63],
-				note: 'scale definitions',
+				loc: [44, 65],
 			},
 			{
-				loc: [64, 75],
-				note: 'shared age labels',
+				loc: [67, 80],
 			},
 			{
-				loc: [76, 83],
-				note: 'mperyear',
+				loc: [81, 88],
 			},
 			{
-				loc: [84, 91],
-				note: 'fperyear',
+				loc: [89, 96],
 			},
 			{
-				loc: [92, 103],
-				note: 'shared chart structure',
+				loc: [97, 112],
 			},
 		]}
 	/>,

@@ -34,7 +34,9 @@ const MeanLine = () => (
     <Rule
         x={0}
         x2={({ view }) => view.width}
-        y={({ y, data }) => y(mean(data, (d: any) => d.amount))}
+        y={({ y, data }) => (
+          y(mean(data, d => d.amount))
+        )}
         stroke="firebrick"
     />
 )

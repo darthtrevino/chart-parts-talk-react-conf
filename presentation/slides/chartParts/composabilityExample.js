@@ -23,27 +23,22 @@ export default [
 		code={code.barChartWithMean}
 		ranges={[
 			{
-				title: 'Define MeanLine Component',
-				loc: [32, 40],
+				loc: [32, 42],
 			},
 			{
-				title: 'Define MeanLine Component',
 				loc: [34, 36],
 				note: 'use view bounds for full-width line',
 			},
 			{
-				title: 'Define MeanLine Component',
-				loc: [36, 37],
+				loc: [36, 39],
 				note: 'determine mean line value',
 			},
 			{
 				loc: [16, 17],
-				title: 'Update BarChart',
 				note: 'include children',
 			},
 			{
 				loc: [28, 29],
-				title: 'Update BarChart',
 				note: 'render children',
 			},
 		]}

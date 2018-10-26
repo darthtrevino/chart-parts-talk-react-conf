@@ -70,7 +70,7 @@ export default [
 			},
 		]}
 	/>,
-	<Slide key="showcase_live_chart">
+	<Slide key="showcase_live_chart" notes={notes.liveBarChart}>
 		<BarChartLive />
 	</Slide>,
 ]

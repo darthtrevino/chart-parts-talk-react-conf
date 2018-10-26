@@ -1,18 +1,18 @@
 import React from 'react'
 import {
-	Axis,
-	Group,
-	Chart,
-	BandScale,
-	Text,
-	Rect,
-	OrdinalScale,
-	LinearScale,
+  Axis,
+  Group,
+  Chart,
+  BandScale,
+  Text,
+  Rect,
+  OrdinalScale,
+  LinearScale,
 } from '@chart-parts/react'
 import {
-	VerticalTextAlignment,
-	HorizontalAlignment,
-	AxisOrientation,
+  VerticalTextAlignment,
+  HorizontalAlignment,
+  AxisOrientation,
 } from '@chart-parts/interfaces'
 import { Renderer } from '@chart-parts/react-svg-renderer'
 
@@ -21,25 +21,25 @@ const population = require('vega-datasets/data/population.json')
 
 const chartWidth = 600
 const chartHeight = 500
-const textLineWidth = 18
+const labelWidth = 18
 const axisThickness  = 25
 const chartPadding = 10
-const chartSegmentWidth = (chartWidth - chartPadding * 2 - textLineWidth) / 2
+const segmentWidth = (chartWidth - chartPadding * 2 - labelWidth) / 2
 const whitish = '#DDD'
 
 const PyramidChart = ({ data }) => (
-	<Chart
-		width={chartWidth}
-		height={chartHeight}
-		padding={chartPadding}
-		renderer={renderer}
-		data={data}
-	>
-		<ChartScales />
-		<AgeLabels />
-		<MPerYear />
-		<FPerYear />
-	</Chart>
+  <Chart
+    width={chartWidth}
+    height={chartHeight}
+    padding={chartPadding}
+    renderer={renderer}
+    data={data}
+  >
+    <ChartScales />
+    <AgeLabels />
+    <FBracket />
+    <MBracket />
+  </Chart>
 )
 
 const ChartScales = () => (
@@ -48,7 +48,10 @@ const ChartScales = () => (
       name="y"
       key="y"
       bandWidth="yband"
-      range={arg => [arg.view.height - axisThickness, 0]}
+      range={arg => [
+        arg.view.height - axisThickness, 
+        0
+      ]}
       domain="ageGroups.age"
       padding={0.1}
       round
@@ -63,53 +66,59 @@ const ChartScales = () => (
 )
 
 const AgeLabels = () => (
-	<Text
-		table="ageGroups"
-		x={chartSegmentWidth + textLineWidth / 2}
-		y={({ d, y, yband }) => y(d.age) + yband() / 2}
-		text={({ d }) => d.age}
-		baseline={VerticalTextAlignment.Middle}
-		align={HorizontalAlignment.Center}
-		fill={whitish}
-	/>
+  <Text
+    table="ageGroups"
+    x={segmentWidth + labelWidth / 2}
+    y={({ d, y, yband }) => (
+      y(d.age) + yband() / 2
+    )}
+    text={({ d }) => d.age}
+    baseline="middle"
+    align="center"
+    fill={whitish}
+  />
 )
 
-const FPerYear = () => (
-	<GenderPerYearSection
-		xStart={0}
-		table="females"
-		xRange={[chartSegmentWidth, 0]}
-	/>
+const FBracket = () => (
+  <PopulationBracket
+    xStart={0}
+    table="women"
+    xRange={[segmentWidth, 0]}
+  />
 )
 
-const MPerYear = () => (
-	<GenderPerYearSection
-		table="males"
-		xStart={chartSegmentWidth + textLineWidth}
-		xRange={[0, chartSegmentWidth]}
-	/>
+const MBracket = () => (
+  <PopulationBracket
+    table="men"
+    xStart={segmentWidth + labelWidth}
+    xRange={[0, segmentWidth]}
+  />
 )
 
-const GenderPerYearSection = ({ table, xRange, xStart }) => (
-	<Group
-		x={xStart}
-		height={({ view }) => view.height}
-		width={chartSegmentWidth}
-	>
-		<LinearScale domain="population.people" range={xRange} name="x" nice zero />
-		<Axis orient="bottom" scale="x"/>
-		<GenderPerYearRect table={table} />
-	</Group>
+const PopulationBracket = ({ table, xRange, xStart }) => (
+  <Group
+    x={xStart}
+    height={({ view }) => view.height}
+    width={segmentWidth}
+  >
+    <LinearScale 
+	  domain="population.people" 
+	  range={xRange} name="x" 
+	  nice zero 
+	/>
+    <Axis orient="bottom" scale="x"/>
+    <FacetRect table={table} />
+  </Group>
 )
 
-const GenderPerYearRect = ({ table }) => (
-	<Rect
-		table={table}
-		x={({ d, x }) => x(d.people)}
-		x2={({ x }) => x(0)}
-		y={({ d, y }) => y(d.age)}
-		height={({ yband }) => yband()}
-		fillOpacity={0.6}
-		fill={({ d, c }) => c(d.sex)}
-	/>
+const FacetRect = ({ table }) => (
+  <Rect
+    table={table}
+    x={({ d, x }) => x(d.people)}
+    x2={({ x }) => x(0)}
+    y={({ d, y }) => y(d.age)}
+    height={({ yband }) => yband()}
+    fillOpacity={0.6}
+    fill={({ d, c }) => c(d.sex)}
+  />
 )

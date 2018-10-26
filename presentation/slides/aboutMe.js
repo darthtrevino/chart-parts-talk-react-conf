@@ -42,7 +42,7 @@ export default (
 									</div>
 									<PosedText
 										pose={animIndex === 0 ? 'hidden' : 'visible'}
-										style={{ marginLeft: 47, }}
+										style={{ marginLeft: 47 }}
 									>
 										@darthtrevino
 									</PosedText>
@@ -52,18 +52,39 @@ export default (
 					</Fill>
 					<Fill>
 						<List>
-							<ListItemPosed pose={animIndex >= 1 ? 'visible' : 'hidden'} textSize={35}>
+							<ListItemPosed
+								pose={animIndex >= 1 ? 'visible' : 'hidden'}
+								textSize={35}
+							>
 								Microsoft Research
-								<Text textColor="crimson" textSize={30} style={{ marginLeft: 45 }}>Silverdale, WA</Text>
+								<Text
+									textColor="crimson"
+									textSize={30}
+									style={{ marginLeft: 45 }}
+								>
+									Silverdale, WA
+								</Text>
 							</ListItemPosed>
-							<ListItemPosed pose={animIndex >= 1 ? 'visible' : 'hidden'} style={{ marginTop: 20 }} textSize={35}>
-								JavaScript Convert
+							<ListItemPosed
+								pose={animIndex >= 1 ? 'visible' : 'hidden'}
+								style={{ marginTop: 20 }}
+								textSize={35}
+							>
+								JavaScript "Neophyte"
 							</ListItemPosed>
-							<ListItemPosed pose={animIndex >= 1 ? 'visible' : 'hidden'} style={{ marginTop: 10 }}>
+							<ListItemPosed
+								pose={animIndex >= 1 ? 'visible' : 'hidden'}
+								style={{ marginTop: 10 }}
+							>
 								<div style={{ display: 'inline-block' }}>
 									<span style={{ display: 'flex', flexDirection: 'row' }}>
 										🚴‍ 🌮 🍺
-										<Image src={images.cougs} height={40} width={40} style={cougStyle} />
+										<Image
+											src={images.cougs}
+											height={40}
+											width={40}
+											style={cougStyle}
+										/>
 									</span>
 								</div>
 							</ListItemPosed>
@@ -75,7 +96,12 @@ export default (
 	/>
 )
 
-const cougStyle = { marginLeft: 8, marginTop: 0, marginRight: 0, marginBottom: 0 }
+const cougStyle = {
+	marginLeft: 8,
+	marginTop: 0,
+	marginRight: 0,
+	marginBottom: 0,
+}
 
 const HiImWrapper = posed.div({
 	shifted: {
@@ -132,8 +158,6 @@ const ListItemPosed = posed(PoseableListItem)({
 		},
 	},
 })
-
-
 
 const DivItemPosed = posed.div({
 	visible: {
