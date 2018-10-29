@@ -4,19 +4,16 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-	devtool: 'cheap-module-source-map',
+	mode: 'production',
 	entry: ['@babel/polyfill', 'webpack-hot-middleware/client', './index'],
 	output: {
 		path: path.join(__dirname, 'dist'),
 		filename: 'bundle.js',
 		publicPath: '/dist',
 	},
-	plugins: [
-		new webpack.NamedModulesPlugin(),
-		new webpack.HotModuleReplacementPlugin(),
-	],
+	plugins: [new webpack.HotModuleReplacementPlugin()],
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.md$/,
 				loader: 'html-loader!markdown-loader?gfm=false',

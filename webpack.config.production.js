@@ -5,25 +5,14 @@ var webpack = require('webpack')
 
 module.exports = {
 	entry: ['@babel/polyfill', './index'],
+	mode: 'production',
 	output: {
-		path: path.join(__dirname, 'dist'),
+		path: path.join(__dirname, 'site/dist'),
 		filename: 'bundle.js',
 		publicPath: '/dist/',
 	},
-	plugins: [
-		new webpack.DefinePlugin({
-			'process.env': {
-				NODE_ENV: JSON.stringify('production'),
-			},
-		}),
-		new webpack.optimize.UglifyJsPlugin({
-			compressor: {
-				warnings: false,
-			},
-		}),
-	],
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.md$/,
 				loader: 'html-loader!markdown-loader?gfm=false',
