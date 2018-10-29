@@ -2,12 +2,12 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-	mode: 'production',
+	mode: 'development',
 	entry: ['@babel/polyfill', 'webpack-hot-middleware/client', './index'],
 	output: {
 		path: path.join(__dirname, 'dist'),
 		filename: 'bundle.js',
-		publicPath: '/dist',
+		publicPath: 'chart-parts-talk-react-conf/dist',
 	},
 	plugins: [new webpack.HotModuleReplacementPlugin()],
 	module: {
