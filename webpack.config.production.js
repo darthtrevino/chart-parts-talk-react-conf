@@ -6,7 +6,7 @@ module.exports = {
 	output: {
 		path: path.join(__dirname, 'site/dist'),
 		filename: 'bundle.js',
-		publicPath: '/dist/',
+		publicPath: 'chart-parts-talk-react-conf/dist/',
 	},
 	module: {
 		rules: [
