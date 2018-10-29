@@ -5,14 +5,15 @@
 	"main": "lib/index.js",
 	"scripts": {
 		"clean": "rimraf dist site",
-		"build": "cross-env NODE_ENV=production webpack --config webpack.config.production.js",
+		"bundle": "cross-env NODE_ENV=production webpack --config webpack.config.production.js",
+		"build": "run-s bundle nojekyll copyindex",
 		"lint": "eslint --ext .js,.jsx .",
 		"deploy": "run-s clean build nojekyll publish_gh_pages",
 		"export": "spectacle-renderer --delay 3000",
 		"start": "cross-env NODE_ENV=development node server.js",
 		"nojekyll": "touch site/.nojekyll",
 		"copyindex": "cp -f index.html site",
-		"publish_gh_pages": "NODE_DEBUG=gh-pages gh-pages -d site -t -v node_modules"
+		"publish_gh_pages": "NODE_DEBUG=gh-pages gh-pages -d site -t"
 	},
 	"author": "",
 	"license": "MIT",
